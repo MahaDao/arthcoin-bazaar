@@ -36,8 +36,8 @@ export function getMaker() {
 }
 
 const cdpTypes = [
-  { currency: ETH, ilk: 'ETH-A' },
-  { currency: BAT, ilk: 'BAT-A' }
+  { currency: ETH, ilk: 'DAI-A' },
+  // { currency: BAT, ilk: 'BAT-A' }
 ];
 
 export async function instantiateMaker({
@@ -46,7 +46,7 @@ export async function instantiateMaker({
   testchainId,
   backendEnv
 }) {
-  const addressOverrides = ['rinkeby', 'ropsten', 'goerli'].some(
+  const addressOverrides = ['matic'].some(
     networkName => networkName === network
   )
     ? otherNetworksOverrides
