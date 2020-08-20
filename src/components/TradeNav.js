@@ -14,7 +14,7 @@ const StyledTradeIcon = styled(TradeIcon)`
 const TradeNav = ({ ...props }) => {
   const { lang } = useLanguage();
   return (
-    <Link href={`/${Routes.TRADE}`} target="_blank">
+    <a href="https://dex.mahadao.com" target="_blank">
       <Flex
         flexDirection="column"
         alignItems="center"
@@ -27,7 +27,7 @@ const TradeNav = ({ ...props }) => {
           {lang.navbar.trade}
         </Text>
       </Flex>
-    </Link>
+    </a>
   );
 };
 

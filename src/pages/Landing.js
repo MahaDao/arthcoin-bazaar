@@ -424,19 +424,9 @@ function Landing() {
           </div>
           <div className="buttonContainer">
             <a
-              href="/trade"
+              href="https://dex.mahadao.com/"
               className="button enabled"
-              style={{
-                color: '#5894B5',
-                backgroundColor: 'white'
-              }}
-              onClick={() => {
-                mixpanel.track('btn-click', {
-                  id: 'StartTrading',
-                  product: 'oasis-landing'
-                });
-              }}
-            >
+              style={{ color: '#5894B5', backgroundColor: 'white' }}>
               {lang.landing_page.trade_card.button}
             </a>
           </div>

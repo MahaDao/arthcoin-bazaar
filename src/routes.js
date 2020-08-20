@@ -114,7 +114,7 @@ export default mount({
   ),
 
   [`/${Routes.TRADE}`]: route(() => {
-    window.location.href = 'https://oasis.app/trade';
+    window.location.href = 'https://dex.mahadao.com';
   }),
 
   [`/${Routes.PRIVACY}`]: route(() => ({
