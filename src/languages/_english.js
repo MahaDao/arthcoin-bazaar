@@ -21,7 +21,7 @@ export default {
     not_applicable: 'N/A'
   },
   landing_page: {
-    headline: 'Trade, Borrow, and Save using ARTH.',
+    headline: 'Trade, Borrow, and Save using $ARTH.',
     trade_card: {
       title: 'Trade',
       description:
@@ -31,18 +31,18 @@ export default {
     borrow_card: {
       title: 'Borrow',
       description:
-        'Lock your tokens as collateral to generate ARTH, a decentralized stablecoin soft-pegged to 1 USD.',
-      button: 'Borrow ARTH'
+        'Lock your tokens as collateral to generate $ARTH, a decentralized stablecoin.',
+      button: 'Borrow $ARTH'
     },
     save_card: {
       title: 'Save',
       description:
-        'Earn savings on your ARTH by locking it into Oasis Save. Automatic and non-custodial.',
-      button: 'Save ARTH'
+        'Earn savings on your $ARTH by locking it into ArthSavings. Automatic and non-custodial.',
+      button: 'Save $ARTH'
     },
-    token_section_title: 'Currently supported on Oasis',
+    token_section_title: 'Collaterals supported by $ARTH',
     token_section_only_on_trade: '* Only available on Oasis Trade',
-    section1_title: 'What is Oasis?',
+    section1_title: 'What is $ARTH?',
     section1_p:
       'Oasis is a platform for decentralized finance. Use it to trade tokens, borrow ARTH, and earn savings — all in one place.',
     section2_title: 'Secure protocol built on Ethereum',

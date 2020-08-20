@@ -48,10 +48,10 @@ function MakerProvider({
         .find(acc => acc.address.toUpperCase() === address.toUpperCase());
     }
 
-    console.log(networkId, browserProvider.networkId)
+    console.log(networkId, browserProvider.networkId);
     if (browserProvider.networkId !== networkId)
       throw new Error(
-        'browser ethereum provider and URL network param do not match.'
+        'Please make sure that you are connected to the Matic mainnet'
       );
 
     if (
@@ -84,6 +84,7 @@ function MakerProvider({
 
   useEffect(() => {
     (async () => {
+      console.log(network, testchainId)
       const newMaker = await instantiateMaker({
         network,
         testchainId,
