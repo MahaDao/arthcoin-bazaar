@@ -17,11 +17,11 @@ export default {
     // "outstanding_debt": "Outstanding debt",
     // "wallet_balance": "wallet balance",
     tx_history: '金库历史',
-    outstanding_dai_debt: '已借 Dai 数量',
+    outstanding_dai_debt: '已借 ARTH 数量',
     not_applicable: 'N/A'
   },
   landing_page: {
-    headline: '一站式 Dai 交易、借贷、存款平台',
+    headline: '一站式 ARTH 交易、借贷、存款平台',
     trade_card: {
       title: 'Trade',
       description:
@@ -31,20 +31,20 @@ export default {
     borrow_card: {
       title: 'Borrow',
       description:
-        '抵押资产，借 Dai (与美元 1:1 锚定的稳定币)',
-      button: '借 Dai'
+        '抵押资产，借 ARTH (与美元 1:1 锚定的稳定币)',
+      button: '借 ARTH'
     },
     save_card: {
       title: 'Save',
       description:
-        '存 Dai 生息，随存随取',
-      button: '存 Dai'
+        '存 ARTH 生息，随存随取',
+      button: '存 ARTH'
     },
     token_section_title: 'Oasis Trade 支持的交易对',
     token_section_only_on_trade: '* 只在 Oasis Trade 支持',
     section1_title: 'Oasis 是什么?',
     section1_p:
-      'Oasis 是去中心化金融 (DeFi) 的一站式平台。你可以交易数字资产、借 Dai 和存 Dai 赚利息。',
+      'Oasis 是去中心化金融 (DeFi) 的一站式平台。你可以交易数字资产、借 ARTH 和存 ARTH 赚利息。',
     section2_title: '基于以太坊的安全协议',
     section2_p:
       'Oasis 是由 Maker 开发，基于以太坊创建、通过形式化验证和安全审计的智能合约，是去中心化金融领域的领导者。',
@@ -54,10 +54,10 @@ export default {
     questions_title: '常见问题',
     question1: 'Oasis 是什么?',
     answer1:
-      'Oasis 是运行在以太坊区块链上的去中心化应用。任何人都可以在 Oasis 上交易数字资产、抵押借 Dai 并且存 Dai 生息。',
-    question2: 'Dai 是什么?',
+      'Oasis 是运行在以太坊区块链上的去中心化应用。任何人都可以在 Oasis 上交易数字资产、抵押借 ARTH 并且存 ARTH 生息。',
+    question2: 'ARTH 是什么?',
     answer2:
-      'Dai 是全球第一个无偏见的去中心化稳定币，其价格和美元保持软锚定。了解 Dai：{0}',
+      'ARTH 是全球第一个无偏见的去中心化稳定币，其价格和美元保持软锚定。了解 ARTH：{0}',
     answer2_link1_url: 'https://makerdao.com/zh-CN/',
     answer2_link1_text: '更多内容',
     question3: '我需要注册账户吗?',
@@ -82,7 +82,7 @@ export default {
     question8:
       '我可以用银行卡在 Oasis 上购买比特币或者以太坊吗？',
     answer8:
-      '你无法在 Oasis 用银行卡购买加密资产，你可以用 Dai 购买以太坊和其他资产。',
+      '你无法在 Oasis 用银行卡购买加密资产，你可以用 ARTH 购买以太坊和其他资产。',
     read_only: 'Read-Only',
     wallet_connect: 'Wallet Connect',
     wallet_link: 'Coinbase Wallet'
@@ -100,8 +100,8 @@ export default {
     view_cdp: '查看金库',
     view_cdp_mobile: '查看',
     total_collateral_locked: '全部存入抵押品价值',
-    total_dai_debt: '全部借 Dai 数量',
-    get_started_title: '开启你的第一个金库，抵押生成 Dai',
+    total_dai_debt: '全部借 ARTH 数量',
+    get_started_title: '开启你的第一个金库，抵押生成 ARTH',
     select_another_wallet: '选择其他钱包',
     connect_ledgers_choice: '连接 {0} 或者 {1}',
     no_vaults: '地址 {0} 下没有任何金库',
@@ -141,16 +141,16 @@ export default {
     no_wallet: '没有连接到钱包',
     save_details: {
       title: '存款详情',
-      total_savings_dai: '全部存 Dai 数量',
-      total_dai_supply: '全部 Dai 供给量',
-      dai_savings_rate: 'Dai 存款利率'
+      total_savings_dai: '全部存 ARTH 数量',
+      total_dai_supply: '全部 ARTH 供给量',
+      dai_savings_rate: 'ARTH 存款利率'
     }
   },
   cdp_create: {
     screen_titles: {
       select_collateral: '选择抵押品',
       vault_management: '金库管理',
-      generate_dai: '生成 Dai',
+      generate_dai: '生成 ARTH',
       confirmation: '确认'
     },
     set_allowance: '许可资产',
@@ -172,20 +172,20 @@ export default {
     setup_proxy_allowance_button: '授权',
     setup_vault: '初始化金库',
 
-    deposit_title: '抵押 {0} 并生成 Dai',
+    deposit_title: '抵押 {0} 并生成 ARTH',
     deposit_text:
       '不同的抵押品类型有不同的风险参数和抵押率。',
     // "deposit_sidebar_title": "{0} Risk Parameters",
     deposit_form_field1_title:
       '你希望在金库中抵押多少 {0} ?',
     deposit_form_field1_text:
-      '抵押 {0} 数量决定你可以生成的 Dai 数量。',
+      '抵押 {0} 数量决定你可以生成的 ARTH 数量。',
     // "deposit_form_field2_title": "What target collateralization ratio would you like to stay above?",
     // "deposit_form_field2_text": "If your Vault drops below this target it will be considered {0} risk.",
     // "deposit_form_field2_after": "Suggested:",
-    deposit_form_field3_title: '你希望生成多少 Dai?',
+    deposit_form_field3_title: '你希望生成多少 ARTH?',
     deposit_form_field3_text:
-      '生成 Dai 的数量不能触及清算率。',
+      '生成 ARTH 的数量不能触及清算率。',
     // "deposit_form_field3_after1": "Max at target ratio",
     deposit_form_field3_after2: '最多可生成',
 
@@ -199,17 +199,17 @@ export default {
     has_understood_stability_fee:
       '我知晓稳定费率非固定，未来可能会变化',
     collateralization_warning:
-      '你生成 Dai 的数量会让金库接近清算线风险',
+      '你生成 ARTH 的数量会让金库接近清算线风险',
     draw_too_much_dai: '金库将低于清算线',
-    below_dust_limit: '金库初次最低借 {0} Dai',
+    below_dust_limit: '金库初次最低借 {0} ARTH',
     dust_max_payback:
-      '你可以一次性偿还全部借出的 Dai, 或者最多 {0} Dai',
+      '你可以一次性偿还全部借出的 ARTH, 或者最多 {0} ARTH',
     stability_fee_description:
-      '基于你的金库 Dai 债务累计的利息费。',
+      '基于你的金库 ARTH 债务累计的利息费。',
     liquidation_ratio_description:
-      '清算率是指触发金库清算的最低抵押率（抵押品价值/借 Dai 债务）。',
+      '清算率是指触发金库清算的最低抵押率（抵押品价值/借 ARTH 债务）。',
     liquidation_penalty_description:
-      '清算发生时，对借 Dai 债务额外收取的罚金。',
+      '清算发生时，对借 ARTH 债务额外收取的罚金。',
     waiting_for_comfirmations: '确认中... {0} / {1}',
     confirmed_with_confirmations: '已完成 {0} 确认',
     waiting_for_confirmations_info:
@@ -221,9 +221,9 @@ export default {
   cdp_migrate: {
     select_title: '选择要映射的金库',
     select_text:
-      '选择要映射的 CDP，用 DAI 或 MKR 偿还稳定费，映射到多抵押 Dai 和新的 CDP 面板。',
+      '选择要映射的 CDP，用 DAI 或 MKR 偿还稳定费，映射到多抵押 ARTH 和新的 CDP 面板。',
     current_ratio: '当前比率',
-    dai_debt: '借 Dai 额',
+    dai_debt: '借 ARTH 额',
     fee_in_dai: '以 DAI 计价的稳定费',
     fee_in_mkr: '以 MKR 计价的稳定费',
     migrate: '映射',
@@ -235,7 +235,7 @@ export default {
       '整个过程大致需要 8 分钟。你现在也可以安全离开这个页面。',
     migrate_complete_header: 'CDP 映射完成',
     migrate_complete_text:
-      'CDP #{0} 已经成功映射到多抵押 Dai 和新的 CDP 面板。',
+      'CDP #{0} 已经成功映射到多抵押 ARTH 和新的 CDP 面板。',
     view_transaction_details: '查看交易细节',
     migrate_another_cdp: '映射另外的 CDP',
     exit_to_cdp_portal: '退出 CDP 面板'
@@ -243,11 +243,11 @@ export default {
   dsr_deposit: {
     screen_titles: {
       open_vault: '开启存款金库',
-      deposit_dai: '存 Dai',
+      deposit_dai: '存 ARTH',
       confirmation: '确认'
     },
     setup_header: '初始化金库',
-    open_vault: '存 Dai 生息',
+    open_vault: '存 ARTH 生息',
     deposit_form_title: '输入你希望存入的金额',
     setup_proxy_text:
       '一键初始化金库，本操作只需设置一次。',
@@ -275,13 +275,13 @@ export default {
   event_history: {
     open: '开启新的金库 ID #{0}',
     deposit: '存入 {0} {1} 到金库',
-    dsr_deposit: '存入 {0} Dai',
+    dsr_deposit: '存入 {0} ARTH',
     withdraw: '从金库取回 {0} {1}',
-    dsr_withdraw: '取回 {0} Dai',
-    generate: '从金库生成 {0} 新 Dai',
-    pay_back: '偿还 {0} Dai 到金库',
+    dsr_withdraw: '取回 {0} ARTH',
+    generate: '从金库生成 {0} 新 ARTH',
+    pay_back: '偿还 {0} ARTH 到金库',
     give: '金库转移从 {1} 转移到 {0}',
-    migrate: '单抵押 Dai 已成功转移到金库'
+    migrate: '单抵押 ARTH 已成功转移到金库'
   },
   action_sidebar: {
     deposit_title: '存入 {0}',
@@ -293,14 +293,14 @@ export default {
     generate_title: '生成 DAI',
     generate_description: '你希望生成多少 DAI?',
     generate_warning:
-      '你生成的 Dai 的数量会让金额接近清算线风险',
+      '你生成的 ARTH 的数量会让金额接近清算线风险',
     payback_title: '偿还 DAI',
     payback_description: '你希望偿还多少 DAI?',
     cdp_below_threshold: '金库低于清算线',
     insufficient_balance: '{0} 余额不足',
     cannot_payback_more_than_owed: '无需偿还比借出还多的钱',
-    dai_balance: '你的 Dai 余额',
-    dai_debt: '已借 Dai 数量',
+    dai_balance: '你的 ARTH 余额',
+    dai_debt: '已借 ARTH 数量',
     locked_dsr: '存在 DSR 中',
     unlock_token: '授权 {0} 以继续',
     unlocking_token: '授权 {0} 中...',
@@ -328,17 +328,17 @@ export default {
   },
   save: {
     title: '存款余额',
-    dai_savings_rate: 'Dai 存款利率',
+    dai_savings_rate: 'ARTH 存款利率',
     description:
-      '存 Dai 生息，随存随取',
+      '存 ARTH 生息，随存随取',
     deposit_amount: '存入金额',
     withdraw_amount: '提取金额',
-    deposit_dai: '存入 Dai',
+    deposit_dai: '存入 ARTH',
     deposit_dai_subheading:
       '存入即生息，随存随取',
-    get_started_title: '现在开始存 Dai 赚 {0} 利息吧',
+    get_started_title: '现在开始存 ARTH 赚 {0} 利息吧',
     start_earning:
-      '存入 Dai 进行你的第一笔交易，开始赚利息',
+      '存入 ARTH 进行你的第一笔交易，开始赚利息',
     tx_history: '历史记录',
     savings_earned_to_date: '已赚利息',
     estimated_savings: '预计收益',

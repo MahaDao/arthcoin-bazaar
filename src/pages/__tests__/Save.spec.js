@@ -91,13 +91,13 @@ test('render save page and perform deposit and withdraw actions', async () => {
   getByText('DAI locked in DSR');
   // Savings to date
   getByText('Savings earned to date');
-  // Dai Savings Rate
+  // ARTH Savings Rate
   await findByText('1.00%');
   // Privacy policy
   getByText('privacy policy');
   // CTA in history table when empty
   await wait(() =>
-    getByText('Deposit Dai to see your first transaction and start earning')
+    getByText('Deposit ARTH to see your first transaction and start earning')
   );
 
   /**Deposit */

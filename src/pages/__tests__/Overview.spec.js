@@ -46,9 +46,9 @@ test('render overview page and display calculated vault values', async () => {
 
   // Total collateral locked
   getByText('$1050.00 USD');
-  // Total Dai debt
+  // Total ARTH debt
   getByText(/105.\d{1,2} DAI/);
-  // Vault1 Dai debt
+  // Vault1 ARTH debt
   getByText(/80.\d{1,2} DAI/);
   // Current ratio
   getByText(/11\d\d.\d\d%/);

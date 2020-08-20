@@ -216,7 +216,7 @@ const OasisLayout = ({ children }) => {
         </Helmet>
         <Header>
           <Link className="logo" href="/">
-            Oasis
+            ArthCoin
           </Link>
         </Header>
         {children}

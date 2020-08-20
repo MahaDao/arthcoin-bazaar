@@ -36,7 +36,7 @@ export function getMaker() {
 }
 
 const cdpTypes = [
-  { currency: ETH, ilk: 'DAI-A' },
+  { currency: ETH, ilk: 'DAI-A' }
   // { currency: BAT, ilk: 'BAT-A' }
 ];
 

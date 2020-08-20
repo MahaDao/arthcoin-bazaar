@@ -125,7 +125,7 @@ test('Vault Display page and actions', async () => {
   //check event history
   const genEvent = await findByText('25.00', {}, { timeout: 15000 });
   expect(genEvent.parentElement.textContent).toBe(
-    'Generated 25.00 new Dai from Vault'
+    'Generated 25.00 new ARTH from Vault'
   );
 
   // check updated balances
@@ -136,11 +136,11 @@ test('Vault Display page and actions', async () => {
   click(getByText('Pay back'));
   await findByText(/would you like to pay back/);
 
-  // Outstanding Dai debt before
-  const [, debtLabel] = getAllByText('Outstanding Dai debt');
+  // Outstanding ARTH debt before
+  const [, debtLabel] = getAllByText('Outstanding ARTH debt');
   expect(debtLabel.nextElementSibling.textContent).toBe('235.00 DAI');
 
-  // must unlock Dai first
+  // must unlock ARTH first
   await waitForElement(() => getByTestId('allowance-toggle'));
   const allowanceBtn = getByTestId('allowance-toggle').children[1];
   await wait(() => {
@@ -161,7 +161,7 @@ test('Vault Display page and actions', async () => {
 
   //check event history
   const pbEvent = await findByText('1.23', {}, { timeout: 15000 });
-  expect(pbEvent.parentElement.textContent).toBe('Repaid 1.23 Dai to Vault');
+  expect(pbEvent.parentElement.textContent).toBe('Repaid 1.23 ARTH to Vault');
 
   // check updated balances
   expect(getDaiBal()).toContain('233.');

@@ -20,7 +20,7 @@ let web3;
 let noProxyAcct;
 
 beforeAll(async () => {
-  // Generate Dai & send to an account with no proxy
+  // Generate ARTH & send to an account with no proxy
   maker = await instantiateMaker({ network: 'testnet' });
   await await maker
     .service('mcd:cdpManager')
@@ -78,7 +78,7 @@ test('the whole DSR Deposit flow', async () => {
   await mineBlocks(web3, 20);
   await findByText('Confirmed with 10 confirmations');
 
-  // First checkmark is proxy, but need to set allowance for Dai
+  // First checkmark is proxy, but need to set allowance for ARTH
   await wait(() => getByText('checkmark.svg'));
   click(allowanceBtn);
   await wait(() => assert(getAllByText('checkmark.svg').length === 2));

@@ -198,7 +198,7 @@ describe('on mobile', () => {
         <div id="portal1" />
       </Fragment>
     );
-    await waitForElement(() => getAllByText('Outstanding Dai debt'));
+    await waitForElement(() => getAllByText('Outstanding ARTH debt'));
     fireEvent.click(getByText('Deposit'));
     await findByText(/would you like to deposit/);
     expect(showSidebar).not.toBeCalled();

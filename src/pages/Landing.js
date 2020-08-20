@@ -110,7 +110,7 @@ const TextSection = styled.div`
 
 const tokens = [
   {
-    name: 'Dai',
+    name: 'ARTH',
     icon: DaiIcon
   },
   {
@@ -406,7 +406,7 @@ function Landing() {
 
   return (
     <OasisLayout>
-      <SEO title="Oasis" />
+      <SEO title="ArthCoin" />
       <Hero>{lang.landing_page.headline}</Hero>
       <Cards>
         <Card

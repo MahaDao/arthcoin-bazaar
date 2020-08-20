@@ -71,7 +71,7 @@ test('the whole flow', async () => {
   click(getByText('Continue'));
 
   // Deposit and Generate form
-  getByText('Deposit ETH and Generate Dai');
+  getByText('Deposit ETH and Generate ARTH');
   change(getByLabelText('ETH'), { target: { value: '2.12845673' } });
   change(getByLabelText('DAI'), { target: { value: '31.11911157' } });
   const continueButton = getByText('Continue');
