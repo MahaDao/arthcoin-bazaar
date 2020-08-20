@@ -9,7 +9,7 @@ import networkConfig from './references/config';
 import { networkNameToId } from './utils/network';
 import { getQueryParamByName } from './utils/dev';
 
-import maticAddresses from './references/contracts/matic'
+import maticAddresses from './references/contracts/matic';
 
 let _maker;
 
@@ -85,8 +85,8 @@ export async function instantiateMaker({
     config.plugins.push([configPlugin, { testchainId, backendEnv }]);
   } else if (!rpcUrl) {
     // if (config.provider.type === 'HTTP')
-      rpcUrl = networkConfig.rpcUrls[networkNameToId(network)];
-      console.log(rpcUrl)
+    rpcUrl = networkConfig.rpcUrls[networkNameToId(network)];
+    console.log(rpcUrl);
     // else if (config.provider.type === 'WEBSOCKET')
     //   rpcUrl = networkConfig.wsRpcUrls[networkNameToId(network)];
     // else throw new Error(`Unsupported provider type: ${config.provider.type}`);
