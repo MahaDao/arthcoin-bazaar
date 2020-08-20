@@ -1,4 +1,4 @@
-import Maker, { USD, DAI } from '@makerdao/dai';
+import Maker, { USD, DAI } from 'arthcoin.js';
 import McdPlugin, { ETH, BAT, MDAI } from '@makerdao/dai-plugin-mcd';
 import trezorPlugin from '@makerdao/dai-plugin-trezor-web';
 import ledgerPlugin from '@makerdao/dai-plugin-ledger-web';
