@@ -6,7 +6,7 @@ import {
   act
 } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { BAT, USD, MDAI } from '@makerdao/dai-plugin-mcd';
+import { BAT, USD, MARTH } from '@makerdao/dai-plugin-mcd';
 import { createCurrencyRatio } from '@makerdao/currency';
 import { TestAccountProvider, mineBlocks } from '@makerdao/test-helpers';
 import * as math from '@makerdao/dai-plugin-mcd/dist/math';
@@ -28,14 +28,14 @@ const LIQUIDATION_RATIO = '200';
 const COL_AMT = 300.123456789012345678;
 
 const collateralAmount = BAT(0); //only used to retrieve gem symbol
-const liquidationRatio = createCurrencyRatio(USD, MDAI)(LIQUIDATION_RATIO);
+const liquidationRatio = createCurrencyRatio(USD, MARTH)(LIQUIDATION_RATIO);
 const collateralValue = USD(12004.938271560493);
 
 const mockVault = {
   id: 1,
   collateralType: ILK,
-  debtValue: MDAI(0),
-  daiAvailable: MDAI(36.014814),
+  debtValue: MARTH(0),
+  daiAvailable: MARTH(36.014814),
   vaultType: ILK,
   collateralAmount,
   liquidationRatio,
@@ -83,7 +83,7 @@ test('proxy toggle', async () => {
 
   expect(proxyToggle).toHaveTextContent(lang.action_sidebar.create_proxy);
   expect(allowanceToggle).toHaveTextContent(
-    lang.formatString(lang.action_sidebar.unlock_token, 'DAI')
+    lang.formatString(lang.action_sidebar.unlock_token, 'ARTH')
   );
 
   const proxyButton = proxyToggle.children[1];
@@ -123,11 +123,11 @@ xtest('allowance toggle', async () => {
   });
 
   expect(allowanceToggle).toHaveTextContent(
-    lang.formatString(lang.action_sidebar.unlocking_token, 'DAI')
+    lang.formatString(lang.action_sidebar.unlocking_token, 'ARTH')
   );
   await mineBlocks(web3);
   expect(allowanceToggle).toHaveTextContent(
-    lang.formatString(lang.action_sidebar.token_unlocked, 'DAI')
+    lang.formatString(lang.action_sidebar.token_unlocked, 'ARTH')
   );
 });
 
@@ -135,9 +135,9 @@ test('basic rendering', async () => {
   const { getByText } = renderWithMaker(<Payback vault={mockVault} />);
 
   // this waits for the initial proxy & allowance check to finish
-  await waitForElement(() => getByText(/Unlock DAI/));
+  await waitForElement(() => getByText(/Unlock ARTH/));
 
   // these throw errors if they don't match anything
-  getByText('Pay Back DAI');
-  // getByText('7.5 DAI'); // art * rate from mock state
+  getByText('Pay Back ARTH');
+  // getByText('7.5 ARTH'); // art * rate from mock state
 });

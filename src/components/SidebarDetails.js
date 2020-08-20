@@ -7,17 +7,17 @@ import BigNumber from 'bignumber.js';
 const SidebarDetails = ({ system, savings }) => {
   const { lang } = useLanguage();
 
-  const TOTAL_DAI_SUPPLY = ({ system }) => [
+  const TOTAL_ARTH_SUPPLY = ({ system }) => [
     lang.sidebar.save_details.total_dai_supply,
     prettifyNumber(system.totalDaiSupply)
   ];
 
-  const TOTAL_SAVINGS_DAI = ({ system }) => [
+  const TOTAL_SAVINGS_ARTH = ({ system }) => [
     lang.sidebar.save_details.total_savings_dai,
     prettifyNumber(system.totalDaiLockedInDsr)
   ];
 
-  const DAI_SAVINGS_RATE = ({ system }) => [
+  const ARTH_SAVINGS_RATE = ({ system }) => [
     lang.sidebar.save_details.dai_savings_rate,
     system.annualDaiSavingsRate
       ? formatter(system.annualDaiSavingsRate, {
@@ -26,7 +26,7 @@ const SidebarDetails = ({ system, savings }) => {
       : ''
   ];
 
-  const params = [TOTAL_DAI_SUPPLY, TOTAL_SAVINGS_DAI, DAI_SAVINGS_RATE].map(
+  const params = [TOTAL_ARTH_SUPPLY, TOTAL_SAVINGS_ARTH, ARTH_SAVINGS_RATE].map(
     f => f({ system, savings })
   );
 

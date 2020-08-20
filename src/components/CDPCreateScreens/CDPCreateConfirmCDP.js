@@ -9,7 +9,7 @@ import {
   Button,
   Link
 } from '@makerdao/ui-components-core';
-import { MDAI } from '@makerdao/dai-plugin-mcd';
+import { MARTH } from '@makerdao/dai-plugin-mcd';
 import useMaker from 'hooks/useMaker';
 import useLanguage from 'hooks/useLanguage';
 import useAnalytics from 'hooks/useAnalytics';
@@ -52,13 +52,13 @@ const CDPCreateConfirmSummary = ({
       lang.verbs.depositing,
       `${prettifyNumber(cdpParams.gemsToLock)} ${selectedIlk.gem}`
     ],
-    [lang.verbs.generating, `${prettifyNumber(cdpParams.daiToDraw)} DAI`],
+    [lang.verbs.generating, `${prettifyNumber(cdpParams.daiToDraw)} ARTH`],
     [
       lang.collateralization,
       `${formatter(
         ilkData.calculateCollateralizationRatio(
           BigNumber(cdpParams.gemsToLock),
-          MDAI(cdpParams.daiToDraw)
+          MARTH(cdpParams.daiToDraw)
         )
       )}%`
     ],
@@ -71,7 +71,7 @@ const CDPCreateConfirmSummary = ({
       `$${formatter(
         ilkData.calculateliquidationPrice(
           BigNumber(cdpParams.gemsToLock),
-          MDAI(cdpParams.daiToDraw)
+          MARTH(cdpParams.daiToDraw)
         )
       )}`
     ],

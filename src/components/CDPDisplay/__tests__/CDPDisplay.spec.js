@@ -7,7 +7,7 @@ import {
   waitForElement
 } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { MDAI, ETH } from '@makerdao/dai-plugin-mcd';
+import { MARTH, ETH } from '@makerdao/dai-plugin-mcd';
 import { mineBlocks } from '@makerdao/test-helpers';
 
 import CDPDisplay from '../';
@@ -36,7 +36,7 @@ beforeAll(async () => {
   web3 = maker.service('web3');
   await maker
     .service('mcd:cdpManager')
-    .openLockAndDraw(ILK, ETH(VAULT1_ETH), MDAI(AMOUNT));
+    .openLockAndDraw(ILK, ETH(VAULT1_ETH), MARTH(AMOUNT));
 });
 
 afterEach(cleanup);
@@ -69,9 +69,9 @@ test('Vault Display page and actions', async () => {
     within(getBalancesEl()).getByText('ETH').nextElementSibling
       .nextElementSibling.textContent;
   const getDaiBal = () =>
-    within(getBalancesEl()).getByText('DAI').nextElementSibling.textContent;
+    within(getBalancesEl()).getByText('ARTH').nextElementSibling.textContent;
   const getDaiUsdValue = () =>
-    within(getBalancesEl()).getByText('DAI').nextElementSibling
+    within(getBalancesEl()).getByText('ARTH').nextElementSibling
       .nextElementSibling.textContent;
 
   expect(getEthBal()).toContain('89.');
@@ -115,7 +115,7 @@ test('Vault Display page and actions', async () => {
 
   // amount to generate before
   const generateLabel = getByText('Available to generate');
-  expect(generateLabel.nextElementSibling.textContent).toBe('522.99 DAI');
+  expect(generateLabel.nextElementSibling.textContent).toBe('522.99 ARTH');
 
   // submit generate
   change(getByRole('textbox'), { target: { value: '25' } });
@@ -138,7 +138,7 @@ test('Vault Display page and actions', async () => {
 
   // Outstanding ARTH debt before
   const [, debtLabel] = getAllByText('Outstanding ARTH debt');
-  expect(debtLabel.nextElementSibling.textContent).toBe('235.00 DAI');
+  expect(debtLabel.nextElementSibling.textContent).toBe('235.00 ARTH');
 
   // must unlock ARTH first
   await waitForElement(() => getByTestId('allowance-toggle'));
@@ -147,7 +147,7 @@ test('Vault Display page and actions', async () => {
     expect(allowanceBtn).not.toHaveAttribute('disabled');
   });
   click(allowanceBtn);
-  await findByText('DAI unlocked');
+  await findByText('ARTH unlocked');
 
   // submit pay back
   change(getByRole('textbox'), { target: { value: '1.23' } });

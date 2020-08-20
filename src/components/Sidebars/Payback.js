@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDAI } from '@makerdao/dai-plugin-mcd';
+import { MARTH } from '@makerdao/dai-plugin-mcd';
 import { Text, Input, Grid, Button } from '@makerdao/ui-components-core';
 import debug from 'debug';
 
@@ -30,9 +30,9 @@ const Payback = ({ vault, reset }) => {
   const { lang } = useLanguage();
   const { maker } = useMaker();
   const balances = useWalletBalances();
-  const daiBalance = balances.MDAI;
+  const daiBalance = balances.MARTH;
 
-  const { hasAllowance, hasSufficientAllowance } = useTokenAllowance('MDAI');
+  const { hasAllowance, hasSufficientAllowance } = useTokenAllowance('MARTH');
   const { hasProxy } = useProxy();
 
   let { debtValue, debtFloor, collateralAmount } = vault;
@@ -59,7 +59,7 @@ const Payback = ({ vault, reset }) => {
     {
       maxFloat: amount => {
         return greaterThan(amount, daiBalance)
-          ? lang.formatString(lang.action_sidebar.insufficient_balance, 'DAI')
+          ? lang.formatString(lang.action_sidebar.insufficient_balance, 'ARTH')
           : lang.action_sidebar.cannot_payback_more_than_owed;
       },
       dustLimit: () =>
@@ -68,7 +68,7 @@ const Payback = ({ vault, reset }) => {
           subtract(debtValue, debtFloor)
         ),
       allowanceInvalid: () =>
-        lang.formatString(lang.action_sidebar.invalid_allowance, 'DAI')
+        lang.formatString(lang.action_sidebar.invalid_allowance, 'ARTH')
     }
   );
 
@@ -91,7 +91,7 @@ const Payback = ({ vault, reset }) => {
     else log('Calling wipe()');
     wipeAll
       ? cdpManager.wipeAll(vault.id, owner)
-      : cdpManager.wipe(vault.id, MDAI(amount), owner);
+      : cdpManager.wipe(vault.id, MARTH(amount), owner);
     reset();
   };
 
@@ -101,12 +101,12 @@ const Payback = ({ vault, reset }) => {
   const liquidationPrice = undercollateralized
     ? BigNumber(0)
     : vault.calculateLiquidationPrice({
-        debtValue: MDAI(debtValue.minus(amountToPayback))
+        debtValue: MARTH(debtValue.minus(amountToPayback))
       });
   const collateralizationRatio = undercollateralized
     ? Infinity
     : vault.calculateCollateralizationRatio({
-        debtValue: MDAI(debtValue.minus(amountToPayback))
+        debtValue: MARTH(debtValue.minus(amountToPayback))
       });
   return (
     <Grid gridRowGap="m">
@@ -120,7 +120,7 @@ const Payback = ({ vault, reset }) => {
           value={amount}
           min="0"
           onChange={onAmountChange}
-          placeholder="0.00 DAI"
+          placeholder="0.00 ARTH"
           failureMessage={amountErrors}
           data-testid="payback-input"
           after={
@@ -136,7 +136,7 @@ const Payback = ({ vault, reset }) => {
           }
         />
       </Grid>
-      <ProxyAllowanceToggle token="MDAI" trackBtnClick={trackBtnClick} />
+      <ProxyAllowanceToggle token="MARTH" trackBtnClick={trackBtnClick} />
       <Grid gridTemplateColumns="1fr 1fr" gridColumnGap="s">
         <Button
           disabled={!valid}
@@ -161,11 +161,11 @@ const Payback = ({ vault, reset }) => {
         <Info
           title={lang.action_sidebar.dai_balance}
           body={`${daiBalance &&
-            formatter(daiBalance, { precision: long })} DAI`}
+            formatter(daiBalance, { precision: long })} ARTH`}
         />
         <Info
           title={lang.action_sidebar.dai_debt}
-          body={`${formatter(debtValue, { precision: long })} DAI`}
+          body={`${formatter(debtValue, { precision: long })} ARTH`}
         />
         <Info
           title={lang.action_sidebar.new_liquidation_price}

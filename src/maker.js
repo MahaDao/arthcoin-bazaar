@@ -1,5 +1,5 @@
-import Maker, { USD, DAI } from 'arthcoin.js';
-import McdPlugin, { ETH, BAT, MDAI } from '@makerdao/dai-plugin-mcd';
+import Maker, { USD, ARTH } from 'arthcoin.js';
+import McdPlugin, { ETH, BAT, MARTH } from '@makerdao/dai-plugin-mcd';
 import trezorPlugin from '@makerdao/dai-plugin-trezor-web';
 import ledgerPlugin from '@makerdao/dai-plugin-ledger-web';
 import walletLinkPlugin from '@makerdao/dai-plugin-walletlink';
@@ -32,7 +32,7 @@ export function getMaker() {
 }
 
 const cdpTypes = [
-  { currency: ETH, ilk: 'DAI-A' }
+  { currency: ETH, ilk: 'ARTH-A' }
   // { currency: BAT, ilk: 'BAT-A' }
 ];
 
@@ -102,4 +102,4 @@ export async function instantiateMaker({
   return maker;
 }
 
-export { USD, DAI, ETH, BAT, MDAI };
+export { USD, ARTH, ETH, BAT, MARTH };

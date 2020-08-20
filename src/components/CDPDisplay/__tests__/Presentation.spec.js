@@ -7,7 +7,7 @@ import {
   renderWithProviders
 } from '../../../../test/helpers/render';
 import { createCurrency, createCurrencyRatio } from '@makerdao/currency';
-import { ETH, USD, MDAI } from '@makerdao/dai-plugin-mcd';
+import { ETH, USD, MARTH } from '@makerdao/dai-plugin-mcd';
 import * as math from '@makerdao/dai-plugin-mcd/dist/math';
 import BigNumber from 'bignumber.js';
 import styled from 'styled-components';
@@ -33,20 +33,20 @@ const account = {
 };
 const mockOwnerAddress = '0xtest';
 
-const liquidationRatio = createCurrencyRatio(USD, MDAI)(1.5);
+const liquidationRatio = createCurrencyRatio(USD, MARTH)(1.5);
 const collateralValue = USD(74.852);
-const debtValue = MDAI(120);
+const debtValue = MARTH(120);
 
 const mockVault = {
   id: 9000,
   debtValue,
   vaultType: ILK,
   collateralAmount: LOL(10),
-  collateralizationRatio: createCurrencyRatio(USD, MDAI)(180),
+  collateralizationRatio: createCurrencyRatio(USD, MARTH)(180),
   liquidationPrice: createCurrencyRatio(USD, LOL)(1.5),
   collateralAvailableAmount: LOL(9.1),
   collateralAvailableValue: USD(1820),
-  daiAvailable: MDAI(1213.33),
+  daiAvailable: MARTH(1213.33),
   liquidationRatio,
   liquidationPenalty: BigNumber('0.05'),
   annualStabilityFee: BigNumber('0.04999999999989363'),
@@ -73,8 +73,8 @@ test('basic rendering', () => {
   );
   getByText('9.10 LOL');
   getByText('1820.00 USD');
-  getByText('120.00 DAI');
-  getByText('1213.33 DAI');
+  getByText('120.00 ARTH');
+  getByText('1213.33 ARTH');
 
   fireEvent.click(getByText('Deposit'));
   expect(showSidebar).toBeCalledWith({
@@ -161,11 +161,11 @@ describe('on mobile', () => {
       id: 9000,
       debtValue,
       collateralAmount: ETH(10),
-      collateralizationRatio: createCurrencyRatio(USD, MDAI)(180),
+      collateralizationRatio: createCurrencyRatio(USD, MARTH)(180),
       liquidationPrice: createCurrencyRatio(USD, ETH)(1.5),
       collateralAvailableAmount: ETH(9.1),
       collateralAvailableValue: USD(1820),
-      daiAvailable: MDAI(1213.33),
+      daiAvailable: MARTH(1213.33),
       liquidationRatio,
       liquidationPenalty: BigNumber('0.05'),
       annualStabilityFee: BigNumber('0.04999999999989363'),

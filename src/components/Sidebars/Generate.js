@@ -1,6 +1,6 @@
 import React from 'react';
 import BigNumber from 'bignumber.js';
-import { MDAI } from '@makerdao/dai-plugin-mcd';
+import { MARTH } from '@makerdao/dai-plugin-mcd';
 import { Text, Input, Grid, Button } from '@makerdao/ui-components-core';
 import Info from './shared/Info';
 import InfoContainer from './shared/InfoContainer';
@@ -59,7 +59,7 @@ const Generate = ({ vault, reset }) => {
   const undercollateralized = daiAvailable.lt(amount);
 
   const generate = () => {
-    maker.service('mcd:cdpManager').draw(vault.id, vaultType, MDAI(amount));
+    maker.service('mcd:cdpManager').draw(vault.id, vaultType, MARTH(amount));
     reset();
   };
 
@@ -83,7 +83,7 @@ const Generate = ({ vault, reset }) => {
           value={amount}
           min="0"
           onChange={onAmountChange}
-          placeholder="0.00 DAI"
+          placeholder="0.00 ARTH"
           failureMessage={failureMessage}
         />
         <RatioDisplay
@@ -119,7 +119,7 @@ const Generate = ({ vault, reset }) => {
       <InfoContainer>
         <Info
           title={lang.action_sidebar.maximum_available_to_generate}
-          body={`${formatter(daiAvailable, { precision: long })} DAI`}
+          body={`${formatter(daiAvailable, { precision: long })} ARTH`}
         />
         <Info
           title={lang.action_sidebar.new_liquidation_price}

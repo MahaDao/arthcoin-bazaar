@@ -146,12 +146,12 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
     () =>
       showWalletTokens.reduceRight((acc, token) => {
         const balanceGtZero = !!(balances[token] && balances[token].gt(0));
-        if (token !== 'ETH' && token !== 'MDAI' && !balanceGtZero) return acc;
+        if (token !== 'ETH' && token !== 'MARTH' && !balanceGtZero) return acc;
         const symbol = formatSymbol(token);
 
         const tokenIsDaiOrDsr =
-          token === 'MDAI' ||
-          token === 'DAI' ||
+          token === 'MARTH' ||
+          token === 'ARTH' ||
           token === 'SAI' ||
           token === 'DSR';
         const usdRatio = tokenIsDaiOrDsr

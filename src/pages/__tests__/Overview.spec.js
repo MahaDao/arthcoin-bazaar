@@ -2,7 +2,7 @@ import React from 'react';
 import * as navi from 'react-navi';
 import { waitForElement, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { MDAI, ETH } from '@makerdao/dai-plugin-mcd';
+import { MARTH, ETH } from '@makerdao/dai-plugin-mcd';
 import Overview from '../Overview';
 import { renderWithVaults } from '../../../test/helpers/render';
 import { instantiateMaker } from '../../maker';
@@ -27,11 +27,11 @@ beforeAll(async () => {
   maker = await instantiateMaker({ network: 'testnet' });
   await maker
     .service('mcd:cdpManager')
-    .openLockAndDraw(ILK, ETH(VAULT1_ETH), MDAI(VAULT1_ART));
+    .openLockAndDraw(ILK, ETH(VAULT1_ETH), MARTH(VAULT1_ART));
 
   await maker
     .service('mcd:cdpManager')
-    .openLockAndDraw(ILK, ETH(VAULT2_ETH), MDAI(VAULT2_ART));
+    .openLockAndDraw(ILK, ETH(VAULT2_ETH), MARTH(VAULT2_ART));
 });
 
 afterEach(cleanup);
@@ -47,9 +47,9 @@ test('render overview page and display calculated vault values', async () => {
   // Total collateral locked
   getByText('$1050.00 USD');
   // Total ARTH debt
-  getByText(/105.\d{1,2} DAI/);
+  getByText(/105.\d{1,2} ARTH/);
   // Vault1 ARTH debt
-  getByText(/80.\d{1,2} DAI/);
+  getByText(/80.\d{1,2} ARTH/);
   // Current ratio
   getByText(/11\d\d.\d\d%/);
   // Deposited

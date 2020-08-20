@@ -73,7 +73,7 @@ test('the whole flow', async () => {
   // Deposit and Generate form
   getByText('Deposit ETH and Generate ARTH');
   change(getByLabelText('ETH'), { target: { value: '2.12845673' } });
-  change(getByLabelText('DAI'), { target: { value: '31.11911157' } });
+  change(getByLabelText('ARTH'), { target: { value: '31.11911157' } });
   const continueButton = getByText('Continue');
   await wait(() => assert(!continueButton.disabled));
   click(continueButton);
@@ -81,7 +81,7 @@ test('the whole flow', async () => {
   // Confirmation page
   getByText('Confirm Vault Details');
   getByText('2.128 ETH');
-  getByText('31.119 DAI');
+  getByText('31.119 ARTH');
   getByText('1025.95%'); // collateralization ratio
   getAllByRole('checkbox').forEach(click); // terms & privacy
   const openButton = getByText('Open Vault');

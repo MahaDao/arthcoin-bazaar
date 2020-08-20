@@ -426,7 +426,8 @@ function Landing() {
             <a
               href="https://dex.mahadao.com/"
               className="button enabled"
-              style={{ color: '#5894B5', backgroundColor: 'white' }}>
+              style={{ color: '#5894B5', backgroundColor: 'white' }}
+            >
               {lang.landing_page.trade_card.button}
             </a>
           </div>

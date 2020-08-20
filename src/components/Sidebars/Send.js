@@ -41,7 +41,7 @@ const Send = ({ token, trackBtnClick, reset }) => {
   const maxAmount = token === 'ETH' ? balance.minus(gasCost) : balance;
 
   const displayToken =
-    token === 'MDAI' ? 'DAI' : token === 'MWETH' ? 'WETH' : token;
+    token === 'MARTH' ? 'ARTH' : token === 'MWETH' ? 'WETH' : token;
 
   const inRangeAndEth = _val =>
     token === 'ETH' && _val.gt(ZERO) && _val.lte(balance);

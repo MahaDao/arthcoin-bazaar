@@ -10,7 +10,7 @@ import {
   cleanup
 } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { MDAI, ETH } from '@makerdao/dai-plugin-mcd';
+import { MARTH, ETH } from '@makerdao/dai-plugin-mcd';
 import { createCurrency } from '@makerdao/currency';
 import { TestAccountProvider, mineBlocks } from '@makerdao/test-helpers';
 import Save from '../Save';
@@ -49,7 +49,7 @@ beforeAll(async () => {
   web3 = maker.service('web3');
   await await maker
     .service('mcd:cdpManager')
-    .openLockAndDraw(ILK, ETH(1), MDAI(AMOUNT));
+    .openLockAndDraw(ILK, ETH(1), MARTH(AMOUNT));
 });
 
 afterEach(cleanup);
@@ -64,7 +64,7 @@ test('if allowance is 0, show toggle & disable input', async () => {
 
   await findByText('Savings');
   click(getByTestId('sidebar-deposit-button'));
-  await waitForElement(() => getAllByText('Unlock DAI to continue'));
+  await waitForElement(() => getAllByText('Unlock ARTH to continue'));
 
   const depositInput = getByRole('textbox');
   expect(depositInput.disabled).toBe(true);
@@ -88,7 +88,7 @@ test('render save page and perform deposit and withdraw actions', async () => {
   // Wait for page to render
   await waitForElement(() => getByText('Savings'));
   // Initial DSR balance
-  getByText('DAI locked in DSR');
+  getByText('ARTH locked in DSR');
   // Savings to date
   getByText('Savings earned to date');
   // ARTH Savings Rate
@@ -108,7 +108,7 @@ test('render save page and perform deposit and withdraw actions', async () => {
   await waitForElement(() => getByTestId('allowance-toggle'));
   const [allowanceToggle] = getAllByTestId('allowance-toggle');
   click(allowanceToggle.children[1]);
-  await waitForElement(() => getByText('DAI unlocked'));
+  await waitForElement(() => getByText('ARTH unlocked'));
 
   // Input amount to deposit and click
   const depositInput = getByRole('textbox');
@@ -147,16 +147,16 @@ test('cannot deposit more than token allowance', async () => {
   const tokenBalanceMock = (address, tokens) => {
     return of(
       tokens.map(token => {
-        if (token === 'MDAI') return MDAI(BigNumber(50));
+        if (token === 'MARTH') return MARTH(BigNumber(50));
         else return createCurrency(token)(0);
       })
     );
   };
   const savingsMock = () =>
     of({
-      daiLockedInDsr: MDAI('5000'),
+      daiLockedInDsr: MARTH('5000'),
       annualDaiSavingsRate: BigNumber(1),
-      savingsDai: MDAI('100'),
+      savingsDai: MARTH('100'),
       savingsRateAccumulator: BigNumber(1)
     });
   const watch = () =>
@@ -165,7 +165,7 @@ test('cannot deposit more than token allowance', async () => {
       tokenBalances: tokenBalanceMock,
       tokenAllowance: () => of(BigNumber('10')),
       proxyAddress: () => of(TEST_ADDRESS_PROXY),
-      daiLockedInDsr: () => of(MDAI('100')),
+      daiLockedInDsr: () => of(MARTH('100')),
       collateralTypesPrices: () => of([]),
       totalDaiSupply: MOCK_OBS_RESPONSE,
       vaultsCreated: MOCK_OBS_RESPONSE,
@@ -196,7 +196,7 @@ test('cannot deposit more than token allowance', async () => {
   expect(depositInput.disabled).toBe(false);
 
   change(depositInput, { target: { value: '20' } });
-  const warningEl = getByText('Amount is higher than your allowance for DAI');
+  const warningEl = getByText('Amount is higher than your allowance for ARTH');
 
   change(depositInput, { target: { value: '10' } });
   expect(warningEl).not.toBeInTheDocument();

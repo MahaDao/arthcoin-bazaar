@@ -151,7 +151,7 @@ function Overview({ viewedAddress }) {
                 .reduce((acc, { debtValue }) => debtValue.plus(acc), 0)
                 .toBigNumber()
                 .toFixed(2)}`}
-              denom={'DAI'}
+              denom={'ARTH'}
             />
           </Grid>
           <Box>
@@ -262,7 +262,7 @@ function Overview({ viewedAddress }) {
                         </Table.td>
                         <Table.td display={{ s: 'none', xl: 'table-cell' }}>
                           <Text t="caption" color="darkLavender">
-                            {debtValue.toBigNumber().toFixed(2)} DAI
+                            {debtValue.toBigNumber().toFixed(2)} ARTH
                           </Text>
                         </Table.td>
                         <Table.td>

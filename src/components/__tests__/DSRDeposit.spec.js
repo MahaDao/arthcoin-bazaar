@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import assert from 'assert';
 import { wait, fireEvent, waitForElement } from '@testing-library/react';
-import { MDAI, ETH } from '@makerdao/dai-plugin-mcd';
+import { MARTH, ETH } from '@makerdao/dai-plugin-mcd';
 import { mineBlocks, TestAccountProvider } from '@makerdao/test-helpers';
 
 import DSRDeposit from '../DSRDeposit';
@@ -24,11 +24,11 @@ beforeAll(async () => {
   maker = await instantiateMaker({ network: 'testnet' });
   await await maker
     .service('mcd:cdpManager')
-    .openLockAndDraw(ILK, ETH(1), MDAI(AMOUNT));
+    .openLockAndDraw(ILK, ETH(1), MARTH(AMOUNT));
 
   TestAccountProvider.setIndex(345);
   noProxyAcct = TestAccountProvider.nextAccount();
-  const token = maker.getToken(MDAI.symbol);
+  const token = maker.getToken(MARTH.symbol);
   await token.transfer(noProxyAcct.address, AMOUNT);
 });
 
@@ -87,7 +87,7 @@ test('the whole DSR Deposit flow', async () => {
   click(getByText(lang.actions.continue));
 
   // UI Formats the amount
-  await waitForElement(() => getByText(`${prettifyNumber(AMOUNT)} DAI`));
+  await waitForElement(() => getByText(`${prettifyNumber(AMOUNT)} ARTH`));
   getByText(lang.dsr_deposit.deposit_form_title);
 
   // Test input validation
@@ -96,7 +96,7 @@ test('the whole DSR Deposit flow', async () => {
   change(input, { target: { value: AMOUNT + 1 } });
   await waitForElement(() =>
     getByText(
-      lang.formatString(lang.action_sidebar.insufficient_balance, 'DAI')
+      lang.formatString(lang.action_sidebar.insufficient_balance, 'ARTH')
     )
   );
 
@@ -108,7 +108,7 @@ test('the whole DSR Deposit flow', async () => {
   click(getByText(lang.actions.continue));
 
   getByText(lang.save.deposit_amount);
-  getByText(`${prettifyNumber(AMOUNT)} DAI`);
+  getByText(`${prettifyNumber(AMOUNT)} ARTH`);
 
   // Agree to terms to enable deposit button
   click(getByRole('checkbox'));

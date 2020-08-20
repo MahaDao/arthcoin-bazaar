@@ -243,7 +243,7 @@ function DSRInfo({ isMobile, savings }) {
         />
         <Box>
           <Text.h4 mb=".175rem" ml="s">
-            DAI
+            ARTH
           </Text.h4>
         </Box>
       </Flex>
@@ -264,7 +264,7 @@ function DSRInfo({ isMobile, savings }) {
             ) : (
               <TextMono t="body">{(0).toFixed(decimalsToShow)}</TextMono>
             )}
-            <Text ml="xs">DAI</Text>
+            <Text ml="xs">ARTH</Text>
           </>
         }
       />

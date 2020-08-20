@@ -80,8 +80,8 @@ test('basic rendering when sending ETH', async () => {
   getByText(lang.formatString(lang.action_sidebar.send_description, token));
 });
 
-test('basic rendering when sending DAI', async () => {
-  const token = 'MDAI';
+test('basic rendering when sending ARTH', async () => {
+  const token = 'MARTH';
   let getByText;
   act(() => {
     const { getByText: _getByText } = render(<Send token={token} />);
@@ -89,9 +89,9 @@ test('basic rendering when sending DAI', async () => {
   });
 
   await waitForElement(() =>
-    getByText(lang.formatString(lang.action_sidebar.send_title, 'DAI'))
+    getByText(lang.formatString(lang.action_sidebar.send_title, 'ARTH'))
   );
-  getByText(lang.formatString(lang.action_sidebar.send_description, 'DAI'));
+  getByText(lang.formatString(lang.action_sidebar.send_description, 'ARTH'));
 });
 
 test('basic rendering when sending WETH', async () => {
