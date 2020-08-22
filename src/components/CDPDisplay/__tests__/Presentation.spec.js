@@ -7,8 +7,8 @@ import {
   renderWithProviders
 } from '../../../../test/helpers/render';
 import { createCurrency, createCurrencyRatio } from '@makerdao/currency';
-import { ETH, USD, MARTH } from '@makerdao/dai-plugin-mcd';
-import * as math from '@makerdao/dai-plugin-mcd/dist/math';
+import { MATIC, USD, MARTH } from 'arth-plugin-mcd';
+import * as math from 'arth-plugin-mcd/dist/math';
 import BigNumber from 'bignumber.js';
 import styled from 'styled-components';
 
@@ -160,17 +160,17 @@ describe('on mobile', () => {
     const mockVault2 = {
       id: 9000,
       debtValue,
-      collateralAmount: ETH(10),
+      collateralAmount: MATIC(10),
       collateralizationRatio: createCurrencyRatio(USD, MARTH)(180),
-      liquidationPrice: createCurrencyRatio(USD, ETH)(1.5),
-      collateralAvailableAmount: ETH(9.1),
+      liquidationPrice: createCurrencyRatio(USD, MATIC)(1.5),
+      collateralAvailableAmount: MATIC(9.1),
       collateralAvailableValue: USD(1820),
       daiAvailable: MARTH(1213.33),
       liquidationRatio,
       liquidationPenalty: BigNumber('0.05'),
       annualStabilityFee: BigNumber('0.04999999999989363'),
       collateralValue,
-      collateralTypePrice: createCurrencyRatio(USD, ETH)('200'),
+      collateralTypePrice: createCurrencyRatio(USD, MATIC)('200'),
       calculateLiquidationPrice: ({ collateralAmount: _collateralAmount }) =>
         math.liquidationPrice(_collateralAmount, debtValue, liquidationRatio),
       calculateCollateralizationRatio: ({

@@ -257,7 +257,7 @@ const Privacy = () => (
         By utilizing the Services or interacting with the Site in any way, you
         represent that you understand the inherent risks associated with
         cryptographic systems; and warrant that you have an understanding of the
-        usage and intricacies of native cryptographic tokens, like Ether (ETH)
+        usage and intricacies of native cryptographic tokens, like Ether (MATIC)
         and Bitcoin (BTC), smart contract based tokens such as those that follow
         the Ethereum Token Standard
         (https://github.com/ethereum/EIPs/issues/20), and blockchain-based
@@ -292,7 +292,7 @@ const Privacy = () => (
       </p>
       <h3>4.4 Risk of Regulatory Actions in One or More Jurisdictions</h3>
       <p>
-        The Services, Digital Assets and ETH could be impacted by one or more
+        The Services, Digital Assets and MATIC could be impacted by one or more
         regulatory inquiries or regulatory action, which could impede or limit
         the ability of Company to continue to develop, or which could impede or
         limit your ability to access or use the Services or Ethereum blockchain,

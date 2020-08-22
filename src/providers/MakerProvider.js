@@ -8,7 +8,7 @@ import {
   browserEthereumProviderAddress
 } from '../utils/ethereum';
 import LoadingLayout from '../layouts/LoadingLayout';
-import schemas from '@makerdao/dai-plugin-mcd/dist/schemas';
+import schemas from 'arth-plugin-mcd/dist/schemas';
 import useObservable, { watch } from 'hooks/useObservable';
 import debug from 'debug';
 const log = debug('maker:MakerProvider');

@@ -201,6 +201,6 @@ export const formatSymbol = token => {
     : token === 'ARTH'
     ? 'SAI'
     : token === 'MWETH'
-    ? 'WETH'
+    ? 'WMATIC'
     : token;
 };

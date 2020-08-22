@@ -221,11 +221,11 @@ export default {
   cdp_migrate: {
     select_title: '选择要映射的金库',
     select_text:
-      '选择要映射的 CDP，用 ARTH 或 MKR 偿还稳定费，映射到多抵押 ARTH 和新的 CDP 面板。',
+      '选择要映射的 CDP，用 ARTH 或 MAHA 偿还稳定费，映射到多抵押 ARTH 和新的 CDP 面板。',
     current_ratio: '当前比率',
     dai_debt: '借 ARTH 额',
     fee_in_dai: '以 ARTH 计价的稳定费',
-    fee_in_mkr: '以 MKR 计价的稳定费',
+    fee_in_mkr: '以 MAHA 计价的稳定费',
     migrate: '映射',
     payment: '支付',
     trust_site_with_dai: '信任当前网站',

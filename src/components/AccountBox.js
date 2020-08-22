@@ -146,7 +146,7 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
     () =>
       showWalletTokens.reduceRight((acc, token) => {
         const balanceGtZero = !!(balances[token] && balances[token].gt(0));
-        if (token !== 'ETH' && token !== 'MARTH' && !balanceGtZero) return acc;
+        if (token !== 'MATIC' && token !== 'MARTH' && !balanceGtZero) return acc;
         const symbol = formatSymbol(token);
 
         const tokenIsDaiOrDsr =
@@ -157,7 +157,7 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
         const usdRatio = tokenIsDaiOrDsr
           ? new BigNumber(1)
           : token === 'MWETH'
-          ? uniqueFeeds['ETH']
+          ? uniqueFeeds['MATIC']
           : uniqueFeeds[token];
         return [
           {

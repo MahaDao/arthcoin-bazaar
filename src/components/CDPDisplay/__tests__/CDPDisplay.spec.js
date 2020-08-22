@@ -7,7 +7,7 @@ import {
   waitForElement
 } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { MARTH, ETH } from '@makerdao/dai-plugin-mcd';
+import { MARTH, MATIC } from 'arth-plugin-mcd';
 import { mineBlocks } from '@makerdao/test-helpers';
 
 import CDPDisplay from '../';
@@ -24,7 +24,7 @@ jest.mock('mixpanel-browser', () => ({
   track: jest.fn()
 }));
 
-const ILK = 'ETH-A';
+const ILK = 'MATIC-A';
 const VAULT1_ETH = '5';
 const AMOUNT = 210;
 
@@ -36,7 +36,7 @@ beforeAll(async () => {
   web3 = maker.service('web3');
   await maker
     .service('mcd:cdpManager')
-    .openLockAndDraw(ILK, ETH(VAULT1_ETH), MARTH(AMOUNT));
+    .openLockAndDraw(ILK, MATIC(VAULT1_ETH), MARTH(AMOUNT));
 });
 
 afterEach(cleanup);
@@ -57,16 +57,16 @@ test('Vault Display page and actions', async () => {
     </SidebarProvider>
   );
 
-  await findByText('ETH-A Vault #1');
+  await findByText('MATIC-A Vault #1');
   await findByText('Opened a new Vault with id #', {}, { timeout: 15000 });
 
   /**Wallet Balances */
   const getBalancesEl = () =>
     getByText('Wallet Balances').parentElement.parentElement;
   const getEthBal = () =>
-    within(getBalancesEl()).getByText('ETH').nextElementSibling.textContent;
+    within(getBalancesEl()).getByText('MATIC').nextElementSibling.textContent;
   const getEthUsdValue = () =>
-    within(getBalancesEl()).getByText('ETH').nextElementSibling
+    within(getBalancesEl()).getByText('MATIC').nextElementSibling
       .nextElementSibling.textContent;
   const getDaiBal = () =>
     within(getBalancesEl()).getByText('ARTH').nextElementSibling.textContent;
@@ -86,9 +86,9 @@ test('Vault Display page and actions', async () => {
   // wait for proxy check to complete
   await mineBlocks(web3, 5);
 
-  // ETH locked before
-  const [, depositLabel] = getAllByText('ETH locked');
-  expect(depositLabel.nextElementSibling.textContent).toBe('5.00 ETH');
+  // MATIC locked before
+  const [, depositLabel] = getAllByText('MATIC locked');
+  expect(depositLabel.nextElementSibling.textContent).toBe('5.00 MATIC');
 
   // submit deposit
   change(getByRole('textbox'), { target: { value: '2.33' } });
@@ -102,7 +102,7 @@ test('Vault Display page and actions', async () => {
   //check event history
   const depEvent = await findByText('2.33', {}, { timeout: 15000 });
   expect(depEvent.parentElement.textContent).toBe(
-    'Deposited 2.33 ETH into Vault'
+    'Deposited 2.33 MATIC into Vault'
   );
 
   // check updated balances
@@ -173,7 +173,7 @@ test('Vault Display page and actions', async () => {
 
   // amount to withdraw before
   expect(getByText('Able to withdraw').nextElementSibling.textContent).toBe(
-    '4.99 ETH'
+    '4.99 MATIC'
   );
 
   // submit withdraw
@@ -183,7 +183,7 @@ test('Vault Display page and actions', async () => {
 
   //check event history
   const wdEvent = await findByText(/Withdrew/, {}, { timeout: 15000 });
-  expect(wdEvent.textContent).toBe('Withdrew 2.00 ETH from Vault');
+  expect(wdEvent.textContent).toBe('Withdrew 2.00 MATIC from Vault');
 
   // check updated balances
   expect(getEthBal()).toContain('89.');

@@ -21,7 +21,7 @@ export default {
     not_applicable: 'N/A'
   },
   landing_page: {
-    headline: 'Trade, Borrow, and Save using $ARTH.',
+    headline: 'Introducing $ARTH. A layer-2 stablecoin.',
     trade_card: {
       title: 'Trade',
       description:
@@ -40,41 +40,41 @@ export default {
         'Earn savings on your $ARTH by locking it into ArthSavings. Automatic and non-custodial.',
       button: 'Save $ARTH'
     },
-    token_section_title: 'Collaterals supported by $ARTH',
+    token_section_title: '$ARTH is a stablecoin backed by the following collaterals',
     token_section_only_on_trade: '* Only available on Oasis Trade',
     section1_title: 'What is $ARTH?',
     section1_p:
-      'Oasis is a platform for decentralized finance. Use it to trade tokens, borrow ARTH, and earn savings — all in one place.',
-    section2_title: 'Secure protocol built on Ethereum',
+      '$ARTH is a layer-2 programmtic stablecoin. Trade, borrow, and earn savings with $ARTH — all in one place.',
+    section2_title: 'Secure protocol built on MakerDAO',
     section2_p:
-      'Oasis is built on top of audited and formally verified smart contracts created by Maker, the industry leader in secure decentralized finance.',
-    section3_title: 'Completely permissionless',
+      '$ARTH is built on top of audited and formally verified smart contracts created by Maker.',
+    section3_title: 'Completely decentralised',
     section3_p:
-      'Oasis is a decentralized, non-custodial platform, accessible using an Ethereum-supported wallet. You—and only you—control your assets.',
+      '$ARTH is a decentralized, non-custodial platform, accessible using a Matic-supported wallet. You—and only you—control your assets.',
     questions_title: 'Questions',
-    question1: 'What is Oasis?',
+    question1: 'What is $ARTH?',
     answer1:
       'Oasis is a decentralized application that runs on the Ethereum blockchain. Anyone can use Oasis to trade tokens, borrow against them, and earn savings using ARTH.',
-    question2: 'What is ARTH?',
+    question2: 'What is $ARTH?',
     answer2:
-      'ARTH is the world’s first unbiased currency and leading decentralized stablecoin soft-pegged to the US Dollar. Learn more about ARTH {0}.',
+      '$ARTH is the world’s first unbiased currency and leading decentralized stablecoin soft-pegged to the US Dollar. Learn more about ARTH {0}.',
     answer2_link1_url: 'https://makerdao.com/en/',
     answer2_link1_text: 'here',
     question3: 'Do I need an account?',
     answer3:
-      'You do not need an account to use Oasis. However, you will need an Ethereum wallet. Oasis supports most Ethereum browser wallets such as {0}, {1}, etc.',
+      'You do not need an account to use $ARTH. However, you will need a Matic wallet. Oasis supports most Ethereum browser wallets such as {0}, {1}, etc.',
     answer3_link1_url: 'https://metamask.io/',
     answer3_link1_text: 'Metamask',
     answer3_link2_url: 'https://wallet.coinbase.com/',
     answer3_link2_text: 'Coinbase Wallet',
-    question5: 'Is Oasis secure?',
+    question5: 'Is $ARTH secure?',
     answer5:
-      'Security is our top priority. The Oasis team regularly conducts audits on our smart contracts. In addition, the Oasis code is {0}, giving the community the ability to pressure test and audit the core technology.',
+      'The $ARTH code is {0}, giving the community the ability to pressure test and audit the core technology.',
     answer5_link1_url: 'https://github.com/OasisDEX',
     answer5_link1_text: 'open-source',
-    question6: 'Will I be charged a fee to use Oasis?',
+    question6: 'Will I be charged a fee to use $ARTH?',
     answer6:
-      'Oasis is free to use. However, you will have to pay gas and other fees associated with the Maker Protocol, such as Stability Fees.',
+      '$ARTH is free to use and trade. However, you will have to pay gas and other fees associated with the Maker Protocol, such as stability fees.',
     question7: 'How can I contact the Oasis team?',
     answer7: 'You can reach the Oasis team by contacting us on {0}.',
     answer7_link1_url: 'https://chat.makerdao.com',
@@ -227,11 +227,11 @@ export default {
   cdp_migrate: {
     select_title: 'Select Vault to Migrate',
     select_text:
-      'Select a Vault and pay back the stability fee in ARTH or MKR to migrate it to Multi-collateral ARTH and the new CDP Portal.',
+      'Select a Vault and pay back the stability fee in ARTH or MAHA to migrate it to Multi-collateral ARTH and the new CDP Portal.',
     current_ratio: 'Current Ratio',
     dai_debt: 'ARTH debt',
     fee_in_dai: 'Fee in ARTH',
-    fee_in_mkr: 'Fee in MKR',
+    fee_in_mkr: 'Fee in MAHA',
     migrate: 'Migrate',
     payment: 'Payment',
     trust_site_with_dai: 'Trust this site with my ARTH',

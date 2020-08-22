@@ -1,5 +1,5 @@
 import React from 'react';
-import { MARTH } from '@makerdao/dai-plugin-mcd';
+import { MARTH } from 'arth-plugin-mcd';
 import { Text, Input, Grid, Button } from '@makerdao/ui-components-core';
 import debug from 'debug';
 

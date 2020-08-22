@@ -2,7 +2,7 @@ import React from 'react';
 import * as navi from 'react-navi';
 import { waitForElement, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { MARTH, ETH } from '@makerdao/dai-plugin-mcd';
+import { MARTH, MATIC } from 'arth-plugin-mcd';
 import Overview from '../Overview';
 import { renderWithVaults } from '../../../test/helpers/render';
 import { instantiateMaker } from '../../maker';
@@ -14,7 +14,7 @@ navi.useCurrentRoute.mockReturnValue({
 });
 navi.Link = styled.a``;
 
-const ILK = 'ETH-A';
+const ILK = 'MATIC-A';
 const VAULT1_ETH = '6';
 const VAULT1_ART = '80.1234567';
 const VAULT2_ETH = '1';
@@ -27,11 +27,11 @@ beforeAll(async () => {
   maker = await instantiateMaker({ network: 'testnet' });
   await maker
     .service('mcd:cdpManager')
-    .openLockAndDraw(ILK, ETH(VAULT1_ETH), MARTH(VAULT1_ART));
+    .openLockAndDraw(ILK, MATIC(VAULT1_ETH), MARTH(VAULT1_ART));
 
   await maker
     .service('mcd:cdpManager')
-    .openLockAndDraw(ILK, ETH(VAULT2_ETH), MARTH(VAULT2_ART));
+    .openLockAndDraw(ILK, MATIC(VAULT2_ETH), MARTH(VAULT2_ART));
 });
 
 afterEach(cleanup);
@@ -53,9 +53,9 @@ test('render overview page and display calculated vault values', async () => {
   // Current ratio
   getByText(/11\d\d.\d\d%/);
   // Deposited
-  getByText('6.00 ETH');
+  getByText('6.00 MATIC');
   // Available to withdraw
-  getByText('5.20 ETH');
+  getByText('5.20 MATIC');
   // Privacy policy
   getByText('privacy policy');
 

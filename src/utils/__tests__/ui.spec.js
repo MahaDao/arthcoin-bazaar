@@ -19,7 +19,7 @@ export const mockEventDataFromSDK = [
     txHash:
       '0x9ed1546f3f76b33447c8ff685eb110d64ea9ce1bae5ecfaf0ca5d06477c8eb18',
     id: 218,
-    ilk: 'ETH-A',
+    ilk: 'MATIC-A',
     adapter: '0x9e0d5a6a836a6c323cf45eb07cb40cfc81664eec',
     proxy: '0x90d01f84f8db06d9af09054fe06fb69c1f8ee9e9',
     recipient: '0x57b8cdd304c39f772f956bdb58003fd4f17391a2',
@@ -42,7 +42,7 @@ export const mockEventDataFromSDK = [
     txHash:
       '0xff0eeab88ad9f2ee908e9eabab184a5836870043d3fad9c899f3ba99f83fa1e7',
     id: 218,
-    ilk: 'ETH-A',
+    ilk: 'MATIC-A',
     adapter: '0x9e0d5a6a836a6c323cf45eb07cb40cfc81664eec',
     proxy: '0xdb2a2d8ac9f10f4d6041462758241844add6b9d1',
     recipient: '0x57b8cdd304c39f772f956bdb58003fd4f17391a2',
@@ -55,7 +55,7 @@ export const mockEventDataFromSDK = [
     txHash:
       '0xb94c9b46c5d48f9ac39199a14f531f324e8f4dc0ba94b7a909857f219a3b5ce2',
     id: 218,
-    ilk: 'ETH-A',
+    ilk: 'MATIC-A',
     adapter: '0x9e0d5a6a836a6c323cf45eb07cb40cfc81664eec',
     proxy: '0xdb2a2d8ac9f10f4d6041462758241844add6b9d1',
     recipient: '0x7227bd52777cb85a89cb5f9eaf8e18f95ad91071',
@@ -68,8 +68,8 @@ export const mockEventDataFromSDK = [
     txHash:
       '0x56435b544ead6b5ceb99bf7a601bb46fedc6e7acde67fcff37a1862673fd09a6',
     id: 218,
-    ilk: 'ETH-A',
-    gem: 'ETH',
+    ilk: 'MATIC-A',
+    gem: 'MATIC',
     adapter: '0xb597803e4b5b2a43a92f3e1dcafea5425c873116',
     amount: '0.000456',
     timestamp: 1573233204
@@ -80,8 +80,8 @@ export const mockEventDataFromSDK = [
     txHash:
       '0xa7eca69f08404a291d225e6039e0344a764b0ec53a4d3050cda6161f9f7275aa',
     id: 218,
-    ilk: 'ETH-A',
-    gem: 'ETH',
+    ilk: 'MATIC-A',
+    gem: 'MATIC',
     adapter: '0xb597803e4b5b2a43a92f3e1dcafea5425c873116',
     amount: '0.00001',
     timestamp: 1573232468
@@ -92,7 +92,7 @@ export const mockEventDataFromSDK = [
     txHash:
       '0x490b3114259cf08408455e8f4b73237cd7861769e5a380c999cb1f0819bb46ed',
     id: 218,
-    ilk: 'ETH-A',
+    ilk: 'MATIC-A',
     adapter: '0x9e0d5a6a836a6c323cf45eb07cb40cfc81664eec',
     proxy: '0xdb2a2d8ac9f10f4d6041462758241844add6b9d1',
     recipient: '0x7227bd52777cb85a89cb5f9eaf8e18f95ad91071',
@@ -105,8 +105,8 @@ export const mockEventDataFromSDK = [
     txHash:
       '0x490b3114259cf08408455e8f4b73237cd7861769e5a380c999cb1f0819bb46ed',
     id: 218,
-    ilk: 'ETH-A',
-    gem: 'ETH',
+    ilk: 'MATIC-A',
+    gem: 'MATIC',
     adapter: '0xb597803e4b5b2a43a92f3e1dcafea5425c873116',
     amount: '10000',
     timestamp: 1573232392
@@ -117,7 +117,7 @@ export const mockEventDataFromSDK = [
     txHash:
       '0x490b3114259cf08408455e8f4b73237cd7861769e5a380c999cb1f0819bb46ed',
     id: 218,
-    ilk: 'ETH-A',
+    ilk: 'MATIC-A',
     timestamp: 1573232392
   }
 ];
@@ -138,7 +138,7 @@ test('formatEventDescription', () => {
     ReactDOMServer.renderToStaticMarkup(
       formatEventDescription(lang, mockEventDataFromSDK[8])
     )
-  ).toBe('Deposited <b>10,000.00</b> ETH into Vault');
+  ).toBe('Deposited <b>10,000.00</b> MATIC into Vault');
 });
 
 test('firstLetterLowercase', () => {

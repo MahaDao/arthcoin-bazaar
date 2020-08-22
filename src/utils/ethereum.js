@@ -1,5 +1,5 @@
 import round from 'lodash/round';
-import { ETH, BAT } from '../maker';
+import { MATIC, BAT } from '../maker';
 import BigNumber from 'bignumber.js';
 import Web3 from 'web3';
 
@@ -37,7 +37,7 @@ export const addTokenBalances = async account => {
   return {
     ...account,
     ethBalance: round(
-      await toNum(window.maker.getToken(ETH).balanceOf(account.address)),
+      await toNum(window.maker.getToken(MATIC).balanceOf(account.address)),
       2
     ),
     batBalance: round(

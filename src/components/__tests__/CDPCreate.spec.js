@@ -54,8 +54,8 @@ test('the whole flow', async () => {
   // Wait for balances & collateral data
   await mineBlocks(web3);
 
-  const [ethRadioButton] = getAllByRole('radio'); // ETH-A is the first ilk
-  await findByText(/100 ETH/); // ETH Balance
+  const [ethRadioButton] = getAllByRole('radio'); // MATIC-A is the first ilk
+  await findByText(/100 MATIC/); // MATIC Balance
   click(ethRadioButton);
   click(getByText('Continue'));
 
@@ -71,8 +71,8 @@ test('the whole flow', async () => {
   click(getByText('Continue'));
 
   // Deposit and Generate form
-  getByText('Deposit ETH and Generate ARTH');
-  change(getByLabelText('ETH'), { target: { value: '2.12845673' } });
+  getByText('Deposit MATIC and Generate ARTH');
+  change(getByLabelText('MATIC'), { target: { value: '2.12845673' } });
   change(getByLabelText('ARTH'), { target: { value: '31.11911157' } });
   const continueButton = getByText('Continue');
   await wait(() => assert(!continueButton.disabled));
@@ -80,7 +80,7 @@ test('the whole flow', async () => {
 
   // Confirmation page
   getByText('Confirm Vault Details');
-  getByText('2.128 ETH');
+  getByText('2.128 MATIC');
   getByText('31.119 ARTH');
   getByText('1025.95%'); // collateralization ratio
   getAllByRole('checkbox').forEach(click); // terms & privacy

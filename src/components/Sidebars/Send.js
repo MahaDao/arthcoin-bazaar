@@ -37,14 +37,14 @@ const Send = ({ token, trackBtnClick, reset }) => {
   const [gasCost, setGasCost] = useState(ZERO);
   const [destAddress, setDestAddress] = useState('');
 
-  const minAmount = token === 'ETH' ? gasCost : ZERO;
-  const maxAmount = token === 'ETH' ? balance.minus(gasCost) : balance;
+  const minAmount = token === 'MATIC' ? gasCost : ZERO;
+  const maxAmount = token === 'MATIC' ? balance.minus(gasCost) : balance;
 
   const displayToken =
-    token === 'MARTH' ? 'ARTH' : token === 'MWETH' ? 'WETH' : token;
+    token === 'MARTH' ? 'ARTH' : token === 'MWETH' ? 'WMATIC' : token;
 
   const inRangeAndEth = _val =>
-    token === 'ETH' && _val.gt(ZERO) && _val.lte(balance);
+    token === 'MATIC' && _val.gt(ZERO) && _val.lte(balance);
 
   const mapBN = cb => val => cb(BigNumber(val));
 
@@ -124,7 +124,7 @@ const Send = ({ token, trackBtnClick, reset }) => {
   const valid =
     amount !== '' && destAddress !== '' && amountIsValid && destAddressIsValid;
 
-  const showSetMax = token !== 'ETH' || balance.gte(gasCost);
+  const showSetMax = token !== 'MATIC' || balance.gte(gasCost);
 
   const transfer = async () => {
     maker.getToken(token).transfer(destAddress, amount);

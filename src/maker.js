@@ -1,5 +1,5 @@
 import Maker, { USD, ARTH } from 'arthcoin.js';
-import McdPlugin, { ETH, BAT, MARTH } from '@makerdao/dai-plugin-mcd';
+import McdPlugin, { MATIC, DAI, BAT, MARTH } from 'arth-plugin-mcd';
 import trezorPlugin from '@makerdao/dai-plugin-trezor-web';
 import ledgerPlugin from '@makerdao/dai-plugin-ledger-web';
 import walletLinkPlugin from '@makerdao/dai-plugin-walletlink';
@@ -7,7 +7,7 @@ import walletConnectPlugin from '@makerdao/dai-plugin-walletconnect';
 import configPlugin from '@makerdao/dai-plugin-config';
 import networkConfig from './references/config';
 import { networkNameToId } from './utils/network';
-import { getQueryParamByName } from './utils/dev';
+// import { getQueryParamByName } from './utils/dev';
 
 import maticAddresses from './references/contracts/matic';
 
@@ -32,9 +32,11 @@ export function getMaker() {
 }
 
 const cdpTypes = [
-  { currency: ETH, ilk: 'ARTH-A' }
+  { currency: MATIC, ilk: 'MATIC-A' }
   // { currency: BAT, ilk: 'BAT-A' }
 ];
+
+console.log(MATIC.symbol)
 
 export async function instantiateMaker({
   rpcUrl,
@@ -102,4 +104,4 @@ export async function instantiateMaker({
   return maker;
 }
 
-export { USD, ARTH, ETH, BAT, MARTH };
+export { USD, ARTH, MATIC, BAT, MARTH };

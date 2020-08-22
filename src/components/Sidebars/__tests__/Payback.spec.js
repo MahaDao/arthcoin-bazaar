@@ -6,10 +6,10 @@ import {
   act
 } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { BAT, USD, MARTH } from '@makerdao/dai-plugin-mcd';
+import { BAT, USD, MARTH } from 'arth-plugin-mcd';
 import { createCurrencyRatio } from '@makerdao/currency';
 import { TestAccountProvider, mineBlocks } from '@makerdao/test-helpers';
-import * as math from '@makerdao/dai-plugin-mcd/dist/math';
+import * as math from 'arth-plugin-mcd/dist/math';
 import waitForExpect from 'wait-for-expect';
 
 import Payback from '../Payback';
@@ -23,7 +23,7 @@ jest.mock('react-navi', () => ({
 
 afterEach(cleanup);
 
-const ILK = 'ETH-A';
+const ILK = 'MATIC-A';
 const LIQUIDATION_RATIO = '200';
 const COL_AMT = 300.123456789012345678;
 

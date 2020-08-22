@@ -1,9 +1,9 @@
 import React from 'react';
 import { cleanup, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { BAT, USD, MARTH } from '@makerdao/dai-plugin-mcd';
-import { fromWei } from '@makerdao/dai-plugin-mcd/dist/utils';
-import * as math from '@makerdao/dai-plugin-mcd/dist/math';
+import { BAT, USD, MARTH } from 'arth-plugin-mcd';
+import { fromWei } from 'arth-plugin-mcd/dist/utils';
+import * as math from 'arth-plugin-mcd/dist/math';
 import { createCurrency, createCurrencyRatio } from '@makerdao/currency';
 import {
   TestAccountProvider,

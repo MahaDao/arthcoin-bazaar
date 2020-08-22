@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import assert from 'assert';
 import { wait, fireEvent, waitForElement } from '@testing-library/react';
-import { MARTH, ETH } from '@makerdao/dai-plugin-mcd';
+import { MARTH, MATIC } from 'arth-plugin-mcd';
 import { mineBlocks, TestAccountProvider } from '@makerdao/test-helpers';
 
 import DSRDeposit from '../DSRDeposit';
@@ -14,7 +14,7 @@ import useMaker from 'hooks/useMaker';
 const { click, change } = fireEvent;
 
 const AMOUNT = 80.1234567;
-const ILK = 'ETH-A';
+const ILK = 'MATIC-A';
 let maker;
 let web3;
 let noProxyAcct;
@@ -24,7 +24,7 @@ beforeAll(async () => {
   maker = await instantiateMaker({ network: 'testnet' });
   await await maker
     .service('mcd:cdpManager')
-    .openLockAndDraw(ILK, ETH(1), MARTH(AMOUNT));
+    .openLockAndDraw(ILK, MATIC(1), MARTH(AMOUNT));
 
   TestAccountProvider.setIndex(345);
   noProxyAcct = TestAccountProvider.nextAccount();

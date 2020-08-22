@@ -103,7 +103,7 @@ function HardwareAccountSelect({ type, path, onClose, confirmAddress }) {
                 </Box>
               </th>
               <th>Address</th>
-              <th>ETH</th>
+              <th>MATIC</th>
               <th>BAT</th>
             </tr>
           </thead>
@@ -135,7 +135,7 @@ function HardwareAccountSelect({ type, path, onClose, confirmAddress }) {
                       </CopyBtn>
                     </Flex>
                   </td>
-                  <td>{ethBalance} ETH</td>
+                  <td>{ethBalance} MATIC</td>
                   <td>{batBalance} BAT</td>
                 </tr>
               )

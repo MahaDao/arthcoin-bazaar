@@ -70,8 +70,8 @@ test('should send 1 BAT successfully', async () => {
   });
 });
 
-test('basic rendering when sending ETH', async () => {
-  const token = 'ETH';
+test('basic rendering when sending MATIC', async () => {
+  const token = 'MATIC';
   const { getByText } = render(<Send token={token} />);
 
   await waitForElement(() =>
@@ -94,7 +94,7 @@ test('basic rendering when sending ARTH', async () => {
   getByText(lang.formatString(lang.action_sidebar.send_description, 'ARTH'));
 });
 
-test('basic rendering when sending WETH', async () => {
+test('basic rendering when sending WMATIC', async () => {
   const token = 'MWETH';
   let getByText;
   act(() => {
@@ -103,7 +103,7 @@ test('basic rendering when sending WETH', async () => {
   });
 
   await waitForElement(() =>
-    getByText(lang.formatString(lang.action_sidebar.send_title, 'WETH'))
+    getByText(lang.formatString(lang.action_sidebar.send_title, 'WMATIC'))
   );
-  getByText(lang.formatString(lang.action_sidebar.send_description, 'WETH'));
+  getByText(lang.formatString(lang.action_sidebar.send_description, 'WMATIC'));
 });

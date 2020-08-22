@@ -1,8 +1,8 @@
 import React from 'react';
 import { cleanup, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import * as math from '@makerdao/dai-plugin-mcd/dist/math';
-import { BAT, MARTH, USD } from '@makerdao/dai-plugin-mcd';
+import * as math from 'arth-plugin-mcd/dist/math';
+import { BAT, MARTH, USD } from 'arth-plugin-mcd';
 import BigNumber from 'bignumber.js';
 
 import Generate from '../Generate';
