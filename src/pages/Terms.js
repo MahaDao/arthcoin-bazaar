@@ -45,9 +45,9 @@ const Privacy = () => (
       <h3>1.1. Services</h3>
 
       <p>
-        The Company has developed ARTH – an online, decentralized and
-        autonomous environment that displays price information and autonomous
-        smart contract mechanisms of digital tokens and assets (“
+        The Company has developed ARTH – an online, decentralized and autonomous
+        environment that displays price information and autonomous smart
+        contract mechanisms of digital tokens and assets (“
         <strong>Digital Assets</strong>”) and provides the user-interface that
         guides your access to ARTH (the “<strong>Services</strong>”).
       </p>
@@ -521,8 +521,8 @@ const Privacy = () => (
         and you agree to abide by the terms of this license.
       </p>
       <p>
-        The “ARTH” name, the ARTH logo, other related trademarks (“ARTH
-        DeFi,” “ARTH DEX”), and the web domains and URLs are property of Maker
+        The “ARTH” name, the ARTH logo, other related trademarks (“ARTH DeFi,”
+        “ARTH DEX”), and the web domains and URLs are property of Maker
         Ecosystem Growth Foundation and “ARTH Pro” is owned by ARTH Pro Buyer,
         LLC and are not covered under the licenses above. Using our Services
         does not give you ownership of any proprietary intellectual property
