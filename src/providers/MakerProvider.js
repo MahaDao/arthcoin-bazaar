@@ -84,7 +84,7 @@ function MakerProvider({
 
   useEffect(() => {
     (async () => {
-      console.log(network, testchainId)
+      console.log(network, testchainId);
       const newMaker = await instantiateMaker({
         network,
         testchainId,

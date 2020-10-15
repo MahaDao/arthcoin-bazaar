@@ -40,21 +40,21 @@ export default {
         '存 ARTH 生息，随存随取',
       button: '存 ARTH'
     },
-    token_section_title: 'Oasis Trade 支持的交易对',
-    token_section_only_on_trade: '* 只在 Oasis Trade 支持',
-    section1_title: 'Oasis 是什么?',
+    token_section_title: 'ARTH Trade 支持的交易对',
+    token_section_only_on_trade: '* 只在 ARTH Trade 支持',
+    section1_title: 'ARTH 是什么?',
     section1_p:
-      'Oasis 是去中心化金融 (DeFi) 的一站式平台。你可以交易数字资产、借 ARTH 和存 ARTH 赚利息。',
+      'ARTH 是去中心化金融 (DeFi) 的一站式平台。你可以交易数字资产、借 ARTH 和存 ARTH 赚利息。',
     section2_title: '基于以太坊的安全协议',
     section2_p:
-      'Oasis 是由 Maker 开发，基于以太坊创建、通过形式化验证和安全审计的智能合约，是去中心化金融领域的领导者。',
+      'ARTH 是由 Maker 开发，基于以太坊创建、通过形式化验证和安全审计的智能合约，是去中心化金融领域的领导者。',
     section3_title: '完全无门槛',
     section3_p:
-      'Oasis 是完全去中心化、无中心化托管的平台，通过以太坊钱包即可访问，资产永远掌握在用户自己手里。',
+      'ARTH 是完全去中心化、无中心化托管的平台，通过以太坊钱包即可访问，资产永远掌握在用户自己手里。',
     questions_title: '常见问题',
-    question1: 'Oasis 是什么?',
+    question1: 'ARTH 是什么?',
     answer1:
-      'Oasis 是运行在以太坊区块链上的去中心化应用。任何人都可以在 Oasis 上交易数字资产、抵押借 ARTH 并且存 ARTH 生息。',
+      'ARTH 是运行在以太坊区块链上的去中心化应用。任何人都可以在 ARTH 上交易数字资产、抵押借 ARTH 并且存 ARTH 生息。',
     question2: 'ARTH 是什么?',
     answer2:
       'ARTH 是全球第一个无偏见的去中心化稳定币，其价格和美元保持软锚定。了解 ARTH：{0}',
@@ -62,27 +62,27 @@ export default {
     answer2_link1_text: '更多内容',
     question3: '我需要注册账户吗?',
     answer3:
-      '使用 Oasis，你不用注册账户，只需要通过以太坊钱包连接。Oasis 支持以下以太坊钱包: {0}, {1} 等。',
+      '使用 ARTH，你不用注册账户，只需要通过以太坊钱包连接。ARTH 支持以下以太坊钱包: {0}, {1} 等。',
     answer3_link1_url: 'https://metamask.io/',
     answer3_link1_text: 'Metamask',
     answer3_link2_url: 'https://wallet.coinbase.com/',
     answer3_link2_text: 'Coinbase Wallet',
-    question5: 'Oasis 安全吗?',
+    question5: 'ARTH 安全吗?',
     answer5:
-      'Oasis 具备最高的安全标准，并且经过日常的审计和形式化验证。此外, Oasis 是 {0} 协议，任何人都可以测试和审计。',
-    answer5_link1_url: 'https://github.com/OasisDEX',
+      'ARTH 具备最高的安全标准，并且经过日常的审计和形式化验证。此外, ARTH 是 {0} 协议，任何人都可以测试和审计。',
+    answer5_link1_url: 'https://github.com/ARTHDEX',
     answer5_link1_text: '开源',
-    question6: '在 Oasis 上交易需要付手续费吗？',
+    question6: '在 ARTH 上交易需要付手续费吗？',
     answer6:
-      'Oasis 协议本身是完全免费的。在使用过程中，你仅需要支付以太坊矿工费。',
-    question7: '如何联系 Oasis 团队?',
-    answer7: '你可以通过 {0} 联系 Oasis 团队。',
+      'ARTH 协议本身是完全免费的。在使用过程中，你仅需要支付以太坊矿工费。',
+    question7: '如何联系 ARTH 团队?',
+    answer7: '你可以通过 {0} 联系 ARTH 团队。',
     answer7_link1_url: 'https://chat.makerdao.com',
     answer7_link1_text: 'chat',
     question8:
-      '我可以用银行卡在 Oasis 上购买比特币或者以太坊吗？',
+      '我可以用银行卡在 ARTH 上购买比特币或者以太坊吗？',
     answer8:
-      '你无法在 Oasis 用银行卡购买加密资产，你可以用 ARTH 购买以太坊和其他资产。',
+      '你无法在 ARTH 用银行卡购买加密资产，你可以用 ARTH 购买以太坊和其他资产。',
     read_only: 'Read-Only',
     wallet_connect: 'Wallet Connect',
     wallet_link: 'Coinbase Wallet'

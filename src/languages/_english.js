@@ -21,7 +21,7 @@ export default {
     not_applicable: 'N/A'
   },
   landing_page: {
-    headline: 'Introducing $ARTH. A layer-2 stablecoin.',
+    headline: 'Introducing ARTH. The world\'s first valuecoin.',
     trade_card: {
       title: 'Trade',
       description:
@@ -41,7 +41,7 @@ export default {
       button: 'Save $ARTH'
     },
     token_section_title: '$ARTH is a stablecoin backed by the following collaterals',
-    token_section_only_on_trade: '* Only available on Oasis Trade',
+    token_section_only_on_trade: '* Only available on ARTH Trade',
     section1_title: 'What is $ARTH?',
     section1_p:
       '$ARTH is a layer-2 programmtic stablecoin. Trade, borrow, and earn savings with $ARTH — all in one place.',
@@ -54,7 +54,7 @@ export default {
     questions_title: 'Questions',
     question1: 'What is $ARTH?',
     answer1:
-      'Oasis is a decentralized application that runs on the Ethereum blockchain. Anyone can use Oasis to trade tokens, borrow against them, and earn savings using ARTH.',
+      'ARTH is a decentralized application that runs on the Ethereum blockchain. Anyone can use ARTH to trade tokens, borrow against them, and earn savings using ARTH.',
     question2: 'What is $ARTH?',
     answer2:
       '$ARTH is the world’s first unbiased currency and leading decentralized stablecoin soft-pegged to the US Dollar. Learn more about ARTH {0}.',
@@ -62,7 +62,7 @@ export default {
     answer2_link1_text: 'here',
     question3: 'Do I need an account?',
     answer3:
-      'You do not need an account to use $ARTH. However, you will need a Matic wallet. Oasis supports most Ethereum browser wallets such as {0}, {1}, etc.',
+      'You do not need an account to use $ARTH. However, you will need a Matic wallet. ARTH supports most Ethereum browser wallets such as {0}, {1}, etc.',
     answer3_link1_url: 'https://metamask.io/',
     answer3_link1_text: 'Metamask',
     answer3_link2_url: 'https://wallet.coinbase.com/',
@@ -70,19 +70,19 @@ export default {
     question5: 'Is $ARTH secure?',
     answer5:
       'The $ARTH code is {0}, giving the community the ability to pressure test and audit the core technology.',
-    answer5_link1_url: 'https://github.com/OasisDEX',
+    answer5_link1_url: 'https://github.com/ARTHDEX',
     answer5_link1_text: 'open-source',
     question6: 'Will I be charged a fee to use $ARTH?',
     answer6:
       '$ARTH is free to use and trade. However, you will have to pay gas and other fees associated with the Maker Protocol, such as stability fees.',
-    question7: 'How can I contact the Oasis team?',
-    answer7: 'You can reach the Oasis team by contacting us on {0}.',
+    question7: 'How can I contact the ARTH team?',
+    answer7: 'You can reach the ARTH team by contacting us on {0}.',
     answer7_link1_url: 'https://chat.makerdao.com',
     answer7_link1_text: 'chat',
     question8:
-      'Can I buy Bitcoin or Ethereum on Oasis using a credit card or via my bank account?',
+      'Can I buy Bitcoin or Ethereum on ARTH using a credit card or via my bank account?',
     answer8:
-      'You cannot buy crypto from your bank account using Oasis. Instead, you can use ARTH to buy Ethereum and other supported tokens.',
+      'You cannot buy crypto from your bank account using ARTH. Instead, you can use ARTH to buy Ethereum and other supported tokens.',
     read_only: 'Read-Only',
     wallet_connect: 'Wallet Connect',
     wallet_link: 'Coinbase Wallet'
@@ -167,7 +167,7 @@ export default {
     setup_proxy_proxy_text:
       'Configure your Vault for easy management. This only has to be done once.',
     setup_proxy_allowance_text:
-      'This permission allows Oasis to interact with your {0}. This has to be done once for each new collateral type.',
+      'This permission allows ARTH to interact with your {0}. This has to be done once for each new collateral type.',
     setup_proxy_proxy_button: 'Setup',
     setup_proxy_allowance_button: 'Set',
     setup_vault: 'Setup Vault',
@@ -253,7 +253,7 @@ export default {
       confirmation: 'Confirmation'
     },
     setup_header: 'Deploy Proxy',
-    open_vault: 'Earn savings on your ARTH by locking into Oasis Save',
+    open_vault: 'Earn savings on your ARTH by locking into ARTH Save',
     deposit_form_title: 'Enter the amount you would like to deposit.',
     setup_proxy_text:
       'Setting up your proxy will bundle multiple transactions into one, saving transaction time and gas costs. This only has to be done once.',

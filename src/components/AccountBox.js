@@ -146,7 +146,8 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
     () =>
       showWalletTokens.reduceRight((acc, token) => {
         const balanceGtZero = !!(balances[token] && balances[token].gt(0));
-        if (token !== 'MATIC' && token !== 'MARTH' && !balanceGtZero) return acc;
+        if (token !== 'MATIC' && token !== 'MARTH' && !balanceGtZero)
+          return acc;
         const symbol = formatSymbol(token);
 
         const tokenIsDaiOrDsr =

@@ -36,7 +36,7 @@ const cdpTypes = [
   // { currency: BAT, ilk: 'BAT-A' }
 ];
 
-console.log(MATIC.symbol)
+console.log(MATIC.symbol);
 
 export async function instantiateMaker({
   rpcUrl,

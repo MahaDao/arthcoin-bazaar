@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import styled from 'styled-components';
 import { Link, useCurrentRoute } from 'react-navi';
 
-import OasisLayout from '../layouts/OasisLayout';
+import ARTHLayout from '../layouts/OasisLayout';
 import SEO from '../components/SEO';
 import mixpanel from 'mixpanel-browser';
 import { Routes } from '../utils/constants';
@@ -405,8 +405,8 @@ function Landing() {
   const { lang } = useLanguage();
 
   return (
-    <OasisLayout>
-      <SEO title="ArthCoin" />
+    <ARTHLayout>
+      <SEO title="ArthCoin Alpha" />
       <Hero>{lang.landing_page.headline}</Hero>
       <Cards>
         <Card
@@ -530,7 +530,7 @@ function Landing() {
         <h3>{lang.landing_page.questions_title}</h3>
         <Questions />
       </TextSection>
-    </OasisLayout>
+    </ARTHLayout>
   );
 }
 

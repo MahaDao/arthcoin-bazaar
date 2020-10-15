@@ -118,12 +118,12 @@ export default mount({
   }),
 
   [`/${Routes.PRIVACY}`]: route(() => ({
-    title: 'Oasis - Privacy Policy',
+    title: 'ARTH - Privacy Policy',
     view: <Privacy />
   })),
 
   [`/${Routes.TERMS}`]: route(() => ({
-    title: 'Oasis - Terms of Service',
+    title: 'ARTH - Terms of Service',
     view: <Terms />
   }))
 });

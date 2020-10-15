@@ -1,9 +1,9 @@
-# Oasis Borrow/Save
+# ARTH CDP Portal
 
 [![Build Status][build]][build-url]
 [![Coverage Status][cover]][cover-url]
 
-## The official Maker dapp for managing Vaults and generating Dai
+## The official dapp for managing Vaults and generating ARTH
 
 ### Prerequisites
 
@@ -15,11 +15,10 @@ Have installed:
 
 ### Installation
 
-1. `git clone https://github.com/makerdao/mcd-cdp-portal.git`
+1. `git@github.com:MahaDao/arthcoin-bazaar.git`
+2. `cd arthcoin-bazaar && yarn`
 
-2. `cd mcd-cdp-portal && yarn`
-
-### Running Oasis
+### Running the portal
 
 - `yarn start`
 - Go to http://localhost:3000
@@ -40,8 +39,3 @@ For hardware wallet support:
 3) Navigate to `http://localhost:3000?network=testnet&simplePriceFeeds=1`
 
 _see [this PR](https://github.com/makerdao/mcd-cdp-portal/pull/26) for more details_
-
-[build]: https://circleci.com/gh/makerdao/mcd-cdp-portal.svg?style=svg
-[build-url]: https://circleci.com/gh/makerdao/mcd-cdp-portal
-[cover]: https://codecov.io/gh/makerdao/mcd-cdp-portal/branch/master/graph/badge.svg
-[cover-url]: https://codecov.io/gh/makerdao/mcd-cdp-portal
