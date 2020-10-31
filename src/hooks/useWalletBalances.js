@@ -14,7 +14,7 @@ const useWalletBalances = () => {
   const dsrBalance = watch.daiLockedInDsr(account?.address);
   const tokenBalances = watch.tokenBalances(account?.address, symbols);
 
-  console.log('symbols', symbols)
+  console.log('symbols', symbols);
 
   return (
     tokenBalances?.reduce(

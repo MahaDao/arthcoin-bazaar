@@ -52,7 +52,7 @@ function IlkTableRow({
   ilkData
 }) {
   const { trackInputChange } = useAnalytics('SelectCollateral', 'VaultCreate');
-  console.log('ilkData', ilkData)
+  console.log('ilkData', ilkData);
   const { annualStabilityFee, liquidationRatio, liquidationPenalty } = ilkData;
   async function selectIlk() {
     trackInputChange('CollateralType', {
@@ -109,8 +109,8 @@ const CDPCreateSelectCollateral = ({
   const { cdpTypes } = useCdpTypes();
   const hasAllowanceAndProxy = hasAllowance && !!proxyAddress;
 
-  console.log('cdpTypes got', cdpTypes)
-  console.log('collateralTypesData', collateralTypesData, balances)
+  console.log('cdpTypes got', cdpTypes);
+  console.log('collateralTypesData', collateralTypesData, balances);
   return (
     <Box
       maxWidth="1040px"
@@ -150,26 +150,25 @@ const CDPCreateSelectCollateral = ({
                   </tr>
                 </thead>
                 <tbody>
-                  {cdpTypes.map(
-                    ilk => {
-
-                      console.log('test', ilk.symbol, collateralTypesData)
-                      return collateralTypesData &&
-                        balances[ilk.gem] && (
-                          <IlkTableRow
-                            key={ilk.symbol}
-                            checked={ilk.symbol === selectedIlk.symbol}
-                            dispatch={dispatch}
-                            ilk={ilk}
-                            gemBalance={balances[ilk.gem]}
-                            isFirstVault={isFirstVault}
-                            ilkData={collateralTypesData.find(
-                              x => x.symbol === ilk.symbol
-                            )}
-                          />
-                        )
-                    }
-                  )}
+                  {cdpTypes.map(ilk => {
+                    console.log('test', ilk.symbol, collateralTypesData);
+                    return (
+                      collateralTypesData &&
+                      balances[ilk.gem] && (
+                        <IlkTableRow
+                          key={ilk.symbol}
+                          checked={ilk.symbol === selectedIlk.symbol}
+                          dispatch={dispatch}
+                          ilk={ilk}
+                          gemBalance={balances[ilk.gem]}
+                          isFirstVault={isFirstVault}
+                          ilkData={collateralTypesData.find(
+                            x => x.symbol === ilk.symbol
+                          )}
+                        />
+                      )
+                    );
+                  })}
                 </tbody>
               </Table>
             </Overflow>

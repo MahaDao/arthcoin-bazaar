@@ -12,6 +12,6 @@ export default function useCdpTypes() {
     return acc;
   }, []);
 
-  console.log('cdpTypes', cdpTypes, cdpTypesList)
+  console.log('cdpTypes', cdpTypes, cdpTypesList);
   return { cdpTypes, cdpTypesList };
 }

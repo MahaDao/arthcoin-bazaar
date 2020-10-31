@@ -17,7 +17,6 @@ import ScreenHeader from '../ScreenHeader';
 import RatioDisplay, { RatioDisplayTypes } from 'components/RatioDisplay';
 import BigNumber from 'bignumber.js';
 
-
 function OpenCDPForm({
   selectedIlk,
   cdpParams,
@@ -61,17 +60,17 @@ function OpenCDPForm({
         failureMessage={
           userHasSufficientGemBalance || !cdpParams.gemsToLock
             ? hasSufficientAllowance(
-              cdpParams.gemsToLock === '' ? 0 : cdpParams.gemsToLock
-            )
+                cdpParams.gemsToLock === '' ? 0 : cdpParams.gemsToLock
+              )
               ? null
               : lang.formatString(
-                lang.action_sidebar.invalid_allowance,
+                  lang.action_sidebar.invalid_allowance,
+                  selectedIlk.gem
+                )
+            : lang.formatString(
+                lang.cdp_create.insufficient_ilk_balance,
                 selectedIlk.gem
               )
-            : lang.formatString(
-              lang.cdp_create.insufficient_ilk_balance,
-              selectedIlk.gem
-            )
         }
       />,
       <Box key="ba">

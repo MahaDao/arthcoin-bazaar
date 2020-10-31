@@ -28,7 +28,7 @@ export default function useTokenAllowance(tokenSymbol) {
       try {
         maker.getToken(tokenSymbol);
       } catch (error) {
-        console.log('hit btich1', error)
+        console.log('hit btich1', error);
       }
       const token = maker.getToken(tokenSymbol);
       const txPromise = token.approveUnlimited(proxyAddress);

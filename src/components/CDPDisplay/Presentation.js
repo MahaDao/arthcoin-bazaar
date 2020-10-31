@@ -28,7 +28,7 @@ import { formatter } from 'utils/ui';
 const log = debug('maker:CDPDisplay/Presentation');
 const { FF_VAULT_HISTORY } = FeatureFlags;
 
-export default function ({ vault, showSidebar, account, network, cdpOwner }) {
+export default function({ vault, showSidebar, account, network, cdpOwner }) {
   const { lang } = useLanguage();
   const { maker } = useMaker();
   const { trackBtnClick } = useAnalytics('CollateralView');

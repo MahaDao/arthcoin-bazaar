@@ -47,7 +47,7 @@ const CDPCreateConfirmSummary = ({
 
   const { liquidationPenalty, liquidationRatio, annualStabilityFee } = ilkData;
 
-  console.log('prettifyNumber', cdpParams, selectedIlk, ilkData, DAI)
+  console.log('prettifyNumber', cdpParams, selectedIlk, ilkData, DAI);
   const rows = [
     [
       lang.verbs.depositing,
@@ -186,10 +186,11 @@ const CDPCreateConfirmed = ({ hash, isFirstVault, onClose, txState }) => {
       const waitTimeText =
         waitTime < 1
           ? `${seconds} ${lang.cdp_create.seconds_wait_time}`
-          : `${minutes} ${minutes === 1
-            ? lang.cdp_create.minutes_wait_time_singular
-            : lang.minutes_wait_time_plural
-          }`;
+          : `${minutes} ${
+              minutes === 1
+                ? lang.cdp_create.minutes_wait_time_singular
+                : lang.minutes_wait_time_plural
+            }`;
 
       setWaitTime(waitTimeText);
     })();
@@ -223,19 +224,19 @@ const CDPCreateConfirmed = ({ hash, isFirstVault, onClose, txState }) => {
                 <Text>{hash}</Text>
               </Grid>
             ) : (
-                <Link
-                  target="_blank"
-                  href={etherscanLink(hash, networkIdToName(networkId))}
-                  onClick={() => {
-                    trackBtnClick('TxDetails', { isFirstVault });
-                  }}
-                >
-                  <Button variant="secondary">
-                    <Text mr="xs">{lang.cdp_create.view_tx_details}</Text>
-                    <StyledExternalLink color={getColor('steel')} ml="4px" />
-                  </Button>
-                </Link>
-              )}
+              <Link
+                target="_blank"
+                href={etherscanLink(hash, networkIdToName(networkId))}
+                onClick={() => {
+                  trackBtnClick('TxDetails', { isFirstVault });
+                }}
+              >
+                <Button variant="secondary">
+                  <Text mr="xs">{lang.cdp_create.view_tx_details}</Text>
+                  <StyledExternalLink color={getColor('steel')} ml="4px" />
+                </Button>
+              </Link>
+            )}
           </Box>
           <Flex textAlign="center" justifyContent="center">
             <Button
