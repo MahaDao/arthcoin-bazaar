@@ -96,12 +96,12 @@ export default {
     ratio_mobile: 'Ratio',
     deposited: 'DEPOSITED',
     withdraw: 'AVAIL. TO WITHDRAW',
-    debt: 'DAI',
+    debt: 'ARTH',
     view_cdp: 'Manage Vault',
     view_cdp_mobile: 'Manage',
     total_collateral_locked: 'total collateral locked in ARTH',
-    total_dai_debt: 'total dai debt',
-    get_started_title: 'Open your first Vault to start generating DAI.',
+    total_dai_debt: 'total ARTH debt',
+    get_started_title: 'Open your first Vault to start generating ARTH.',
     select_another_wallet: 'Select another wallet',
     connect_ledgers_choice: 'Connect {0} or {1}',
     no_vaults: 'Address {0} has no Vaults.',
@@ -141,16 +141,16 @@ export default {
     no_wallet: 'Not connected',
     save_details: {
       title: 'Save Details',
-      total_savings_dai: 'Total DAI in DSR',
-      total_dai_supply: 'Total DAI Supply',
-      dai_savings_rate: 'DAI Savings Rate'
+      total_savings_dai: 'Total ARTH in DSR',
+      total_dai_supply: 'Total ARTH Supply',
+      dai_savings_rate: 'ARTH Savings Rate'
     }
   },
   cdp_create: {
     screen_titles: {
       select_collateral: 'Select Collateral',
       vault_management: 'Vault Management',
-      generate_dai: 'Generate DAI',
+      generate_dai: 'Generate ARTH',
       confirmation: 'Confirmation'
     },
     set_allowance: 'Set Allowance',
@@ -167,23 +167,23 @@ export default {
     setup_proxy_proxy_text:
       'Configure your Vault for easy management. This only has to be done once.',
     setup_proxy_allowance_text:
-      'This permission allows DAI to interact with your {0}. This has to be done once for each new collateral type.',
+      'This permission allows ARTH CDP Portal to interact with your {0}. This has to be done once for each new collateral type.',
     setup_proxy_proxy_button: 'Setup',
     setup_proxy_allowance_button: 'Set',
     setup_vault: 'Setup Vault',
 
-    deposit_title: 'Deposit {0} and Generate DAI',
+    deposit_title: 'Deposit {0} and Generate ARTH',
     deposit_text:
       'Different collateral types have different risk parameters and collateralization ratios.',
     // "deposit_sidebar_title": "{0} Risk Parameters",
     deposit_form_field1_title:
       'How much {0} would you like to lock in your Vault?',
     deposit_form_field1_text:
-      'The amount of {0} you lock up determines how much DAI you can generate.',
+      'The amount of {0} you lock up determines how much ARTH you can generate.',
     // "deposit_form_field2_title": "What target collateralization ratio would you like to stay above?",
     // "deposit_form_field2_text": "If your Vault drops below this target it will be considered {0} risk.",
     // "deposit_form_field2_after": "Suggested:",
-    deposit_form_field3_title: 'How much DAI would you like to generate?',
+    deposit_form_field3_title: 'How much ARTH would you like to generate?',
     deposit_form_field3_text:
       'Generate an amount that is safely above the liquidation ratio.',
     // "deposit_form_field3_after1": "Max at target ratio",
@@ -199,17 +199,17 @@ export default {
     has_understood_stability_fee:
       'I understand the Stability Fee is not fixed and is likely to change over time',
     collateralization_warning:
-      'The amount of DAI you are generating is putting your Vault at risk of liquidation',
+      'The amount of ARTH you are generating is putting your Vault at risk of liquidation',
     draw_too_much_dai: 'Vault below liquidation threshold',
-    below_dust_limit: 'A Vault requires a minimum of {0} DAI to be generated',
+    below_dust_limit: 'A Vault requires a minimum of {0} ARTH to be generated',
     dust_max_payback:
-      'You can repay all your outstanding debt, or a maximum of {0} DAI',
+      'You can repay all your outstanding debt, or a maximum of {0} ARTH',
     stability_fee_description:
       'The fee calculated based on the outstanding debt of your Vault. This is continuously added to your existing debt.',
     liquidation_ratio_description:
-      'The collateral-to-dai ratio at which the Vault becomes vulnerable to liquidation.',
+      'The collateral-to-ARTH ratio at which the Vault becomes vulnerable to liquidation.',
     liquidation_penalty_description:
-      'The fee that is added to the total outstanding DAI debt when a liquidation occurs.',
+      'The fee that is added to the total outstanding ARTH debt when a liquidation occurs.',
     waiting_for_comfirmations: 'Waiting for confirmations... {0} of {1}',
     confirmed_with_confirmations: 'Confirmed with {0} confirmations',
     waiting_for_confirmations_info:
@@ -227,21 +227,21 @@ export default {
   cdp_migrate: {
     select_title: 'Select Vault to Migrate',
     select_text:
-      'Select a Vault and pay back the stability fee in DAI or MAHA to migrate it to Multi-collateral DAI and the new CDP Portal.',
+      'Select a Vault and pay back the stability fee in ARTH or MAHA to migrate it to Multi-collateral ARTH and the new CDP Portal.',
     current_ratio: 'Current Ratio',
-    dai_debt: 'DAI debt',
-    fee_in_dai: 'Fee in DAI',
+    dai_debt: 'ARTH debt',
+    fee_in_dai: 'Fee in ARTH',
     fee_in_mkr: 'Fee in MAHA',
     migrate: 'Migrate',
     payment: 'Payment',
-    trust_site_with_dai: 'Trust this site with my DAI',
+    trust_site_with_dai: 'Trust this site with my ARTH',
     pay_and_migrate: 'Pay and Migrate',
     migrate_in_progress_header: 'Your CDP is being migrated',
     migrate_in_progress_text:
       'The estimated time is 8 minutes. You can safely leave this page and return.',
     migrate_complete_header: 'CDP Migration complete',
     migrate_complete_text:
-      'CDP #{0} has been successfully migrated to Multi-collateral DAI and the new CDP Portal.',
+      'CDP #{0} has been successfully migrated to Multi-collateral ARTH and the new CDP Portal.',
     view_transaction_details: 'View transaction details',
     migrate_another_cdp: 'Migrate another CDP',
     exit_to_cdp_portal: 'Exit to CDP Portal'
@@ -249,11 +249,11 @@ export default {
   dsr_deposit: {
     screen_titles: {
       open_vault: 'Manage Proxy',
-      deposit_dai: 'Deposit DAI',
+      deposit_dai: 'Deposit ARTH',
       confirmation: 'Confirmation'
     },
     setup_header: 'Deploy Proxy',
-    open_vault: 'Earn savings on your DAI by locking into DAI Save',
+    open_vault: 'Earn savings on your ARTH by locking into ARTH Save',
     deposit_form_title: 'Enter the amount you would like to deposit.',
     setup_proxy_text:
       'Setting up your proxy will bundle multiple transactions into one, saving transaction time and gas costs. This only has to be done once.',
@@ -282,11 +282,11 @@ export default {
   event_history: {
     open: 'Opened a new Vault with id #{0}',
     deposit: 'Deposited {0} {1} into Vault',
-    dsr_deposit: 'Deposited {0} DAI',
+    dsr_deposit: 'Deposited {0} ARTH',
     withdraw: 'Withdrew {0} {1} from Vault',
-    dsr_withdraw: 'Withdrew {0} DAI',
-    generate: 'Generated {0} new DAI from Vault',
-    pay_back: 'Repaid {0} DAI to Vault',
+    dsr_withdraw: 'Withdrew {0} ARTH',
+    generate: 'Generated {0} new ARTH from Vault',
+    pay_back: 'Repaid {0} ARTH to Vault',
     give: 'Vault given to {0} by {1}',
     migrate: 'Vault upgraded from SCD'
   },
@@ -297,17 +297,17 @@ export default {
     withdraw_description: 'How much {0} would you like to withdraw?',
     withdraw_warning:
       'The amount of collateral you are withdrawing puts your Vault at risk of liquidation',
-    generate_title: 'Generate DAI',
-    generate_description: 'How much DAI would you like to generate?',
+    generate_title: 'Generate ARTH',
+    generate_description: 'How much ARTH would you like to generate?',
     generate_warning:
-      'The amount of DAI you are generating puts your Vault at risk of liquidation',
-    payback_title: 'Pay Back DAI',
-    payback_description: 'How much DAI would you like to pay back?',
+      'The amount of ARTH you are generating puts your Vault at risk of liquidation',
+    payback_title: 'Pay Back ARTH',
+    payback_description: 'How much ARTH would you like to pay back?',
     cdp_below_threshold: 'Vault below liquidation threshold',
     insufficient_balance: 'Insufficient {0} balance',
     cannot_payback_more_than_owed: 'Cannot pay back more than owed',
-    dai_balance: 'Your DAI balance',
-    dai_debt: 'DAI debt',
+    dai_balance: 'Your ARTH balance',
+    dai_debt: 'ARTH debt',
     locked_dsr: 'Locked in DSR',
     unlock_token: 'Unlock {0} to continue',
     unlocking_token: 'Unlocking {0}...',
@@ -335,24 +335,24 @@ export default {
   },
   save: {
     title: 'Savings',
-    dai_savings_rate: 'DAI Savings rate',
+    dai_savings_rate: 'ARTH Savings rate',
     description:
-      'Receive savings on your DAI. Deposit or withdraw at any time.',
+      'Receive savings on your ARTH. Deposit or withdraw at any time.',
     deposit_amount: 'Deposit amount',
     withdraw_amount: 'Withdraw amount',
-    deposit_dai: 'Deposit DAI',
+    deposit_dai: 'Deposit ARTH',
     deposit_dai_subheading:
       'Start earning as soon as your deposit is confirmed.',
-    get_started_title: 'Start earning {0} on your DAI today',
+    get_started_title: 'Start earning {0} on your ARTH today',
     start_earning:
-      'Deposit DAI to see your first transaction and start earning',
+      'Deposit ARTH to see your first transaction and start earning',
     tx_history: 'History',
     savings_earned_to_date: 'Savings earned to date',
     estimated_savings: 'Estimated savings',
-    dai_locked_dsr: 'DAI locked in DSR',
+    dai_locked_dsr: 'ARTH locked in ASR',
     deposit_withdraw: 'Deposit and withdraw',
-    deposit_btn_cta: 'Receive savings on your DAI. Deposit at any time',
-    withdraw_btn_cta: 'Safely withdraw your DAI at any time',
+    deposit_btn_cta: 'Receive savings on your ARTH. Deposit at any time',
+    withdraw_btn_cta: 'Safely withdraw your ARTH at any time',
     no_savings:
       "This address either doesn't exist or has no DSR account history"
   },
@@ -375,8 +375,8 @@ export default {
     unlocking_token: 'Unlocking {0}',
     setting_up_proxy: 'Setting up proxy',
     creating_cdp: 'Creating Vault',
-    generate_dai: 'Generating {0} DAI',
-    pay_back_dai: 'Paying back {0} DAI',
+    generate_dai: 'Generating {0} ARTH',
+    pay_back_dai: 'Paying back {0} ARTH',
     withdrawing_gem: 'Withdrawing {0}',
     depositing_gem: 'Depositing {0}',
     claiming_collateral: 'Claiming collateral',
@@ -386,8 +386,8 @@ export default {
     unlocking_token: 'Unlocked {0}',
     setting_up_proxy: 'Set up proxy',
     creating_cdp: 'Created Vault',
-    generate_dai: 'Generated {0} DAI',
-    pay_back_dai: 'Paid back {0} DAI',
+    generate_dai: 'Generated {0} ARTH',
+    pay_back_dai: 'Paid back {0} ARTH',
     withdrawing_gem: 'Withdrew {0}',
     depositing_gem: 'Deposited {0}',
     claiming_collateral: 'Claimed collateral',
@@ -429,7 +429,7 @@ export default {
   stability_fee: 'Stability Fee',
   liquidation_penalty: 'Liquidation Fee',
   collateral_debt_ceiling: 'Debt ceiling',
-  dai_available: 'DAI Available',
+  dai_available: 'ARTH Available',
   returned_auction: 'returned from the auction',
   liquidated_event: 'Your Vault has been liquidated',
   liquidation_ratio: 'Liquidation Ratio',
