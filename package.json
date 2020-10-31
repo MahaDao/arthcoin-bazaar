@@ -1,7 +1,7 @@
 {
   "name": "mcd-cdp-portal",
   "description": "The primary web interface for interacting with the ARTH smart contract system.",
-  "version": "0.2.7",
+  "version": "1.0.0",
   "license": "AGPL",
   "private": true,
   "homepage": "https://arthcoin.com",
