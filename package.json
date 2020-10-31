@@ -1,14 +1,13 @@
 {
   "name": "mcd-cdp-portal",
-  "description": "The primary web interface for interacting with the Multi-Collateral Dai smart contract system.",
+  "description": "The primary web interface for interacting with the ARTH smart contract system.",
   "version": "0.2.7",
   "license": "AGPL",
   "private": true,
-  "homepage": "https://mcd.makerdao.com",
+  "homepage": "https://arthcoin.com",
   "contributors": [
-    "Michael Elliot <mike@makerdao.com>",
-    "Joshua Levine <joshua@makerdao.com>",
-    "Adrian le Bas <adrian@makerdao.com>"
+    "Steven Enamakel <enamakel@mahadao.com>",
+    "Yash Agarwal <yash@mahadao.com>"
   ],
   "dependencies": {
     "@craco/craco": "^5.4.0",
