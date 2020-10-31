@@ -55,6 +55,14 @@ export const isValidTxString = txString =>
 
 export const etherscanLink = (string, network = 'mainnet') => {
   const pathPrefix = network === 'mainnet' ? '' : `${network}.`;
+
+  if (network === 'matic') {
+    if (isValidAddressString(string))
+      return `https://explore.matic.network/address/${string}`;
+    else if (isValidTxString(string))
+      return `https://explore.matic.network/tx/${string}`;
+  }
+
   if (isValidAddressString(string))
     return `https://${pathPrefix}etherscan.io/address/${string}`;
   else if (isValidTxString(string))
