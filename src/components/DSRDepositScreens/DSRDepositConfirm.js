@@ -17,7 +17,7 @@ import ScreenFooter from '../ScreenFooter';
 import ScreenHeader from '../ScreenHeader';
 import { prettifyNumber } from 'utils/ui';
 import { TxLifecycle } from 'utils/constants';
-import { MDAI } from '@makerdao/dai-plugin-mcd';
+import { MARTH } from 'arth-plugin-mcd';
 
 import { ReactComponent as ExternalLinkIcon } from 'images/external-link.svg';
 import { ReactComponent as SpaceshipIllustration } from 'images/spaceship.svg';
@@ -179,8 +179,7 @@ const DSRDepositWait = ({ hash, onClose, txState }) => {
 };
 
 const DSRDepositConfirm = ({ dispatch, onClose, depositAmount, txState }) => {
-  const { lang } = useLanguage();
-  const { maker, newTxListener } = useMaker();
+  const { maker } = useMaker();
 
   const [depositDaiTxHash, setDepositDaiTxHash] = useState(null);
 
@@ -188,9 +187,7 @@ const DSRDepositConfirm = ({ dispatch, onClose, depositAmount, txState }) => {
     const { type } = payload;
     if (type !== 'increment-step') return dispatch(payload);
 
-    const txObject = maker.service('mcd:savings').join(MDAI(depositAmount));
-
-    newTxListener(txObject, lang.formatString(lang.depositing_gem, 'DAI'));
+    const txObject = maker.service('mcd:savings').join(MARTH(depositAmount));
 
     const txMgr = maker.service('transactionManager');
     txMgr.listen(txObject, {

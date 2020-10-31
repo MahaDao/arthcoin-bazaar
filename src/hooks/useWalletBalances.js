@@ -1,30 +1,30 @@
-import { useMemo } from 'react';
-import useStore from 'hooks/useStore';
 import useMaker from 'hooks/useMaker';
-import { getSavingsBalance } from 'reducers/accounts';
+import { showWalletTokens } from 'references/config';
+import { watch } from 'hooks/useObservable';
 import BigNumber from 'bignumber.js';
 
 const useWalletBalances = () => {
-  const [{ accounts, savings }] = useStore();
+  const defaultValues = showWalletTokens.reduce((acc, token) => {
+    acc[token] = BigNumber(0);
+    return acc;
+  }, {});
+
   const { account } = useMaker();
+  const symbols = showWalletTokens.filter(v => v !== 'DSR');
+  const dsrBalance = watch.daiLockedInDsr(account?.address);
+  const tokenBalances = watch.tokenBalances(account?.address, symbols);
 
-  const walletConnected =
-    account && accounts && savings && accounts[account.address];
+  console.log('symbols', symbols);
 
-  const dsrBalance = useMemo(() => {
-    return walletConnected
-      ? getSavingsBalance(account.address, { accounts, savings })
-      : new BigNumber(0);
-  }, [account, accounts, savings, walletConnected]);
-
-  return walletConnected
-    ? {
-        ...accounts[account.address].balances,
-        DSR: dsrBalance
-      }
-    : {
-        DSR: dsrBalance
-      };
+  return (
+    tokenBalances?.reduce(
+      (acc, tokenBalance) => {
+        acc[tokenBalance.symbol] = tokenBalance.toBigNumber();
+        return acc;
+      },
+      { DSR: dsrBalance?.toBigNumber() }
+    ) || defaultValues
+  );
 };
 
 export default useWalletBalances;

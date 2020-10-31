@@ -29,7 +29,7 @@ const ZERO = BigNumber(0);
 
 const Send = ({ token, trackBtnClick, reset }) => {
   const { lang } = useLanguage();
-  const { maker, account, newTxListener } = useMaker();
+  const { maker, account } = useMaker();
 
   const balances = useWalletBalances();
   const balance = balances[token] ? balances[token] : ZERO;
@@ -37,14 +37,14 @@ const Send = ({ token, trackBtnClick, reset }) => {
   const [gasCost, setGasCost] = useState(ZERO);
   const [destAddress, setDestAddress] = useState('');
 
-  const minAmount = token === 'ETH' ? gasCost : ZERO;
-  const maxAmount = token === 'ETH' ? balance.minus(gasCost) : balance;
+  const minAmount = token === 'MATIC' ? gasCost : ZERO;
+  const maxAmount = token === 'MATIC' ? balance.minus(gasCost) : balance;
 
   const displayToken =
-    token === 'MDAI' ? 'DAI' : token === 'MWETH' ? 'WETH' : token;
+    token === 'MARTH' ? 'DAI' : token === 'MWETH' ? 'WMATIC' : token;
 
   const inRangeAndEth = _val =>
-    token === 'ETH' && _val.gt(ZERO) && _val.lte(balance);
+    token === 'MATIC' && _val.gt(ZERO) && _val.lte(balance);
 
   const mapBN = cb => val => cb(BigNumber(val));
 
@@ -124,14 +124,10 @@ const Send = ({ token, trackBtnClick, reset }) => {
   const valid =
     amount !== '' && destAddress !== '' && amountIsValid && destAddressIsValid;
 
-  const showSetMax = token !== 'ETH' || balance.gte(gasCost);
+  const showSetMax = token !== 'MATIC' || balance.gte(gasCost);
 
   const transfer = async () => {
-    const _token = maker.getToken(token);
-    newTxListener(
-      _token.transfer(destAddress, amount),
-      lang.formatString(lang.action_sidebar.send_token_desc, displayToken)
-    );
+    maker.getToken(token).transfer(destAddress, amount);
     reset();
   };
 

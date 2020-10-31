@@ -1,26 +1,20 @@
 import React from 'react';
 import { cleanup, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { createCurrencyRatio } from '@makerdao/currency';
-import { BAT, USD, MDAI } from '@makerdao/dai-plugin-mcd';
+import * as math from 'arth-plugin-mcd/dist/math';
+import { BAT, MARTH, USD } from 'arth-plugin-mcd';
 import BigNumber from 'bignumber.js';
 
 import Generate from '../Generate';
-import { renderWithMaker as render } from '../../../../test/helpers/render';
+import { renderWithMaker } from '../../../../test/helpers/render';
 import lang from '../../../languages';
 import useMaker from '../../../hooks/useMaker';
+import { createCurrencyRatio } from '@makerdao/currency';
 
 const ILK = 'BAT-A';
-const INITIAL_BAT = '300.123456789012345678';
-const INITIAL_ART = '0';
-
-const PAR = new BigNumber('1000000000000000000000000000');
-
-const DEBT_CEILING = '1000';
-const RATE = '1.000967514019988230';
-const DUST = '20';
-const PRICE = createCurrencyRatio(USD, BAT)('0.24');
-const LIQUIDATION_RATIO = '200';
+const DUST = '20.00';
+const LIQUIDATION_RATIO = '2';
+const COL_AMT = 300.123456789012345678;
 
 const originalConsoleError = console.error;
 jest.mock('mixpanel-browser', () => ({
@@ -42,52 +36,42 @@ afterAll(() => {
 
 afterEach(cleanup);
 
-const setupMockState = state => {
-  const newState = {
-    ...state,
-    cdps: {
-      1: {
-        ilk: ILK,
-        ink: INITIAL_BAT,
-        art: INITIAL_ART
-      }
-    },
-    feeds: [
-      {
-        key: ILK,
-        currency: BAT,
-        dust: DUST,
-        rate: RATE,
-        feedValueUSD: PRICE,
-        debtCeiling: DEBT_CEILING,
-        liquidationRatio: LIQUIDATION_RATIO
-      }
-    ],
-    system: {
-      par: PAR
-    }
-  };
-  return newState;
+const collateralAmount = BAT(COL_AMT);
+const liquidationRatio = createCurrencyRatio(USD, MARTH)(LIQUIDATION_RATIO);
+const collateralValue = USD(72.03);
+
+const mockVault = {
+  id: 1,
+  debtValue: MARTH(0),
+  daiAvailable: MARTH(36.014814),
+  vaultType: ILK,
+  collateralAmount,
+  liquidationRatio,
+  debtFloor: BigNumber(DUST),
+  collateralValue,
+  calculateLiquidationPrice: ({ debtValue: _debtValue }) =>
+    math.liquidationPrice(collateralAmount, _debtValue, liquidationRatio),
+  calculateCollateralizationRatio: ({ debtValue: _debtValue }) =>
+    math
+      .collateralizationRatio(collateralValue, _debtValue)
+      .times(100)
+      .toNumber()
 };
 
-// so that dispatched actions don't affect the mocked state
-const identityReducer = x => x;
-const renderWithMockedStore = component =>
-  render(component, setupMockState, identityReducer);
-
 test('basic rendering', async () => {
-  const { findByText } = renderWithMockedStore(<Generate cdpId={1} />);
+  const { findByText } = renderWithMaker(<Generate vault={mockVault} />);
 
   await findByText(lang.action_sidebar.generate_title);
-  await findByText(/BAT\/USD/);
+  await findByText(/USD\/BAT/);
 });
 
 test('input validation', async () => {
-  const { getByText, getByRole, findByText } = renderWithMockedStore(
-    <Generate cdpId={1} />
+  const { getByText, getByRole, findByText } = renderWithMaker(
+    <Generate vault={mockVault} />
   );
 
-  await findByText(/BAT\/USD/);
+  await findByText(/USD\/BAT/);
+  // await findByText(/BAT\/USD/);
 
   const input = getByRole('textbox');
 
@@ -113,36 +97,37 @@ test('input validation', async () => {
 });
 
 test('verify info container values', async () => {
-  const { getByText, findByText, getByRole } = renderWithMockedStore(
-    <Generate cdpId={1} />
+  const { getByText, findByText, getByRole } = renderWithMaker(
+    <Generate vault={mockVault} />
   );
 
   // initial liquidation price
-  await findByText(/0 BAT\/USD/);
+  await findByText(/0 USD\/BAT/);
+  // await findByText(/0 BAT\/USD/);
   // dai available
-  await findByText(/36.014814 DAI/);
+  await findByText(/36.014814 ARTH/);
 
   const input = getByRole('textbox');
   fireEvent.change(input, { target: { value: '21' } });
 
   // new liquidation price
-  getByText(/0.14 BAT\/USD/);
+  getByText(/0.1399 USD\/BAT/);
   // new simulated collat ratio
   getByText(/343.00%/);
   // dai available remains the same
-  getByText(/36.014814 DAI/);
+  getByText(/36.014814 ARTH/);
 });
 
 test('calls the draw function as expected', async () => {
   let maker;
-  const { getByText, findByText, getByRole } = renderWithMockedStore(
+  const { getByText, findByText, getByRole } = renderWithMaker(
     React.createElement(() => {
       maker = useMaker().maker;
-      return <Generate cdpId={1} reset={() => {}} />;
+      return <Generate vault={mockVault} reset={() => {}} />;
     })
   );
 
-  await findByText(/BAT\/USD/);
+  await findByText(/USD\/BAT/);
 
   const DRAW_AMT = '21';
   const input = getByRole('textbox');
@@ -161,5 +146,5 @@ test('calls the draw function as expected', async () => {
   // next, the ilk
   expect(mockDraw.mock.calls[0][1]).toBe(ILK);
   // finally, the draw amount as a currency object
-  expect(mockDraw.mock.calls[0][2]).toMatchObject(MDAI(DRAW_AMT));
+  expect(mockDraw.mock.calls[0][2]).toMatchObject(MARTH(DRAW_AMT));
 });

@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import styled from 'styled-components';
 import { Link, useCurrentRoute } from 'react-navi';
 
-import OasisLayout from '../layouts/OasisLayout';
+import ARTHLayout from '../layouts/OasisLayout';
 import SEO from '../components/SEO';
 import mixpanel from 'mixpanel-browser';
 import { Routes } from '../utils/constants';
@@ -110,7 +110,7 @@ const TextSection = styled.div`
 
 const tokens = [
   {
-    name: 'Dai',
+    name: 'DAI',
     icon: DaiIcon
   },
   {
@@ -405,8 +405,8 @@ function Landing() {
   const { lang } = useLanguage();
 
   return (
-    <OasisLayout>
-      <SEO title="Oasis" />
+    <ARTHLayout>
+      <SEO title="ArthCoin Alpha" />
       <Hero>{lang.landing_page.headline}</Hero>
       <Cards>
         <Card
@@ -424,18 +424,9 @@ function Landing() {
           </div>
           <div className="buttonContainer">
             <a
-              href="/trade"
+              href="https://dex.mahadao.com/"
               className="button enabled"
-              style={{
-                color: '#5894B5',
-                backgroundColor: 'white'
-              }}
-              onClick={() => {
-                mixpanel.track('btn-click', {
-                  id: 'StartTrading',
-                  product: 'oasis-landing'
-                });
-              }}
+              style={{ color: '#5894B5', backgroundColor: 'white' }}
             >
               {lang.landing_page.trade_card.button}
             </a>
@@ -539,7 +530,7 @@ function Landing() {
         <h3>{lang.landing_page.questions_title}</h3>
         <Questions />
       </TextSection>
-    </OasisLayout>
+    </ARTHLayout>
   );
 }
 

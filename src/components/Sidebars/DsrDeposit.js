@@ -9,19 +9,20 @@ import useValidatedInput from 'hooks/useValidatedInput';
 import useLanguage from 'hooks/useLanguage';
 import useAnalytics from 'hooks/useAnalytics';
 import ProxyAllowanceToggle from 'components/ProxyAllowanceToggle';
-import { MDAI } from '@makerdao/dai-plugin-mcd';
+import { MARTH } from 'arth-plugin-mcd';
 import SetMax from 'components/SetMax';
 import { safeToFixed } from '../../utils/ui';
 
-const Deposit = ({ reset }) => {
+const DsrDeposit = ({ savings, reset }) => {
   const { trackBtnClick } = useAnalytics('Deposit', 'Sidebar');
   const { lang } = useLanguage();
-  const { maker, newTxListener } = useMaker();
+  const { maker } = useMaker();
 
-  const { symbol } = MDAI;
+  const { symbol } = MARTH;
   const displaySymbol = 'DAI';
 
-  const { MDAI: daiBalance, DSR: dsrBalance } = useWalletBalances();
+  const { daiLockedInDsr } = savings;
+  const { MARTH: daiBalance } = useWalletBalances();
   const { hasAllowance, hasSufficientAllowance } = useTokenAllowance(symbol);
 
   const [
@@ -56,10 +57,7 @@ const Deposit = ({ reset }) => {
   }, [daiBalance, setDepositAmount]);
 
   const deposit = () => {
-    newTxListener(
-      maker.service('mcd:savings').join(MDAI(depositAmount)),
-      lang.formatString(lang.transactions.depositing_gem, displaySymbol)
-    );
+    maker.service('mcd:savings').join(MARTH(depositAmount));
     reset();
   };
 
@@ -103,7 +101,7 @@ const Deposit = ({ reset }) => {
         />
       </Grid>
       <ProxyAllowanceToggle
-        token="MDAI"
+        token="MARTH"
         onlyShowAllowance={true}
         trackBtnClick={trackBtnClick}
       />
@@ -135,10 +133,10 @@ const Deposit = ({ reset }) => {
         />
         <Info
           title={lang.action_sidebar.locked_dsr}
-          body={`${safeToFixed(dsrBalance.toNumber(), 7)} ${displaySymbol}`}
+          body={`${safeToFixed(daiLockedInDsr.toNumber(), 7)} ${displaySymbol}`}
         />
       </InfoContainer>
     </Grid>
   );
 };
-export default Deposit;
+export default DsrDeposit;

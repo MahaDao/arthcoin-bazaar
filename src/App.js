@@ -1,18 +1,17 @@
 import React, { Suspense, useEffect } from 'react';
 import { StateInspector } from 'reinspect';
 import LanguageProvider from 'providers/LanguageProvider';
-import StoreProvider from 'providers/StoreProvider';
 import styled, { ThemeProvider } from 'styled-components';
 import { Router, NotFoundBoundary } from 'react-navi';
+import { createHashHistory } from 'history';
 import { createBrowserNavigation } from 'navi';
 import { hot } from 'react-hot-loader/root';
 import { GenericNotFound } from 'pages/NotFound';
 import theme from 'styles/theme';
 import routes from './routes';
-import { gaInit, mixpanelInit } from './utils/analytics';
+import { gaInit, mixpanelInit, fathomInit } from './utils/analytics';
 import LoadingLayout from 'layouts/LoadingLayout';
 import ErrorBoundary from './ErrorBoundary';
-import rootReducer from 'reducers';
 import debug from 'debug';
 const log = debug('maker:App');
 
@@ -22,6 +21,7 @@ const Body = styled.div`
 `;
 
 const navigation = createBrowserNavigation({
+  history: createHashHistory(),
   routes
 });
 
@@ -29,6 +29,8 @@ function App() {
   useEffect(() => {
     const reactGa = gaInit(navigation);
     const mixpanel = mixpanelInit(navigation);
+    fathomInit();
+
     navigation.subscribe(route => {
       if (route.type === 'ready') {
         log(`[Mixpanel] Tracked: ${route.title}`);
@@ -36,6 +38,9 @@ function App() {
 
         log(`[GA] Tracked pageview: ${route.url.href}`);
         reactGa.pageview(route.url.href);
+
+        log(`[Fathom] Tracked pageview: ${route.url.href}`);
+        window.fathom('trackPageview');
       }
     });
   }, []);
@@ -58,9 +63,7 @@ function AppWithContext() {
     <LanguageProvider>
       <ThemeProvider theme={theme}>
         <StateInspector name="App">
-          <StoreProvider reducer={rootReducer}>
-            <App />
-          </StoreProvider>
+          <App />
         </StateInspector>
       </ThemeProvider>
     </LanguageProvider>

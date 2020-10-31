@@ -6,7 +6,7 @@ import { Routes } from 'utils/constants';
 import useLanguage from 'hooks/useLanguage';
 import CookieNotice from '../components/CookieNotice';
 
-const OasisLayoutStyle = styled.div`
+const ARTHLayoutStyle = styled.div`
   /*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
   p,
   ol,
@@ -172,10 +172,10 @@ const Footer = styled.footer`
   }
 `;
 
-const OasisLayout = ({ children }) => {
+const ARTHLayout = ({ children }) => {
   const { lang } = useLanguage();
   return (
-    <OasisLayoutStyle>
+    <ARTHLayoutStyle>
       <div
         style={{
           margin: '0 auto',
@@ -216,7 +216,7 @@ const OasisLayout = ({ children }) => {
         </Helmet>
         <Header>
           <Link className="logo" href="/">
-            Oasis
+            Arth Alpha
           </Link>
         </Header>
         {children}
@@ -227,12 +227,12 @@ const OasisLayout = ({ children }) => {
             <Link href={`/${Routes.TERMS}`}>{lang.navbar.terms}</Link>
           </nav>
           <div className="copyright">
-            © {new Date().getFullYear()} Maker Ecosystem Growth Holdings, Inc.
+            © {new Date().getFullYear()} MahaDAO BVI
           </div>
         </Footer>
       </div>
-    </OasisLayoutStyle>
+    </ARTHLayoutStyle>
   );
 };
 
-export default OasisLayout;
+export default ARTHLayout;

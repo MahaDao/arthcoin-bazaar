@@ -1,33 +1,35 @@
 {
-  "supportedNetworkIds": ["1337", "999", "42", "1"],
+  "supportedNetworkIds": ["137"],
   "rpcUrls": {
-    "1": "https://mainnet.infura.io/v3/58073b4a32df4105906c702f167b91d2",
-    "42": "https://kovan.infura.io/v3/58073b4a32df4105906c702f167b91d2",
-    "999": "http://localhost:2000",
-    "1337": "http://localhost:2000"
+    "137": "https://rpc-mainnet.matic.network"
   },
   "wsRpcUrls": {
-    "1": "wss://mainnet.infura.io/ws/v3/58073b4a32df4105906c702f167b91d2",
-    "42": "wss://kovan.infura.io/ws/v3/58073b4a32df4105906c702f167b91d2"
+    "137": "wss://matic-mainnet.dagger.matic.network"
   },
   "networkNames": {
-    "1": "mainnet",
-    "42": "kovan",
-    "999": "testnet",
-    "1337": "testnet"
+    "137": "matic"
   },
   "networkDisplayNames": {
-    "1": "Mainnet",
+    "137": "Matic",
     "42": "Kovan Testnet",
+    "3": "Ropsten Testnet",
+    "4": "Rinkeby Testnet",
+    "5": "Goerli Testnet",
     "999": "Testchain",
     "1337": "Ex_Testchain"
   },
-  "defaultNetwork": "1",
+  "defaultNetwork": "137",
   "exTestchainApiUrl": "http://localhost:4000/chain",
+  "showFeeds": ["DAI"],
+  "showWalletTokens": ["DAI", "DSR", "POS_DAI"],
   "trackingPages": {
     "Overview": "Overview",
     "CDP": "Dashboard",
     "Save": "Dashboard",
     "Landing": "Landing"
+  },
+  "txManager": {
+    "autoDismissFadeoutTime": 500,
+    "autoDismissTime": 10000
   }
 }

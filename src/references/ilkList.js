@@ -1,20 +1,20 @@
-import { ETH, BAT } from '@makerdao/dai-plugin-mcd';
+import { POS_DAI, } from 'arth-plugin-mcd';
 
 export default [
   {
-    slug: 'eth-a', // URL param
-    symbol: 'ETH-A', // how it's displayed in the UI
-    key: 'ETH-A', // the actual ilk name used in the vat
-    gem: 'ETH', // the actual asset that's being locked
-    currency: ETH, // the associated dai.js currency type
-    networks: ['kovan', 'mainnet', 'testnet']
+    slug: 'posdai-a', // URL param
+    symbol: 'POS_DAI-A', // how it's displayed in the UI
+    key: 'POS_DAI-A', // the actual ilk name used in the vat
+    gem: 'POS_DAI', // the actual asset that's being locked
+    currency: POS_DAI, // the associated dai.js currency type
+    networks: ['matic']
   },
   // {
   //   slug: 'eth-b',
-  //   symbol: 'ETH-B',
-  //   key: 'ETH-B',
-  //   gem: 'ETH',
-  //   currency: ETH
+  //   symbol: 'MATIC-B',
+  //   key: 'MATIC-B',
+  //   gem: 'MATIC',
+  //   currency: MATIC
   // },
   // {
   //   slug: 'rep-a',
@@ -37,14 +37,6 @@ export default [
   //   gem: 'OMG',
   //   currency: OMG
   // },
-  {
-    slug: 'bat-a',
-    symbol: 'BAT-A',
-    key: 'BAT-A',
-    gem: 'BAT',
-    currency: BAT,
-    networks: ['kovan', 'mainnet', 'testnet']
-  }
   // {
   //   slug: 'dgd-a',
   //   symbol: 'DGD-A',

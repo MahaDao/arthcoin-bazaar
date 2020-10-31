@@ -11,13 +11,10 @@ import useValidatedInput from '../../hooks/useValidatedInput';
 import SetMax from '../SetMax';
 import useTokenAllowance from 'hooks/useTokenAllowance';
 
-const placeholder = 'test';
-
 function DepositDaiForm({
   depositAmount,
   daiBalance,
   onDepositAmountChange,
-  handleInputChange,
   setDepositMax,
   depositAmountErrors
 }) {
@@ -39,20 +36,7 @@ function DepositDaiForm({
       />,
       <Box key="ba">
         <Text t="subheading">{lang.your_balance} </Text>
-        <Text
-          t="caption"
-          display="inline-block"
-          ml="s"
-          color="darkLavender"
-          onClick={() => {
-            handleInputChange({
-              target: {
-                name: 'gemsToLock',
-                value: placeholder
-              }
-            });
-          }}
-        >
+        <Text t="caption" display="inline-block" ml="s" color="darkLavender">
           {prettifyNumber(daiBalance)} {'DAI'}
         </Text>
       </Box>
@@ -89,9 +73,9 @@ function DepositDaiForm({
 const DSRDepositCreate = ({ dispatch, onClose }) => {
   const { lang } = useLanguage();
   const balances = useWalletBalances();
-  const { MDAI } = balances;
-  const daiBalance = MDAI.toFixed(6);
-  const { hasSufficientAllowance } = useTokenAllowance('MDAI');
+  const { MARTH } = balances;
+  const daiBalance = MARTH.toFixed(6);
+  const { hasSufficientAllowance } = useTokenAllowance('MARTH');
 
   const [
     depositAmount,
@@ -103,7 +87,7 @@ const DSRDepositCreate = ({ dispatch, onClose }) => {
     {
       isFloat: true,
       minFloat: 0.0,
-      maxFloat: MDAI && MDAI.toNumber(),
+      maxFloat: MARTH && MARTH.toNumber(),
       custom: {
         allowanceInvalid: value => !hasSufficientAllowance(value)
       }
@@ -117,12 +101,12 @@ const DSRDepositCreate = ({ dispatch, onClose }) => {
   );
 
   const setDepositMax = useCallback(() => {
-    if (MDAI) {
-      setDepositAmount(MDAI.toNumber().toString());
+    if (MARTH) {
+      setDepositAmount(MARTH.toNumber().toString());
     } else {
       setDepositAmount('0');
     }
-  }, [MDAI, setDepositAmount]);
+  }, [MARTH, setDepositAmount]);
   return (
     <Box
       maxWidth="1040px"

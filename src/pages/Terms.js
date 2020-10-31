@@ -1,11 +1,11 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 
-import OasisLayout from '../layouts/OasisLayout';
+import ARTHLayout from '../layouts/OasisLayout';
 import LegalTextLayout from '../layouts/LegalTextLayout';
 
 const Privacy = () => (
-  <OasisLayout>
+  <ARTHLayout>
     <LegalTextLayout>
       <h1>Terms of Service</h1>
       <span className="subheading">Last Revised: 18 November 2019</span>
@@ -45,11 +45,11 @@ const Privacy = () => (
       <h3>1.1. Services</h3>
 
       <p>
-        The Company has developed Oasis – an online, decentralized and
-        autonomous environment that displays price information and autonomous
-        smart contract mechanisms of digital tokens and assets (“
+        The Company has developed DAI – an online, decentralized and autonomous
+        environment that displays price information and autonomous smart
+        contract mechanisms of digital tokens and assets (“
         <strong>Digital Assets</strong>”) and provides the user-interface that
-        guides your access to Oasis (the “<strong>Services</strong>”).
+        guides your access to DAI (the “<strong>Services</strong>”).
       </p>
       <p>
         You affirm that you are aware and acknowledge that Company is a
@@ -257,7 +257,7 @@ const Privacy = () => (
         By utilizing the Services or interacting with the Site in any way, you
         represent that you understand the inherent risks associated with
         cryptographic systems; and warrant that you have an understanding of the
-        usage and intricacies of native cryptographic tokens, like Ether (ETH)
+        usage and intricacies of native cryptographic tokens, like Ether (MATIC)
         and Bitcoin (BTC), smart contract based tokens such as those that follow
         the Ethereum Token Standard
         (https://github.com/ethereum/EIPs/issues/20), and blockchain-based
@@ -292,7 +292,7 @@ const Privacy = () => (
       </p>
       <h3>4.4 Risk of Regulatory Actions in One or More Jurisdictions</h3>
       <p>
-        The Services, Digital Assets and ETH could be impacted by one or more
+        The Services, Digital Assets and MATIC could be impacted by one or more
         regulatory inquiries or regulatory action, which could impede or limit
         the ability of Company to continue to develop, or which could impede or
         limit your ability to access or use the Services or Ethereum blockchain,
@@ -521,17 +521,17 @@ const Privacy = () => (
         and you agree to abide by the terms of this license.
       </p>
       <p>
-        The “Oasis” name, the Oasis logo, other related trademarks (“Oasis
-        DeFi,” “Oasis DEX”), and the web domains and URLs are property of Maker
-        Ecosystem Growth Foundation and “Oasis Pro” is owned by Oasis Pro Buyer,
-        LLC and are not covered under the licenses above. Using our Services
-        does not give you ownership of any proprietary intellectual property
-        rights in our Services or the content you access. You may not use
-        proprietary content from our Services unless you obtain permission from
-        its owner or are otherwise permitted by law. These terms do not grant
-        you the right to use any branding or logos used in our Services. You may
-        not remove, obscure, or alter any legal notices displayed in or along
-        with our Services.
+        The “DAI” name, the DAI logo, other related trademarks (“DAI DeFi,” “DAI
+        DEX”), and the web domains and URLs are property of Maker Ecosystem
+        Growth Foundation and “DAI Pro” is owned by DAI Pro Buyer, LLC and are
+        not covered under the licenses above. Using our Services does not give
+        you ownership of any proprietary intellectual property rights in our
+        Services or the content you access. You may not use proprietary content
+        from our Services unless you obtain permission from its owner or are
+        otherwise permitted by law. These terms do not grant you the right to
+        use any branding or logos used in our Services. You may not remove,
+        obscure, or alter any legal notices displayed in or along with our
+        Services.
       </p>
 
       <h2>8. Links</h2>
@@ -849,7 +849,7 @@ const Privacy = () => (
         and at <a href="mailto:legal@oasis.app">legal@oasis.app</a>.
       </p>
     </LegalTextLayout>
-  </OasisLayout>
+  </ARTHLayout>
 );
 
 export default hot(Privacy);
