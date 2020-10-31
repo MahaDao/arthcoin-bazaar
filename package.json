@@ -1,7 +1,7 @@
 {
   "name": "mcd-cdp-portal",
   "description": "The primary web interface for interacting with the Multi-Collateral Dai smart contract system.",
-  "version": "0.2.6-rc.1",
+  "version": "0.2.7",
   "license": "AGPL",
   "private": true,
   "homepage": "https://mcd.makerdao.com",
@@ -65,7 +65,7 @@
     "testchain": "./node_modules/@makerdao/testchain/scripts/launch -s default --fast",
     "ci": "yarn test --coverage",
     "now-build": "yarn build",
-    "push": "gh-pages --dist build",
+    "push": "echo 'alpha.arthcoin.com' > build/CNAME; gh-pages --dist build",
     "remove-sourcemaps": "rm -rf build/static/js/*.map",
     "deploy-main": "./scripts/deploy-mainnet"
   },
