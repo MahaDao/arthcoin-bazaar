@@ -136,7 +136,7 @@ const Payback = ({ vault, reset }) => {
           }
         />
       </Grid>
-      <ProxyAllowanceToggle token="MARTH" trackBtnClick={trackBtnClick} />
+      <ProxyAllowanceToggle token="DAI" trackBtnClick={trackBtnClick} />
       <Grid gridTemplateColumns="1fr 1fr" gridColumnGap="s">
         <Button
           disabled={!valid}
@@ -161,17 +161,17 @@ const Payback = ({ vault, reset }) => {
         <Info
           title={lang.action_sidebar.dai_balance}
           body={`${daiBalance &&
-            formatter(daiBalance, { precision: long })} DAI`}
+            formatter(daiBalance, { precision: long })} ARTH`}
         />
         <Info
           title={lang.action_sidebar.dai_debt}
-          body={`${formatter(debtValue, { precision: long })} DAI`}
+          body={`${formatter(debtValue, { precision: long })} ARTH`}
         />
         <Info
           title={lang.action_sidebar.new_liquidation_price}
           body={`${formatter(liquidationPrice, {
             infinity: BigNumber(0).toFixed(medium)
-          })} USD/${symbol}`}
+          })} ARTH/${symbol}`}
         />
         <Info
           title={lang.action_sidebar.new_collateralization_ratio}

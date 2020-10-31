@@ -25,6 +25,11 @@ export default function useTokenAllowance(tokenSymbol) {
   const [startedWithoutAllowance, setStartedWithoutAllowance] = useState(false);
   const [setAllowance, allowanceLoading, , allowanceErrors] = useActionState(
     async () => {
+      try {
+        maker.getToken(tokenSymbol);
+      } catch (error) {
+        console.log('hit btich1', error)
+      }
       const token = maker.getToken(tokenSymbol);
       const txPromise = token.approveUnlimited(proxyAddress);
       setStartedWithoutAllowance(true);

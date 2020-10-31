@@ -10,6 +10,8 @@ import { networkNameToId } from './utils/network';
 // import { getQueryParamByName } from './utils/dev';
 
 import maticAddresses from './references/contracts/matic';
+import { createCurrency } from '@makerdao/currency';
+import { POS_DAI } from 'arth-plugin-mcd/dist';
 
 let _maker;
 
@@ -32,7 +34,7 @@ export function getMaker() {
 }
 
 const cdpTypes = [
-  { currency: MATIC, ilk: 'MATIC-A' }
+  { currency: POS_DAI, ilk: 'POS_DAI-A' }
   // { currency: BAT, ilk: 'BAT-A' }
 ];
 
@@ -77,6 +79,16 @@ export async function instantiateMaker({
     },
     web3: {
       pollingInterval: network === 'testnet' ? 100 : null
+    },
+    token: {
+      erc20: [
+        {
+          address: {
+            matic: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063"
+          },
+          currency: createCurrency('POS_DAI')
+        }
+      ]
     },
     multicall: true
   };

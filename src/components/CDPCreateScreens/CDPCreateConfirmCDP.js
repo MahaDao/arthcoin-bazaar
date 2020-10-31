@@ -9,7 +9,7 @@ import {
   Button,
   Link
 } from '@makerdao/ui-components-core';
-import { MARTH } from 'arth-plugin-mcd';
+import { DAI } from 'arth-plugin-mcd';
 import useMaker from 'hooks/useMaker';
 import useLanguage from 'hooks/useLanguage';
 import useAnalytics from 'hooks/useAnalytics';
@@ -47,6 +47,7 @@ const CDPCreateConfirmSummary = ({
 
   const { liquidationPenalty, liquidationRatio, annualStabilityFee } = ilkData;
 
+  console.log('prettifyNumber', cdpParams, selectedIlk, ilkData, DAI)
   const rows = [
     [
       lang.verbs.depositing,
@@ -58,7 +59,7 @@ const CDPCreateConfirmSummary = ({
       `${formatter(
         ilkData.calculateCollateralizationRatio(
           BigNumber(cdpParams.gemsToLock),
-          MARTH(cdpParams.daiToDraw)
+          DAI(cdpParams.daiToDraw)
         )
       )}%`
     ],
@@ -71,7 +72,7 @@ const CDPCreateConfirmSummary = ({
       `$${formatter(
         ilkData.calculateliquidationPrice(
           BigNumber(cdpParams.gemsToLock),
-          MARTH(cdpParams.daiToDraw)
+          DAI(cdpParams.daiToDraw)
         )
       )}`
     ],

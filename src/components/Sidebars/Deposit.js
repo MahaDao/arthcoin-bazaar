@@ -125,13 +125,13 @@ const Deposit = ({ vault, reset }) => {
             lang.action_sidebar.gem_usd_price_feed,
             symbol
           )}
-          body={`${formatter(collateralTypePrice)} USD/${symbol}`}
+          body={`${formatter(collateralTypePrice)} ARTH/${symbol}`}
         />
         <Info
           title={lang.action_sidebar.new_liquidation_price}
           body={`${formatter(liquidationPrice, {
             infinity: BigNumber(0).toFixed(medium)
-          })} USD/${symbol}`}
+          })} ARTH/${symbol}`}
         />
         <Info
           title={lang.action_sidebar.new_collateralization_ratio}

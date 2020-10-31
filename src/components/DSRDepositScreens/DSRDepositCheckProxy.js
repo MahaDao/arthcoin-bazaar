@@ -39,8 +39,8 @@ const DSRDepositCheckProxy = ({ dispatch, onClose }) => {
       startingBlockHeight === 0
         ? 0
         : blockHeight - startingBlockHeight > 10
-          ? 10
-          : blockHeight - startingBlockHeight,
+        ? 10
+        : blockHeight - startingBlockHeight,
       10
     )
   };

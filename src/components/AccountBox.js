@@ -29,8 +29,6 @@ import FullScreenAction from './CDPDisplay/FullScreenAction';
 import useCdpTypes from '../hooks/useCdpTypes';
 import { watch } from 'hooks/useObservable';
 
-const migrateUrl = 'https://oasis.app/trade/account';
-
 const StyledCardBody = styled(CardBody)`
   cursor: pointer;
 `;
@@ -146,15 +144,15 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
     () =>
       showWalletTokens.reduceRight((acc, token) => {
         const balanceGtZero = !!(balances[token] && balances[token].gt(0));
-        if (token !== 'MATIC' && token !== 'MARTH' && !balanceGtZero)
+        if (token !== 'MATIC' && token !== 'DAI' && !balanceGtZero)
           return acc;
         const symbol = formatSymbol(token);
 
         const tokenIsDaiOrDsr =
-          token === 'MARTH' ||
-          token === 'DAI' ||
           token === 'SAI' ||
+          token === 'DAI' ||
           token === 'DSR';
+
         const usdRatio = tokenIsDaiOrDsr
           ? new BigNumber(1)
           : token === 'MWETH'
@@ -172,6 +170,8 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
       }, []),
     [balances, uniqueFeeds]
   );
+
+  console.log('tokenBalances', tokenBalances)
 
   return (
     <>
@@ -217,31 +217,22 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
                           {lang.actions.withdraw}
                         </ActionButton>
                       </Link>
-                    ) : symbol === 'SAI' ? (
-                      <ActionButton
-                        onClick={() => trackBtnClick('Migrate')}
-                        as="a"
-                        target="_blank"
-                        href={migrateUrl}
-                      >
-                        {lang.sidebar.migrate}
-                      </ActionButton>
                     ) : (
-                          <ActionButton
-                            disabled={!hasActiveAccount}
-                            onClick={() => {
-                              trackBtnClick('Send', {
-                                collateral: formatSymbol(token)
-                              });
-                              showAction({
-                                type: 'send',
-                                props: { token, trackBtnClick }
-                              });
-                            }}
-                          >
-                            {lang.sidebar.send}
-                          </ActionButton>
-                        ))
+                        <ActionButton
+                          disabled={!hasActiveAccount}
+                          onClick={() => {
+                            trackBtnClick('Send', {
+                              collateral: formatSymbol(token)
+                            });
+                            showAction({
+                              type: 'send',
+                              props: { token, trackBtnClick }
+                            });
+                          }}
+                        >
+                          {lang.sidebar.send}
+                        </ActionButton>
+                      ))
                   }
                 />
               )

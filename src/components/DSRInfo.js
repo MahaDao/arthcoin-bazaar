@@ -99,12 +99,12 @@ function DSRInfo({ isMobile, savings }) {
     !isMobile && FF_DYNAMIC_DECIMALS
       ? amountChange.times(100).e * -1
       : daiLockedInDsr.eq(0)
-        ? 4
-        : daiLockedInDsr.lt(1000)
-          ? 8
-          : daiLockedInDsr.lt(100000)
-            ? 6
-            : 4;
+      ? 4
+      : daiLockedInDsr.lt(1000)
+      ? 8
+      : daiLockedInDsr.lt(100000)
+      ? 6
+      : 4;
 
   const fetchEarnings = async () => {
     const etd = await maker
@@ -262,8 +262,8 @@ function DSRInfo({ isMobile, savings }) {
                 t="body"
               />
             ) : (
-                <TextMono t="body">{(0).toFixed(decimalsToShow)}</TextMono>
-              )}
+              <TextMono t="body">{(0).toFixed(decimalsToShow)}</TextMono>
+            )}
             <Text ml="xs">DAI</Text>
           </>
         }
@@ -279,8 +279,8 @@ function DSRInfo({ isMobile, savings }) {
               %
             </TextMono>
           ) : (
-              '--'
-            )
+            '--'
+          )
         }
       />
     </CdpViewCard>

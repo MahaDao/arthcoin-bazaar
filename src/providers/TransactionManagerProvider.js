@@ -24,8 +24,8 @@ const formatTxMessage = (lang, { metadata, ...tx }, state) => {
     state === 'error' && tx.hash
       ? ' failed'
       : state === 'error' && !tx.hash
-        ? ' cancelled'
-        : '';
+      ? ' cancelled'
+      : '';
 
   switch (type) {
     case 'safeWipe':

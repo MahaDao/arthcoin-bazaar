@@ -21,7 +21,7 @@
   "defaultNetwork": "137",
   "exTestchainApiUrl": "http://localhost:4000/chain",
   "showFeeds": ["DAI"],
-  "showWalletTokens": ["DAI", "DSR", "DAI"],
+  "showWalletTokens": ["DAI", "DSR", "POS_DAI"],
   "trackingPages": {
     "Overview": "Overview",
     "CDP": "Dashboard",

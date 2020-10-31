@@ -137,17 +137,17 @@ export default function ({ vault, showSidebar, account, network, cdpOwner }) {
       >
         <CdpViewCard title={lang.cdp_page.liquidation_price}>
           <Flex alignItems="flex-end" mt="s" mb="xs">
-            <AmountDisplay amount={liquidationPrice} denomination="USD" />
-            <ExtraInfo>({gem}/USD)</ExtraInfo>
+            <AmountDisplay amount={liquidationPrice} denomination="ARTH" />
+            <ExtraInfo>({gem}/ARTH)</ExtraInfo>
           </Flex>
           <InfoContainerRow
             title={
               <TextBlock fontSize="l">
                 {lang.cdp_page.current_price_info}
-                <ExtraInfo ml="2xs">{`(${gem}/USD)`}</ExtraInfo>
+                <ExtraInfo ml="2xs">{`(${gem}/ARTH)`}</ExtraInfo>
               </TextBlock>
             }
-            value={`${formatter(vault.collateralTypePrice)} USD`}
+            value={`${formatter(vault.collateralTypePrice)} ARTH`}
           />
           <InfoContainerRow
             title={lang.cdp_page.liquidation_penalty}
@@ -186,7 +186,7 @@ export default function ({ vault, showSidebar, account, network, cdpOwner }) {
           <ActionContainerRow
             title={`${gem} ${lang.cdp_page.locked.toLowerCase()}`}
             value={`${formatter(vault.collateralAmount)} ${gem}`}
-            conversion={`${formatter(vault.collateralValue)} USD`}
+            conversion={`${formatter(vault.collateralValue)} ARTH`}
             button={
               <ActionButton
                 disabled={!account}
@@ -205,7 +205,7 @@ export default function ({ vault, showSidebar, account, network, cdpOwner }) {
           <ActionContainerRow
             title={lang.cdp_page.able_withdraw}
             value={`${formatter(vault.collateralAvailableAmount)} ${gem}`}
-            conversion={`${formatter(vault.collateralAvailableValue)} USD`}
+            conversion={`${formatter(vault.collateralAvailableValue)} ARTH`}
             button={
               <ActionButton
                 disabled={!account || !isOwner}
@@ -226,7 +226,7 @@ export default function ({ vault, showSidebar, account, network, cdpOwner }) {
         <CdpViewCard title={lang.cdp_page.outstanding_dai_debt}>
           <ActionContainerRow
             title={lang.cdp_page.outstanding_dai_debt}
-            value={formatter(vault.debtValue) + ' DAI'}
+            value={formatter(vault.debtValue) + ' ARTH'}
             button={
               <ActionButton
                 disabled={!account}
@@ -244,7 +244,7 @@ export default function ({ vault, showSidebar, account, network, cdpOwner }) {
           />
           <ActionContainerRow
             title={lang.cdp_page.available_generate}
-            value={`${formatter(vault.daiAvailable)} DAI`}
+            value={`${formatter(vault.daiAvailable)} ARTH`}
             button={
               <ActionButton
                 disabled={!account || !isOwner}

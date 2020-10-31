@@ -3814,20 +3814,20 @@ arrify@^1.0.1:
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
   integrity sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
 
-arth-plugin-mcd@1.5.22:
-  version "1.5.22"
-  resolved "https://registry.yarnpkg.com/arth-plugin-mcd/-/arth-plugin-mcd-1.5.22.tgz#e3f1b6034923aeb71b16bf0fadfab081501eabb4"
-  integrity sha512-pW8jKh9Cc6ozLHT/3gYF0RPIaaB0VLpZQ2A76BSEGFvyfWkJCeKyTlr0ijwH/WoVpKr2C4Ik1dZ3BMcvl+nXBg==
+arth-plugin-mcd@1.5.36:
+  version "1.5.36"
+  resolved "https://registry.yarnpkg.com/arth-plugin-mcd/-/arth-plugin-mcd-1.5.36.tgz#738f75669ff0905ab32bea4bea0708334e088cf3"
+  integrity sha512-1DPs3AuJEUaUF3/ghYrvq3WQmR6SPHQo8tmchLsw4pwjilRq23nVXbChyjACxG2Ffq5veylt7tZI9rOAglWWUg==
   dependencies:
     "@makerdao/currency" "^0.9.9"
     "@makerdao/services-core" "^0.9.9"
     bignumber.js "^8.1.1"
     rxjs "^6.5.4"
 
-arthcoin.js@0.32.3:
-  version "0.32.3"
-  resolved "https://registry.yarnpkg.com/arthcoin.js/-/arthcoin.js-0.32.3.tgz#86984f7ede4b8d459961a3f460fef5b86012f7ef"
-  integrity sha512-HcHLWBM+e2dZbh3fAHth+P0p5rlZZXE0UHfYvvQRuaGjEyVkhTZ9blVHBDXn9L56GDLoN14JRj+JJZlyp9zfMg==
+arthcoin.js@0.32.10:
+  version "0.32.10"
+  resolved "https://registry.yarnpkg.com/arthcoin.js/-/arthcoin.js-0.32.10.tgz#5d073c2bc8d3de2f47ec0fdb65d0a171e8226543"
+  integrity sha512-0fAJtprH9k+gLAp4qJ8B+00s69CQYxO+pV+1Lk2hEoP1p0MqpVwVLBOp6yE1UuKxZYPd0xrXTpWL8zdgMmIp5Q==
   dependencies:
     "@babel/cli" "^7.2.3"
     "@babel/core" "^7.4.5"

@@ -69,10 +69,10 @@ const Withdraw = ({ vault, reset }) => {
     undercollateralized || debtAmount.eq(0)
       ? BigNumber(0)
       : vault.calculateLiquidationPrice({
-          collateralAmount: currency(
-            encumberedCollateral.minus(amountToWithdraw)
-          )
-        });
+        collateralAmount: currency(
+          encumberedCollateral.minus(amountToWithdraw)
+        )
+      });
 
   const collateralizationRatio = vault.calculateCollateralizationRatio({
     collateralValue: collateralValue.minus(valueDiff).gte(0)
@@ -152,11 +152,11 @@ const Withdraw = ({ vault, reset }) => {
             lang.action_sidebar.gem_usd_price_feed,
             symbol
           )}
-          body={`${formatter(collateralTypePrice)} USD/${symbol}`}
+          body={`${formatter(collateralTypePrice)} ARTH/${symbol}`}
         />
         <Info
           title={lang.action_sidebar.new_liquidation_price}
-          body={`${formatter(liquidationPrice)} USD/${symbol}`}
+          body={`${formatter(liquidationPrice)} ARTH/${symbol}`}
         />
         <Info
           title={lang.action_sidebar.new_collateralization_ratio}

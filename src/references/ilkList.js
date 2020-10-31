@@ -1,13 +1,13 @@
-import { MATIC, DAI, } from 'arth-plugin-mcd';
+import { POS_DAI, } from 'arth-plugin-mcd';
 
 export default [
   {
-    slug: 'edai-a', // URL param
-    symbol: 'DAI-A', // how it's displayed in the UI
-    key: 'DAI-A', // the actual ilk name used in the vat
-    gem: 'DAI', // the actual asset that's being locked
-    currency: DAI, // the associated dai.js currency type
-    networks: ['matic', 'mainnet', 'testnet', 'rinkeby', 'ropsten', 'goerli']
+    slug: 'posdai-a', // URL param
+    symbol: 'POS_DAI-A', // how it's displayed in the UI
+    key: 'POS_DAI-A', // the actual ilk name used in the vat
+    gem: 'POS_DAI', // the actual asset that's being locked
+    currency: POS_DAI, // the associated dai.js currency type
+    networks: ['matic']
   },
   // {
   //   slug: 'eth-b',
