@@ -118,12 +118,12 @@ export default mount({
   }),
 
   [`/${Routes.PRIVACY}`]: route(() => ({
-    title: 'ARTH - Privacy Policy',
+    title: 'DAI - Privacy Policy',
     view: <Privacy />
   })),
 
   [`/${Routes.TERMS}`]: route(() => ({
-    title: 'ARTH - Terms of Service',
+    title: 'DAI - Terms of Service',
     view: <Terms />
   }))
 });

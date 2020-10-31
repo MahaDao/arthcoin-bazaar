@@ -32,15 +32,15 @@ const DSRDepositCheckProxy = ({ dispatch, onClose }) => {
     setup_header: lang.dsr_deposit.setup_header,
     allowance_text: lang.formatString(
       lang.cdp_create.setup_proxy_allowance_text,
-      'ARTH'
+      'DAI'
     ),
     confirmations_text: lang.formatString(
       lang.cdp_create.waiting_for_comfirmations,
       startingBlockHeight === 0
         ? 0
         : blockHeight - startingBlockHeight > 10
-        ? 10
-        : blockHeight - startingBlockHeight,
+          ? 10
+          : blockHeight - startingBlockHeight,
       10
     )
   };

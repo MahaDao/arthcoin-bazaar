@@ -122,10 +122,10 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
     () =>
       prices
         ? prices.reduce((acc, price) => {
-            const [, symbol] = price.symbol.split('/');
-            acc[symbol] = price;
-            return acc;
-          }, {})
+          const [, symbol] = price.symbol.split('/');
+          acc[symbol] = price;
+          return acc;
+        }, {})
         : {},
     [prices]
   );
@@ -152,14 +152,14 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
 
         const tokenIsDaiOrDsr =
           token === 'MARTH' ||
-          token === 'ARTH' ||
+          token === 'DAI' ||
           token === 'SAI' ||
           token === 'DSR';
         const usdRatio = tokenIsDaiOrDsr
           ? new BigNumber(1)
           : token === 'MWETH'
-          ? uniqueFeeds['MATIC']
-          : uniqueFeeds[token];
+            ? uniqueFeeds['MATIC']
+            : uniqueFeeds[token];
         return [
           {
             token,
@@ -227,21 +227,21 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
                         {lang.sidebar.migrate}
                       </ActionButton>
                     ) : (
-                      <ActionButton
-                        disabled={!hasActiveAccount}
-                        onClick={() => {
-                          trackBtnClick('Send', {
-                            collateral: formatSymbol(token)
-                          });
-                          showAction({
-                            type: 'send',
-                            props: { token, trackBtnClick }
-                          });
-                        }}
-                      >
-                        {lang.sidebar.send}
-                      </ActionButton>
-                    ))
+                          <ActionButton
+                            disabled={!hasActiveAccount}
+                            onClick={() => {
+                              trackBtnClick('Send', {
+                                collateral: formatSymbol(token)
+                              });
+                              showAction({
+                                type: 'send',
+                                props: { token, trackBtnClick }
+                              });
+                            }}
+                          >
+                            {lang.sidebar.send}
+                          </ActionButton>
+                        ))
                   }
                 />
               )
@@ -257,11 +257,11 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
                 <Carat />
               </>
             ) : (
-              <>
-                <Text pr="xs">{lang.sidebar.view_less}</Text>
-                <Carat rotation={180} />
-              </>
-            )}
+                <>
+                  <Text pr="xs">{lang.sidebar.view_less}</Text>
+                  <Carat rotation={180} />
+                </>
+              )}
           </Flex>
         </StyledCardBody>
       )}

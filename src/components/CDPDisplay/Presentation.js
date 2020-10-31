@@ -28,7 +28,7 @@ import { formatter } from 'utils/ui';
 const log = debug('maker:CDPDisplay/Presentation');
 const { FF_VAULT_HISTORY } = FeatureFlags;
 
-export default function({ vault, showSidebar, account, network, cdpOwner }) {
+export default function ({ vault, showSidebar, account, network, cdpOwner }) {
   const { lang } = useLanguage();
   const { maker } = useMaker();
   const { trackBtnClick } = useAnalytics('CollateralView');
@@ -226,7 +226,7 @@ export default function({ vault, showSidebar, account, network, cdpOwner }) {
         <CdpViewCard title={lang.cdp_page.outstanding_dai_debt}>
           <ActionContainerRow
             title={lang.cdp_page.outstanding_dai_debt}
-            value={formatter(vault.debtValue) + ' ARTH'}
+            value={formatter(vault.debtValue) + ' DAI'}
             button={
               <ActionButton
                 disabled={!account}
@@ -244,7 +244,7 @@ export default function({ vault, showSidebar, account, network, cdpOwner }) {
           />
           <ActionContainerRow
             title={lang.cdp_page.available_generate}
-            value={`${formatter(vault.daiAvailable)} ARTH`}
+            value={`${formatter(vault.daiAvailable)} DAI`}
             button={
               <ActionButton
                 disabled={!account || !isOwner}

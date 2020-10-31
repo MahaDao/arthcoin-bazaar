@@ -80,6 +80,8 @@ function CDPCreate({ onClose }) {
     initialState
   );
   const { cdpTypesList } = useCdpTypes();
+
+  console.log('cdpTypesList', cdpTypesList)
   const collateralTypesData = watch.collateralTypesData(cdpTypesList);
 
   const { hasAllowance, hasSufficientAllowance } = useTokenAllowance(
@@ -91,11 +93,15 @@ function CDPCreate({ onClose }) {
   const rawUserVaultsList = watch.userVaultsList(account?.address);
   const isFirstVault = rawUserVaultsList?.length === 0 ? true : false;
 
+
   const screens = useMemo(
     () => [
       [
         lang.cdp_create.screen_titles.select_collateral,
-        props => <CDPCreateSelectCollateral {...props} />
+        props => {
+          console.log('CDPCreateSelectCollateral', props)
+          return <CDPCreateSelectCollateral {...props} />
+        }
       ],
       [
         lang.cdp_create.screen_titles.vault_management,

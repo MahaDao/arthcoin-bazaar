@@ -1,13 +1,13 @@
-import { MATIC, BAT } from 'arth-plugin-mcd';
+import { MATIC, DAI, } from 'arth-plugin-mcd';
 
 export default [
   {
-    slug: 'eth-a', // URL param
-    symbol: 'MATIC-A', // how it's displayed in the UI
-    key: 'MATIC-A', // the actual ilk name used in the vat
-    gem: 'MATIC', // the actual asset that's being locked
-    currency: MATIC, // the associated dai.js currency type
-    networks: ['kovan', 'mainnet', 'testnet', 'rinkeby', 'ropsten', 'goerli']
+    slug: 'edai-a', // URL param
+    symbol: 'DAI-A', // how it's displayed in the UI
+    key: 'DAI-A', // the actual ilk name used in the vat
+    gem: 'DAI', // the actual asset that's being locked
+    currency: DAI, // the associated dai.js currency type
+    networks: ['matic', 'mainnet', 'testnet', 'rinkeby', 'ropsten', 'goerli']
   },
   // {
   //   slug: 'eth-b',
@@ -37,14 +37,6 @@ export default [
   //   gem: 'OMG',
   //   currency: OMG
   // },
-  {
-    slug: 'bat-a',
-    symbol: 'BAT-A',
-    key: 'BAT-A',
-    gem: 'BAT',
-    currency: BAT,
-    networks: ['kovan', 'mainnet', 'testnet', 'rinkeby', 'ropsten', 'goerli']
-  }
   // {
   //   slug: 'dgd-a',
   //   symbol: 'DGD-A',

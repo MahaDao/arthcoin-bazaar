@@ -45,11 +45,11 @@ const Privacy = () => (
       <h3>1.1. Services</h3>
 
       <p>
-        The Company has developed ARTH – an online, decentralized and autonomous
+        The Company has developed DAI – an online, decentralized and autonomous
         environment that displays price information and autonomous smart
         contract mechanisms of digital tokens and assets (“
         <strong>Digital Assets</strong>”) and provides the user-interface that
-        guides your access to ARTH (the “<strong>Services</strong>”).
+        guides your access to DAI (the “<strong>Services</strong>”).
       </p>
       <p>
         You affirm that you are aware and acknowledge that Company is a
@@ -521,9 +521,9 @@ const Privacy = () => (
         and you agree to abide by the terms of this license.
       </p>
       <p>
-        The “ARTH” name, the ARTH logo, other related trademarks (“ARTH DeFi,”
-        “ARTH DEX”), and the web domains and URLs are property of Maker
-        Ecosystem Growth Foundation and “ARTH Pro” is owned by ARTH Pro Buyer,
+        The “DAI” name, the DAI logo, other related trademarks (“DAI DeFi,”
+        “DAI DEX”), and the web domains and URLs are property of Maker
+        Ecosystem Growth Foundation and “DAI Pro” is owned by DAI Pro Buyer,
         LLC and are not covered under the licenses above. Using our Services
         does not give you ownership of any proprietary intellectual property
         rights in our Services or the content you access. You may not use

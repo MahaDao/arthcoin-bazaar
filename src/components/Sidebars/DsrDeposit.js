@@ -19,7 +19,7 @@ const DsrDeposit = ({ savings, reset }) => {
   const { maker } = useMaker();
 
   const { symbol } = MARTH;
-  const displaySymbol = 'ARTH';
+  const displaySymbol = 'DAI';
 
   const { daiLockedInDsr } = savings;
   const { MARTH: daiBalance } = useWalletBalances();
@@ -42,9 +42,9 @@ const DsrDeposit = ({ savings, reset }) => {
     },
     {
       maxFloat: () =>
-        lang.formatString(lang.action_sidebar.insufficient_balance, 'ARTH'),
+        lang.formatString(lang.action_sidebar.insufficient_balance, 'DAI'),
       allowanceInvalid: () =>
-        lang.formatString(lang.action_sidebar.invalid_allowance, 'ARTH')
+        lang.formatString(lang.action_sidebar.invalid_allowance, 'DAI')
     }
   );
 
@@ -81,7 +81,7 @@ const DsrDeposit = ({ savings, reset }) => {
           disabled={!hasAllowance}
           type="number"
           min="0"
-          placeholder="0 ARTH"
+          placeholder="0 DAI"
           value={depositAmount}
           onChange={onDepositAmountChange}
           error={depositAmountErrors}

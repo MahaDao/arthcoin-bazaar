@@ -1,5 +1,5 @@
-import Maker, { USD, ARTH } from 'arthcoin.js';
-import McdPlugin, { MATIC, DAI, BAT, MARTH } from 'arth-plugin-mcd';
+import Maker, { USD, DAI } from 'arthcoin.js';
+import McdPlugin, { MATIC, BAT, MARTH } from 'arth-plugin-mcd';
 import trezorPlugin from '@makerdao/dai-plugin-trezor-web';
 import ledgerPlugin from '@makerdao/dai-plugin-ledger-web';
 import walletLinkPlugin from '@makerdao/dai-plugin-walletlink';
@@ -104,4 +104,4 @@ export async function instantiateMaker({
   return maker;
 }
 
-export { USD, ARTH, MATIC, BAT, MARTH };
+export { USD, DAI, MATIC, BAT, MARTH };

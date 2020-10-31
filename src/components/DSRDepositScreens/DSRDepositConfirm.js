@@ -31,7 +31,7 @@ const DSRDepositConfirmSummary = ({
   const [hasReadTOS, setHasReadTOS] = useState(false);
 
   const rows = [
-    [lang.save.deposit_amount, `${prettifyNumber(depositAmount)} ARTH`]
+    [lang.save.deposit_amount, `${prettifyNumber(depositAmount)} DAI`]
   ];
   return (
     <Box
@@ -118,11 +118,10 @@ const DSRDepositWait = ({ hash, onClose, txState }) => {
       const waitTimeText =
         waitTime < 1
           ? `${seconds} ${lang.cdp_create.seconds_wait_time}`
-          : `${minutes} ${
-              minutes === 1
-                ? lang.cdp_create.minutes_wait_time_singular
-                : lang.minutes_wait_time_plural
-            }`;
+          : `${minutes} ${minutes === 1
+            ? lang.cdp_create.minutes_wait_time_singular
+            : lang.minutes_wait_time_plural
+          }`;
 
       setWaitTime(waitTimeText);
     })();
@@ -159,13 +158,13 @@ const DSRDepositWait = ({ hash, onClose, txState }) => {
                 <Text>{hash}</Text>
               </Grid>
             ) : (
-              <Link
-                target="_blank"
-                href={etherscanLink(hash, networkIdToName(networkId))}
-              >
-                {lang.cdp_create.view_tx_details} <ExternalLinkIcon />
-              </Link>
-            )}
+                <Link
+                  target="_blank"
+                  href={etherscanLink(hash, networkIdToName(networkId))}
+                >
+                  {lang.cdp_create.view_tx_details} <ExternalLinkIcon />
+                </Link>
+              )}
           </Box>
           <Flex textAlign="center" justifyContent="center">
             <Button onClick={onClose} width="145px">

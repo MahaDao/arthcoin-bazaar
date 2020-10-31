@@ -7,6 +7,8 @@ export default function useCdpTypes() {
   const { network } = useContext(MakerObjectContext);
   const cdpTypes = ilks.filter(ilk => ilk.networks.includes(network));
 
+  console.log('cdpTypes', cdpTypes, ilks)
+
   const cdpTypesList = cdpTypes.reduce((acc, type) => {
     if (!acc.includes(type.key)) acc.push(type.key);
     return acc;

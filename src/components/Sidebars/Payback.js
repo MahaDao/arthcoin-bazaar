@@ -59,7 +59,7 @@ const Payback = ({ vault, reset }) => {
     {
       maxFloat: amount => {
         return greaterThan(amount, daiBalance)
-          ? lang.formatString(lang.action_sidebar.insufficient_balance, 'ARTH')
+          ? lang.formatString(lang.action_sidebar.insufficient_balance, 'DAI')
           : lang.action_sidebar.cannot_payback_more_than_owed;
       },
       dustLimit: () =>
@@ -68,7 +68,7 @@ const Payback = ({ vault, reset }) => {
           subtract(debtValue, debtFloor)
         ),
       allowanceInvalid: () =>
-        lang.formatString(lang.action_sidebar.invalid_allowance, 'ARTH')
+        lang.formatString(lang.action_sidebar.invalid_allowance, 'DAI')
     }
   );
 
@@ -101,13 +101,13 @@ const Payback = ({ vault, reset }) => {
   const liquidationPrice = undercollateralized
     ? BigNumber(0)
     : vault.calculateLiquidationPrice({
-        debtValue: MARTH(debtValue.minus(amountToPayback))
-      });
+      debtValue: MARTH(debtValue.minus(amountToPayback))
+    });
   const collateralizationRatio = undercollateralized
     ? Infinity
     : vault.calculateCollateralizationRatio({
-        debtValue: MARTH(debtValue.minus(amountToPayback))
-      });
+      debtValue: MARTH(debtValue.minus(amountToPayback))
+    });
   return (
     <Grid gridRowGap="m">
       <Grid gridRowGap="s">
@@ -120,7 +120,7 @@ const Payback = ({ vault, reset }) => {
           value={amount}
           min="0"
           onChange={onAmountChange}
-          placeholder="0.00 ARTH"
+          placeholder="0.00 DAI"
           failureMessage={amountErrors}
           data-testid="payback-input"
           after={
@@ -161,11 +161,11 @@ const Payback = ({ vault, reset }) => {
         <Info
           title={lang.action_sidebar.dai_balance}
           body={`${daiBalance &&
-            formatter(daiBalance, { precision: long })} ARTH`}
+            formatter(daiBalance, { precision: long })} DAI`}
         />
         <Info
           title={lang.action_sidebar.dai_debt}
-          body={`${formatter(debtValue, { precision: long })} ARTH`}
+          body={`${formatter(debtValue, { precision: long })} DAI`}
         />
         <Info
           title={lang.action_sidebar.new_liquidation_price}

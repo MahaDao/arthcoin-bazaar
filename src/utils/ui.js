@@ -23,8 +23,8 @@ function getSeparator(locale, separatorType) {
   const numFormat = Intl.NumberFormat(locale);
   return numFormat.formatToParts
     ? numFormat
-        .formatToParts(numberWithGroupAndDecimalSeparator)
-        .find(part => part.type === separatorType)?.value
+      .formatToParts(numberWithGroupAndDecimalSeparator)
+      .find(part => part.type === separatorType)?.value
     : null;
 }
 
@@ -90,8 +90,8 @@ export function firstLetterLowercase(str) {
 }
 
 export function cleanSymbol(s) {
-  if (s === 'MARTH') return 'ARTH';
-  if (s === 'DSR-ARTH') return 'ARTH';
+  if (s === 'MARTH') return 'DAI';
+  if (s === 'DSR-DAI') return 'DAI';
   return s;
 }
 
@@ -197,10 +197,10 @@ export function formatter(target, options = {}) {
 
 export const formatSymbol = token => {
   return token === 'MARTH'
-    ? 'ARTH'
-    : token === 'ARTH'
-    ? 'SAI'
-    : token === 'MWETH'
-    ? 'WMATIC'
-    : token;
+    ? 'DAI'
+    : token === 'DAI'
+      ? 'SAI'
+      : token === 'MWETH'
+        ? 'WMATIC'
+        : token;
 };

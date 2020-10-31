@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Grid, Text, Input, Card } from '@makerdao/ui-components-core';
-import { MARTH } from 'arth-plugin-mcd';
+import { DAI as MARTH } from 'arth-plugin-mcd';
 import { greaterThanOrEqual } from 'utils/bignumber';
 import { TextBlock } from 'components/Typography';
 import {
@@ -60,17 +60,17 @@ function OpenCDPForm({
         failureMessage={
           userHasSufficientGemBalance || !cdpParams.gemsToLock
             ? hasSufficientAllowance(
-                cdpParams.gemsToLock === '' ? 0 : cdpParams.gemsToLock
-              )
+              cdpParams.gemsToLock === '' ? 0 : cdpParams.gemsToLock
+            )
               ? null
               : lang.formatString(
-                  lang.action_sidebar.invalid_allowance,
-                  selectedIlk.gem
-                )
-            : lang.formatString(
-                lang.cdp_create.insufficient_ilk_balance,
+                lang.action_sidebar.invalid_allowance,
                 selectedIlk.gem
               )
+            : lang.formatString(
+              lang.cdp_create.insufficient_ilk_balance,
+              selectedIlk.gem
+            )
         }
       />,
       <Box key="ba">
@@ -99,7 +99,7 @@ function OpenCDPForm({
       <Input
         key="daiToDraw"
         name="daiToDraw"
-        after="ARTH"
+        after="DAI"
         width={300}
         type="number"
         failureMessage={
@@ -130,7 +130,7 @@ function OpenCDPForm({
               });
             }}
           >
-            {formatter(daiAvailable)} ARTH
+            {formatter(daiAvailable)} DAI
           </Text>
         </Box>
         <RatioDisplay
@@ -251,6 +251,7 @@ const CDPCreateDeposit = ({
   const ilkData = collateralTypesData.find(
     x => x.symbol === selectedIlk.symbol
   );
+
   const { calculateMaxDai, debtFloor } = ilkData;
   const daiAvailable = calculateMaxDai(BigNumber(cdpParams.gemsToLock || '0'));
 

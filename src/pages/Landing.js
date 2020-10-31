@@ -110,7 +110,7 @@ const TextSection = styled.div`
 
 const tokens = [
   {
-    name: 'ARTH',
+    name: 'DAI',
     icon: DaiIcon
   },
   {
