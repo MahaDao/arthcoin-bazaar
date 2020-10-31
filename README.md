@@ -1,9 +1,6 @@
 # ARTH CDP Portal
 
-[![Build Status][build]][build-url]
-[![Coverage Status][cover]][cover-url]
-
-## The official dapp for managing Vaults and generating ARTH
+The official dapp for managing Vaults and generating ARTH.
 
 ### Prerequisites
 
