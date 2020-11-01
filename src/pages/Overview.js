@@ -107,17 +107,17 @@ function Overview({ viewedAddress }) {
               </Button>
             </>
           ) : (
-              <Text.p t="h4" mb="s">
-                {lang.formatString(
-                  lang.overview_page.no_vaults,
-                  <Address
-                    full={viewedAddress}
-                    shorten={true}
-                    expandable={false}
-                  />
-                )}
-              </Text.p>
-            )}
+            <Text.p t="h4" mb="s">
+              {lang.formatString(
+                lang.overview_page.no_vaults,
+                <Address
+                  full={viewedAddress}
+                  shorten={true}
+                  expandable={false}
+                />
+              )}
+            </Text.p>
+          )}
         </Flex>
       </PageContentLayout>
     );
@@ -211,98 +211,98 @@ function Overview({ viewedAddress }) {
                       collateralAvailableAmount,
                       debtValue
                     }) => (
-                        <Table.tr key={id}>
-                          <Table.td>
-                            <Text
-                              t="body"
-                              fontSize={{ s: '1.7rem', xl: 'm' }}
-                              fontWeight={{ s: 'medium', xl: 'normal' }}
-                              color="darkPurple"
-                            >
-                              {collateralAmount.symbol}
-                            </Text>
-                          </Table.td>
-                          <Table.td>
-                            <Text
-                              t="body"
-                              fontSize={{ s: '1.7rem', xl: 'm' }}
-                              color={{ s: 'darkLavender', xl: 'darkPurple' }}
-                            >
-                              {id}
-                            </Text>
-                          </Table.td>
-                          <Table.td>
-                            {isFinite(collateralizationRatio.toNumber()) ? (
-                              <RatioDisplay
-                                fontSize={{ s: '1.7rem', xl: '1.3rem' }}
-                                ratio={collateralizationRatio
-                                  .toBigNumber()
-                                  .dp(4)
-                                  .times(100)}
-                                ilkLiqRatio={liquidationRatio
-                                  .toBigNumber()
-                                  .dp(4)
-                                  .times(100)}
-                              />
-                            ) : (
-                                <Text fontSize={{ s: '1.7rem', xl: '1.3rem' }}>
-                                  N/A
-                                </Text>
-                              )}
-                          </Table.td>
-                          <Table.td display={{ s: 'none', xl: 'table-cell' }}>
-                            <Text t="caption" color="darkLavender">
-                              {collateralAmount.toString()}
-                            </Text>
-                          </Table.td>
-                          <Table.td display={{ s: 'none', xl: 'table-cell' }}>
-                            <Text t="caption" color="darkLavender">
-                              {collateralAvailableAmount.toString()}
-                            </Text>
-                          </Table.td>
-                          <Table.td display={{ s: 'none', xl: 'table-cell' }}>
-                            <Text t="caption" color="darkLavender">
-                              {debtValue.toBigNumber().toFixed(2)} DAI
+                      <Table.tr key={id}>
+                        <Table.td>
+                          <Text
+                            t="body"
+                            fontSize={{ s: '1.7rem', xl: 'm' }}
+                            fontWeight={{ s: 'medium', xl: 'normal' }}
+                            color="darkPurple"
+                          >
+                            {collateralAmount.symbol}
                           </Text>
-                          </Table.td>
-                          <Table.td>
-                            <Flex justifyContent="flex-end">
-                              <Button
-                                variant="secondary-outline"
-                                px="s"
-                                py="2xs"
-                                borderColor="steel"
-                                onClick={() => {
-                                  trackBtnClick('Manage', {
-                                    collateral: collateralAmount.symbol,
-                                    vaultId: id
-                                  });
-                                }}
+                        </Table.td>
+                        <Table.td>
+                          <Text
+                            t="body"
+                            fontSize={{ s: '1.7rem', xl: 'm' }}
+                            color={{ s: 'darkLavender', xl: 'darkPurple' }}
+                          >
+                            {id}
+                          </Text>
+                        </Table.td>
+                        <Table.td>
+                          {isFinite(collateralizationRatio.toNumber()) ? (
+                            <RatioDisplay
+                              fontSize={{ s: '1.7rem', xl: '1.3rem' }}
+                              ratio={collateralizationRatio
+                                .toBigNumber()
+                                .dp(4)
+                                .times(100)}
+                              ilkLiqRatio={liquidationRatio
+                                .toBigNumber()
+                                .dp(4)
+                                .times(100)}
+                            />
+                          ) : (
+                            <Text fontSize={{ s: '1.7rem', xl: '1.3rem' }}>
+                              N/A
+                            </Text>
+                          )}
+                        </Table.td>
+                        <Table.td display={{ s: 'none', xl: 'table-cell' }}>
+                          <Text t="caption" color="darkLavender">
+                            {collateralAmount.toString()}
+                          </Text>
+                        </Table.td>
+                        <Table.td display={{ s: 'none', xl: 'table-cell' }}>
+                          <Text t="caption" color="darkLavender">
+                            {collateralAvailableAmount.toString()}
+                          </Text>
+                        </Table.td>
+                        <Table.td display={{ s: 'none', xl: 'table-cell' }}>
+                          <Text t="caption" color="darkLavender">
+                            {debtValue.toBigNumber().toFixed(2)} DAI
+                          </Text>
+                        </Table.td>
+                        <Table.td>
+                          <Flex justifyContent="flex-end">
+                            <Button
+                              variant="secondary-outline"
+                              px="s"
+                              py="2xs"
+                              borderColor="steel"
+                              onClick={() => {
+                                trackBtnClick('Manage', {
+                                  collateral: collateralAmount.symbol,
+                                  vaultId: id
+                                });
+                              }}
+                            >
+                              <Link
+                                href={`/${Routes.BORROW}/${id}${url.search}`}
+                                prefetch={true}
                               >
-                                <Link
-                                  href={`/${Routes.BORROW}/${id}${url.search}`}
-                                  prefetch={true}
-                                >
-                                  <Text
-                                    fontSize="1.3rem"
-                                    color="steel"
-                                    css={`
+                                <Text
+                                  fontSize="1.3rem"
+                                  color="steel"
+                                  css={`
                                     white-space: nowrap;
                                   `}
-                                  >
-                                    <Box display={{ s: 'none', xl: 'inline' }}>
-                                      {lang.overview_page.view_cdp}
-                                    </Box>
-                                    <Box display={{ s: 'inline', xl: 'none' }}>
-                                      {lang.overview_page.view_cdp_mobile}
-                                    </Box>
-                                  </Text>
-                                </Link>
-                              </Button>
-                            </Flex>
-                          </Table.td>
-                        </Table.tr>
-                      )
+                                >
+                                  <Box display={{ s: 'none', xl: 'inline' }}>
+                                    {lang.overview_page.view_cdp}
+                                  </Box>
+                                  <Box display={{ s: 'inline', xl: 'none' }}>
+                                    {lang.overview_page.view_cdp_mobile}
+                                  </Box>
+                                </Text>
+                              </Link>
+                            </Button>
+                          </Flex>
+                        </Table.td>
+                      </Table.tr>
+                    )
                   )}
                 </tbody>
               </Table>

@@ -28,7 +28,7 @@ import { formatSymbol, formatter } from 'utils/ui';
 const log = debug('maker:CDPDisplay/Presentation');
 const { FF_VAULT_HISTORY } = FeatureFlags;
 
-export default function ({ vault, showSidebar, account, network, cdpOwner }) {
+export default function({ vault, showSidebar, account, network, cdpOwner }) {
   const { lang } = useLanguage();
   const { maker } = useMaker();
   const { trackBtnClick } = useAnalytics('CollateralView');
@@ -182,7 +182,9 @@ export default function ({ vault, showSidebar, account, network, cdpOwner }) {
           />
         </CdpViewCard>
 
-        <CdpViewCard title={`${formatSymbol(gem)} ${lang.cdp_page.locked.toLowerCase()}`}>
+        <CdpViewCard
+          title={`${formatSymbol(gem)} ${lang.cdp_page.locked.toLowerCase()}`}
+        >
           <ActionContainerRow
             title={`${formatSymbol(gem)} ${lang.cdp_page.locked.toLowerCase()}`}
             value={`${formatter(vault.collateralAmount)} ${formatSymbol(gem)}`}
@@ -204,7 +206,9 @@ export default function ({ vault, showSidebar, account, network, cdpOwner }) {
           />
           <ActionContainerRow
             title={lang.cdp_page.able_withdraw}
-            value={`${formatter(vault.collateralAvailableAmount)} ${formatSymbol(gem)}`}
+            value={`${formatter(
+              vault.collateralAvailableAmount
+            )} ${formatSymbol(gem)}`}
             conversion={`${formatter(vault.collateralAvailableValue)} ARTH`}
             button={
               <ActionButton

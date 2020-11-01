@@ -77,7 +77,10 @@ const DsrWithdraw = ({ savings, reset }) => {
     <Grid gridRowGap="m">
       <Grid gridRowGap="s">
         <Text.h4 color="darkLavender">
-          {lang.formatString(lang.action_sidebar.withdraw_title, formatSymbol(displaySymbol))}
+          {lang.formatString(
+            lang.action_sidebar.withdraw_title,
+            formatSymbol(displaySymbol)
+          )}
         </Text.h4>
         <Text.p t="body">
           {lang.formatString(
@@ -143,7 +146,9 @@ const DsrWithdraw = ({ savings, reset }) => {
         />
         <Info
           title={lang.action_sidebar.locked_dsr}
-          body={`${safeToFixed(daiLockedInDsr.toNumber(), 7)} ${formatSymbol(displaySymbol)}`}
+          body={`${safeToFixed(daiLockedInDsr.toNumber(), 7)} ${formatSymbol(
+            displaySymbol
+          )}`}
         />
       </InfoContainer>
     </Grid>

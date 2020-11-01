@@ -145,7 +145,10 @@ const Send = ({ token, trackBtnClick, reset }) => {
     <Grid gridRowGap="m">
       <Grid gridRowGap="s">
         <Text color="darkLavender" t="h4">
-          {lang.formatString(lang.action_sidebar.send_title, formatSymbol(displayToken))}
+          {lang.formatString(
+            lang.action_sidebar.send_title,
+            formatSymbol(displayToken)
+          )}
         </Text>
 
         <p>
@@ -177,13 +180,17 @@ const Send = ({ token, trackBtnClick, reset }) => {
             {lang.action_sidebar.your_balance}
           </Text>
           <Text color="text">
-            {(balance && balance.toFixed(3)) || '--'} {formatSymbol(displayToken)}
+            {(balance && balance.toFixed(3)) || '--'}{' '}
+            {formatSymbol(displayToken)}
           </Text>
         </Grid>
 
         <p>
           <Text t="body">
-            {lang.formatString(lang.action_sidebar.dest_address, formatSymbol(displayToken))}
+            {lang.formatString(
+              lang.action_sidebar.dest_address,
+              formatSymbol(displayToken)
+            )}
           </Text>
         </p>
         <Input

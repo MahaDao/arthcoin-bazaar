@@ -61,17 +61,17 @@ function OpenCDPForm({
         failureMessage={
           userHasSufficientGemBalance || !cdpParams.gemsToLock
             ? hasSufficientAllowance(
-              cdpParams.gemsToLock === '' ? 0 : cdpParams.gemsToLock
-            )
+                cdpParams.gemsToLock === '' ? 0 : cdpParams.gemsToLock
+              )
               ? null
               : lang.formatString(
-                lang.action_sidebar.invalid_allowance,
+                  lang.action_sidebar.invalid_allowance,
+                  selectedIlk.gem
+                )
+            : lang.formatString(
+                lang.cdp_create.insufficient_ilk_balance,
                 selectedIlk.gem
               )
-            : lang.formatString(
-              lang.cdp_create.insufficient_ilk_balance,
-              selectedIlk.gem
-            )
         }
       />,
       <Box key="ba">
@@ -90,7 +90,8 @@ function OpenCDPForm({
             });
           }}
         >
-          {prettifyNumber(selectedIlk.userGemBalance)} {formatSymbol(selectedIlk.gem)}
+          {prettifyNumber(selectedIlk.userGemBalance)}{' '}
+          {formatSymbol(selectedIlk.gem)}
         </Text>
       </Box>
     ],

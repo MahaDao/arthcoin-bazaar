@@ -101,13 +101,13 @@ const Payback = ({ vault, reset }) => {
   const liquidationPrice = undercollateralized
     ? BigNumber(0)
     : vault.calculateLiquidationPrice({
-      debtValue: DAI(debtValue.minus(amountToPayback))
-    });
+        debtValue: DAI(debtValue.minus(amountToPayback))
+      });
   const collateralizationRatio = undercollateralized
     ? Infinity
     : vault.calculateCollateralizationRatio({
-      debtValue: DAI(debtValue.minus(amountToPayback))
-    });
+        debtValue: DAI(debtValue.minus(amountToPayback))
+      });
   return (
     <Grid gridRowGap="m">
       <Grid gridRowGap="s">

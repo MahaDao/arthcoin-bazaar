@@ -69,10 +69,10 @@ const Withdraw = ({ vault, reset }) => {
     undercollateralized || debtAmount.eq(0)
       ? BigNumber(0)
       : vault.calculateLiquidationPrice({
-        collateralAmount: currency(
-          encumberedCollateral.minus(amountToWithdraw)
-        )
-      });
+          collateralAmount: currency(
+            encumberedCollateral.minus(amountToWithdraw)
+          )
+        });
 
   const collateralizationRatio = vault.calculateCollateralizationRatio({
     collateralValue: collateralValue.minus(valueDiff).gte(0)

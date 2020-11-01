@@ -55,7 +55,7 @@ const Generate = ({ vault, reset }) => {
     }
   );
 
-  console.log('daiAvailable.lt', daiAvailable, amount)
+  console.log('daiAvailable.lt', daiAvailable, amount);
 
   const amountToGenerate = amount || 0;
   const undercollateralized = daiAvailable._amount.lt(amount);

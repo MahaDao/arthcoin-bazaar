@@ -67,8 +67,8 @@ const ProxyAllowanceToggle = ({
       )}
     </Grid>
   ) : (
-      <div />
-    );
+    <div />
+  );
 };
 
 export default ProxyAllowanceToggle;
