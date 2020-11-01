@@ -8,7 +8,7 @@ import {
   Card
 } from '@makerdao/ui-components-core';
 import { TextBlock } from 'components/Typography';
-import { prettifyNumber, formatter } from 'utils/ui';
+import { prettifyNumber, formatter, formatSymbol } from 'utils/ui';
 import useCdpTypes from 'hooks/useCdpTypes';
 import useLanguage from 'hooks/useLanguage';
 import useAnalytics from 'hooks/useAnalytics';
@@ -52,7 +52,7 @@ function IlkTableRow({
   ilkData
 }) {
   const { trackInputChange } = useAnalytics('SelectCollateral', 'VaultCreate');
-  console.log('ilkData', ilkData);
+
   const { annualStabilityFee, liquidationRatio, liquidationPenalty } = ilkData;
   async function selectIlk() {
     trackInputChange('CollateralType', {
@@ -89,7 +89,7 @@ function IlkTableRow({
       <td>{formatter(liquidationRatio, { percentage: true })} %</td>
       <td>{formatter(liquidationPenalty, { percentage: true })} %</td>
       <td css="text-align: right">
-        {prettifyNumber(gemBalance)} {ilk.gem}
+        {prettifyNumber(gemBalance)} {formatSymbol(ilk.gem)}
       </td>
     </tr>
   );

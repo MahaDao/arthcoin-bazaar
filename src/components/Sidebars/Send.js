@@ -10,6 +10,7 @@ import useLanguage from 'hooks/useLanguage';
 import BigNumber from 'bignumber.js';
 import SetMax from '../SetMax';
 import { isValidAddressString, calculateGasCost } from '../../utils/ethereum';
+import { formatSymbol } from 'utils/ui';
 
 const PasteLink = styled(Link)``;
 
@@ -41,7 +42,7 @@ const Send = ({ token, trackBtnClick, reset }) => {
   const maxAmount = token === 'MATIC' ? balance.minus(gasCost) : balance;
 
   const displayToken =
-    token === 'MARTH' ? 'DAI' : token === 'MWETH' ? 'WMATIC' : token;
+    token === 'DAI' ? 'ARTH' : token === 'MWETH' ? 'WMATIC' : token;
 
   const inRangeAndEth = _val =>
     token === 'MATIC' && _val.gt(ZERO) && _val.lte(balance);
@@ -144,14 +145,14 @@ const Send = ({ token, trackBtnClick, reset }) => {
     <Grid gridRowGap="m">
       <Grid gridRowGap="s">
         <Text color="darkLavender" t="h4">
-          {lang.formatString(lang.action_sidebar.send_title, displayToken)}
+          {lang.formatString(lang.action_sidebar.send_title, formatSymbol(displayToken))}
         </Text>
 
         <p>
           <Text t="body">
             {lang.formatString(
               lang.action_sidebar.send_description,
-              displayToken
+              formatSymbol(displayToken)
             )}
           </Text>
         </p>
@@ -165,7 +166,7 @@ const Send = ({ token, trackBtnClick, reset }) => {
             e.target.value = '';
             e.target.value = tmp;
           }}
-          placeholder={`0.00 ${displayToken}`}
+          placeholder={`0.00 ${formatSymbol(displayToken)}`}
           after={<>{showSetMax && <SetMax onClick={setMax} />}</>}
           failureMessage={amountErrors}
           data-testid="send-amount-input"
@@ -176,13 +177,13 @@ const Send = ({ token, trackBtnClick, reset }) => {
             {lang.action_sidebar.your_balance}
           </Text>
           <Text color="text">
-            {(balance && balance.toFixed(3)) || '--'} {displayToken}
+            {(balance && balance.toFixed(3)) || '--'} {formatSymbol(displayToken)}
           </Text>
         </Grid>
 
         <p>
           <Text t="body">
-            {lang.formatString(lang.action_sidebar.dest_address, displayToken)}
+            {lang.formatString(lang.action_sidebar.dest_address, formatSymbol(displayToken))}
           </Text>
         </p>
         <Input

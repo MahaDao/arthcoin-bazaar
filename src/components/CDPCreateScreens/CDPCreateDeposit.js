@@ -6,7 +6,8 @@ import { TextBlock } from 'components/Typography';
 import {
   formatCollateralizationRatio,
   prettifyNumber,
-  formatter
+  formatter,
+  formatSymbol
 } from 'utils/ui';
 import { cdpParamsAreValid } from '../../utils/cdp';
 import useTokenAllowance from 'hooks/useTokenAllowance';
@@ -43,16 +44,16 @@ function OpenCDPForm({
     [
       lang.formatString(
         lang.cdp_create.deposit_form_field1_title,
-        selectedIlk.gem
+        formatSymbol(selectedIlk.gem)
       ),
       lang.formatString(
         lang.cdp_create.deposit_form_field1_text,
-        selectedIlk.gem
+        formatSymbol(selectedIlk.gem)
       ),
       <Input
         key="collinput"
         name="gemsToLock"
-        after={selectedIlk.gem}
+        after={formatSymbol(selectedIlk.gem)}
         type="number"
         value={cdpParams.gemsToLock}
         onChange={handleInputChange}
@@ -60,17 +61,17 @@ function OpenCDPForm({
         failureMessage={
           userHasSufficientGemBalance || !cdpParams.gemsToLock
             ? hasSufficientAllowance(
-                cdpParams.gemsToLock === '' ? 0 : cdpParams.gemsToLock
-              )
+              cdpParams.gemsToLock === '' ? 0 : cdpParams.gemsToLock
+            )
               ? null
               : lang.formatString(
-                  lang.action_sidebar.invalid_allowance,
-                  selectedIlk.gem
-                )
-            : lang.formatString(
-                lang.cdp_create.insufficient_ilk_balance,
+                lang.action_sidebar.invalid_allowance,
                 selectedIlk.gem
               )
+            : lang.formatString(
+              lang.cdp_create.insufficient_ilk_balance,
+              selectedIlk.gem
+            )
         }
       />,
       <Box key="ba">
@@ -89,7 +90,7 @@ function OpenCDPForm({
             });
           }}
         >
-          {prettifyNumber(selectedIlk.userGemBalance)} {selectedIlk.gem}
+          {prettifyNumber(selectedIlk.userGemBalance)} {formatSymbol(selectedIlk.gem)}
         </Text>
       </Box>
     ],
@@ -99,7 +100,7 @@ function OpenCDPForm({
       <Input
         key="daiToDraw"
         name="daiToDraw"
-        after="DAI"
+        after="ARTH"
         width={300}
         type="number"
         failureMessage={
@@ -130,7 +131,7 @@ function OpenCDPForm({
               });
             }}
           >
-            {formatter(daiAvailable)} DAI
+            {formatter(daiAvailable)} ARTH
           </Text>
         </Box>
         <RatioDisplay
@@ -210,7 +211,7 @@ const CDPCreateDepositSidebar = ({
             t="caption"
           />
         ],
-        [lang.liquidation_price, `$${liquidationPriceDisplay}`],
+        [lang.liquidation_price, `${liquidationPriceDisplay} GMU`],
         [
           lang.formatString(lang.current_ilk_price, selectedIlk.gem),
           `$${formatter(collateralTypePrice)}`

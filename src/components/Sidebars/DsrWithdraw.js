@@ -9,21 +9,21 @@ import useValidatedInput from 'hooks/useValidatedInput';
 import useLanguage from 'hooks/useLanguage';
 import useAnalytics from 'hooks/useAnalytics';
 import ProxyAllowanceToggle from 'components/ProxyAllowanceToggle';
-import { MARTH } from 'arth-plugin-mcd';
+import { DAI } from 'arth-plugin-mcd';
 import SetMax from 'components/SetMax';
 import { BigNumber } from 'bignumber.js';
-import { safeToFixed } from '../../utils/ui';
+import { formatSymbol, safeToFixed } from '../../utils/ui';
 
 const DsrWithdraw = ({ savings, reset }) => {
   const { trackBtnClick } = useAnalytics('Withdraw', 'Sidebar');
   const { lang } = useLanguage();
   const { maker } = useMaker();
 
-  const { symbol } = MARTH;
+  const { symbol } = DAI;
   const displaySymbol = 'DAI';
 
   const { daiLockedInDsr } = savings;
-  const { MARTH: daiBalance } = useWalletBalances();
+  const { DAI: daiBalance } = useWalletBalances();
   const { hasAllowance, hasSufficientAllowance } = useTokenAllowance(symbol);
   const [withdrawMaxFlag, setWithdrawMaxFlag] = useState(false);
 
@@ -66,7 +66,7 @@ const DsrWithdraw = ({ savings, reset }) => {
     if (withdrawMaxFlag || new BigNumber(withdrawAmount).eq(daiLockedInDsr)) {
       maker.service('mcd:savings').exitAll();
     } else {
-      maker.service('mcd:savings').exit(MARTH(withdrawAmount));
+      maker.service('mcd:savings').exit(DAI(withdrawAmount));
     }
     reset();
   };
@@ -77,19 +77,19 @@ const DsrWithdraw = ({ savings, reset }) => {
     <Grid gridRowGap="m">
       <Grid gridRowGap="s">
         <Text.h4 color="darkLavender">
-          {lang.formatString(lang.action_sidebar.withdraw_title, displaySymbol)}
+          {lang.formatString(lang.action_sidebar.withdraw_title, formatSymbol(displaySymbol))}
         </Text.h4>
         <Text.p t="body">
           {lang.formatString(
             lang.action_sidebar.withdraw_description,
-            displaySymbol
+            formatSymbol(displaySymbol)
           )}
         </Text.p>
         <Input
           disabled={!hasAllowance}
           type="number"
           min="0"
-          placeholder="0 DAI"
+          placeholder="0 ARTH"
           value={withdrawAmount}
           onChange={e => {
             if (withdrawMaxFlag) setWithdrawMaxFlag(false);
@@ -111,7 +111,7 @@ const DsrWithdraw = ({ savings, reset }) => {
         />
       </Grid>
       <ProxyAllowanceToggle
-        token="MARTH"
+        token="DAI"
         onlyShowAllowance={true}
         trackBtnClick={trackBtnClick}
       />
@@ -139,11 +139,11 @@ const DsrWithdraw = ({ savings, reset }) => {
       <InfoContainer>
         <Info
           title={lang.action_sidebar.dai_balance}
-          body={`${safeToFixed(daiBalance, 7)} ${displaySymbol}`}
+          body={`${safeToFixed(daiBalance, 7)} ${formatSymbol(displaySymbol)}`}
         />
         <Info
           title={lang.action_sidebar.locked_dsr}
-          body={`${safeToFixed(daiLockedInDsr.toNumber(), 7)} ${displaySymbol}`}
+          body={`${safeToFixed(daiLockedInDsr.toNumber(), 7)} ${formatSymbol(displaySymbol)}`}
         />
       </InfoContainer>
     </Grid>

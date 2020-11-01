@@ -9,20 +9,20 @@ import useValidatedInput from 'hooks/useValidatedInput';
 import useLanguage from 'hooks/useLanguage';
 import useAnalytics from 'hooks/useAnalytics';
 import ProxyAllowanceToggle from 'components/ProxyAllowanceToggle';
-import { MARTH } from 'arth-plugin-mcd';
+import { DAI } from 'arth-plugin-mcd';
 import SetMax from 'components/SetMax';
-import { safeToFixed } from '../../utils/ui';
+import { formatSymbol, safeToFixed } from '../../utils/ui';
 
 const DsrDeposit = ({ savings, reset }) => {
   const { trackBtnClick } = useAnalytics('Deposit', 'Sidebar');
   const { lang } = useLanguage();
   const { maker } = useMaker();
 
-  const { symbol } = MARTH;
-  const displaySymbol = 'DAI';
+  const { symbol } = DAI;
+  const displaySymbol = 'ARTH';
 
   const { daiLockedInDsr } = savings;
-  const { MARTH: daiBalance } = useWalletBalances();
+  const { DAI: daiBalance } = useWalletBalances();
   const { hasAllowance, hasSufficientAllowance } = useTokenAllowance(symbol);
 
   const [
@@ -42,9 +42,9 @@ const DsrDeposit = ({ savings, reset }) => {
     },
     {
       maxFloat: () =>
-        lang.formatString(lang.action_sidebar.insufficient_balance, 'DAI'),
+        lang.formatString(lang.action_sidebar.insufficient_balance, 'ARTH'),
       allowanceInvalid: () =>
-        lang.formatString(lang.action_sidebar.invalid_allowance, 'DAI')
+        lang.formatString(lang.action_sidebar.invalid_allowance, 'ARTH')
     }
   );
 
@@ -57,7 +57,7 @@ const DsrDeposit = ({ savings, reset }) => {
   }, [daiBalance, setDepositAmount]);
 
   const deposit = () => {
-    maker.service('mcd:savings').join(MARTH(depositAmount));
+    maker.service('mcd:savings').join(DAI(depositAmount));
     reset();
   };
 
@@ -73,7 +73,7 @@ const DsrDeposit = ({ savings, reset }) => {
           <Text t="body">
             {lang.formatString(
               lang.action_sidebar.deposit_description,
-              displaySymbol
+              formatSymbol(displaySymbol)
             )}
           </Text>
         </p>
@@ -81,7 +81,7 @@ const DsrDeposit = ({ savings, reset }) => {
           disabled={!hasAllowance}
           type="number"
           min="0"
-          placeholder="0 DAI"
+          placeholder="0 ARTH"
           value={depositAmount}
           onChange={onDepositAmountChange}
           error={depositAmountErrors}
@@ -101,7 +101,7 @@ const DsrDeposit = ({ savings, reset }) => {
         />
       </Grid>
       <ProxyAllowanceToggle
-        token="MARTH"
+        token="DAI"
         onlyShowAllowance={true}
         trackBtnClick={trackBtnClick}
       />

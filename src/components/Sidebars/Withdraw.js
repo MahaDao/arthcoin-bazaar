@@ -1,6 +1,6 @@
 import React from 'react';
 import BigNumber from 'bignumber.js';
-import { MARTH } from 'arth-plugin-mcd';
+import { DAI } from 'arth-plugin-mcd';
 import { Text, Input, Grid, Button } from '@makerdao/ui-components-core';
 import Info from './shared/Info';
 import InfoContainer from './shared/InfoContainer';
@@ -59,7 +59,7 @@ const Withdraw = ({ vault, reset }) => {
   const withdraw = () => {
     maker
       .service('mcd:cdpManager')
-      .wipeAndFree(vault.id, vaultType, MARTH(0), currency(amountToWithdraw));
+      .wipeAndFree(vault.id, vaultType, DAI(0), currency(amountToWithdraw));
     reset();
   };
 
@@ -69,10 +69,10 @@ const Withdraw = ({ vault, reset }) => {
     undercollateralized || debtAmount.eq(0)
       ? BigNumber(0)
       : vault.calculateLiquidationPrice({
-          collateralAmount: currency(
-            encumberedCollateral.minus(amountToWithdraw)
-          )
-        });
+        collateralAmount: currency(
+          encumberedCollateral.minus(amountToWithdraw)
+        )
+      });
 
   const collateralizationRatio = vault.calculateCollateralizationRatio({
     collateralValue: collateralValue.minus(valueDiff).gte(0)

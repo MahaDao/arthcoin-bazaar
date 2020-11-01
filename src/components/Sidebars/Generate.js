@@ -1,6 +1,6 @@
 import React from 'react';
 import BigNumber from 'bignumber.js';
-import { MARTH } from 'arth-plugin-mcd';
+import { DAI } from 'arth-plugin-mcd';
 import { Text, Input, Grid, Button } from '@makerdao/ui-components-core';
 import Info from './shared/Info';
 import InfoContainer from './shared/InfoContainer';
@@ -55,11 +55,13 @@ const Generate = ({ vault, reset }) => {
     }
   );
 
+  console.log('daiAvailable.lt', daiAvailable, amount)
+
   const amountToGenerate = amount || 0;
-  const undercollateralized = daiAvailable.lt(amount);
+  const undercollateralized = daiAvailable._amount.lt(amount);
 
   const generate = () => {
-    maker.service('mcd:cdpManager').draw(vault.id, vaultType, MARTH(amount));
+    maker.service('mcd:cdpManager').draw(vault.id, vaultType, DAI(amount));
     reset();
   };
 

@@ -23,12 +23,12 @@ import useNotification from 'hooks/useNotification';
 import useAnalytics from 'hooks/useAnalytics';
 import { FeatureFlags } from 'utils/constants';
 import { NotificationList, SAFETY_LEVELS } from 'utils/constants';
-import { formatter } from 'utils/ui';
+import { formatSymbol, formatter } from 'utils/ui';
 
 const log = debug('maker:CDPDisplay/Presentation');
 const { FF_VAULT_HISTORY } = FeatureFlags;
 
-export default function({ vault, showSidebar, account, network, cdpOwner }) {
+export default function ({ vault, showSidebar, account, network, cdpOwner }) {
   const { lang } = useLanguage();
   const { maker } = useMaker();
   const { trackBtnClick } = useAnalytics('CollateralView');
@@ -137,17 +137,17 @@ export default function({ vault, showSidebar, account, network, cdpOwner }) {
       >
         <CdpViewCard title={lang.cdp_page.liquidation_price}>
           <Flex alignItems="flex-end" mt="s" mb="xs">
-            <AmountDisplay amount={liquidationPrice} denomination="ARTH" />
-            <ExtraInfo>({gem}/ARTH)</ExtraInfo>
+            <AmountDisplay amount={liquidationPrice} denomination="GMU" />
+            <ExtraInfo>({formatSymbol(gem)}/ARTH)</ExtraInfo>
           </Flex>
           <InfoContainerRow
             title={
               <TextBlock fontSize="l">
                 {lang.cdp_page.current_price_info}
-                <ExtraInfo ml="2xs">{`(${gem}/ARTH)`}</ExtraInfo>
+                <ExtraInfo ml="2xs">{`(${formatSymbol(gem)}/ARTH)`}</ExtraInfo>
               </TextBlock>
             }
-            value={`${formatter(vault.collateralTypePrice)} ARTH`}
+            value={`${formatter(vault.collateralTypePrice)} GMU`}
           />
           <InfoContainerRow
             title={lang.cdp_page.liquidation_penalty}
@@ -182,10 +182,10 @@ export default function({ vault, showSidebar, account, network, cdpOwner }) {
           />
         </CdpViewCard>
 
-        <CdpViewCard title={`${gem} ${lang.cdp_page.locked.toLowerCase()}`}>
+        <CdpViewCard title={`${formatSymbol(gem)} ${lang.cdp_page.locked.toLowerCase()}`}>
           <ActionContainerRow
-            title={`${gem} ${lang.cdp_page.locked.toLowerCase()}`}
-            value={`${formatter(vault.collateralAmount)} ${gem}`}
+            title={`${formatSymbol(gem)} ${lang.cdp_page.locked.toLowerCase()}`}
+            value={`${formatter(vault.collateralAmount)} ${formatSymbol(gem)}`}
             conversion={`${formatter(vault.collateralValue)} ARTH`}
             button={
               <ActionButton
@@ -204,7 +204,7 @@ export default function({ vault, showSidebar, account, network, cdpOwner }) {
           />
           <ActionContainerRow
             title={lang.cdp_page.able_withdraw}
-            value={`${formatter(vault.collateralAvailableAmount)} ${gem}`}
+            value={`${formatter(vault.collateralAvailableAmount)} ${formatSymbol(gem)}`}
             conversion={`${formatter(vault.collateralAvailableValue)} ARTH`}
             button={
               <ActionButton

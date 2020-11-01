@@ -13,7 +13,7 @@ import { DAI } from 'arth-plugin-mcd';
 import useMaker from 'hooks/useMaker';
 import useLanguage from 'hooks/useLanguage';
 import useAnalytics from 'hooks/useAnalytics';
-import { formatter } from 'utils/ui';
+import { formatSymbol, formatter } from 'utils/ui';
 import { etherscanLink } from 'utils/ethereum';
 import { networkIdToName } from 'utils/network';
 import ScreenFooter from '../ScreenFooter';
@@ -51,9 +51,9 @@ const CDPCreateConfirmSummary = ({
   const rows = [
     [
       lang.verbs.depositing,
-      `${prettifyNumber(cdpParams.gemsToLock)} ${selectedIlk.gem}`
+      `${prettifyNumber(cdpParams.gemsToLock)} ${formatSymbol(selectedIlk.gem)}`
     ],
-    [lang.verbs.generating, `${prettifyNumber(cdpParams.daiToDraw)} DAI`],
+    [lang.verbs.generating, `${prettifyNumber(cdpParams.daiToDraw)} ARTH`],
     [
       lang.collateralization,
       `${formatter(
@@ -69,12 +69,12 @@ const CDPCreateConfirmSummary = ({
     ],
     [
       lang.liquidation_price,
-      `$${formatter(
+      `${formatter(
         ilkData.calculateliquidationPrice(
           BigNumber(cdpParams.gemsToLock),
           DAI(cdpParams.daiToDraw)
         )
-      )}`
+      )} GMU`
     ],
     [
       lang.liquidation_penalty,
@@ -186,11 +186,10 @@ const CDPCreateConfirmed = ({ hash, isFirstVault, onClose, txState }) => {
       const waitTimeText =
         waitTime < 1
           ? `${seconds} ${lang.cdp_create.seconds_wait_time}`
-          : `${minutes} ${
-              minutes === 1
-                ? lang.cdp_create.minutes_wait_time_singular
-                : lang.minutes_wait_time_plural
-            }`;
+          : `${minutes} ${minutes === 1
+            ? lang.cdp_create.minutes_wait_time_singular
+            : lang.minutes_wait_time_plural
+          }`;
 
       setWaitTime(waitTimeText);
     })();
@@ -224,19 +223,19 @@ const CDPCreateConfirmed = ({ hash, isFirstVault, onClose, txState }) => {
                 <Text>{hash}</Text>
               </Grid>
             ) : (
-              <Link
-                target="_blank"
-                href={etherscanLink(hash, networkIdToName(networkId))}
-                onClick={() => {
-                  trackBtnClick('TxDetails', { isFirstVault });
-                }}
-              >
-                <Button variant="secondary">
-                  <Text mr="xs">{lang.cdp_create.view_tx_details}</Text>
-                  <StyledExternalLink color={getColor('steel')} ml="4px" />
-                </Button>
-              </Link>
-            )}
+                <Link
+                  target="_blank"
+                  href={etherscanLink(hash, networkIdToName(networkId))}
+                  onClick={() => {
+                    trackBtnClick('TxDetails', { isFirstVault });
+                  }}
+                >
+                  <Button variant="secondary">
+                    <Text mr="xs">{lang.cdp_create.view_tx_details}</Text>
+                    <StyledExternalLink color={getColor('steel')} ml="4px" />
+                  </Button>
+                </Link>
+              )}
           </Box>
           <Flex textAlign="center" justifyContent="center">
             <Button

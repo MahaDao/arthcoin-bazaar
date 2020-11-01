@@ -17,7 +17,7 @@ export default {
     // "outstanding_debt": "Outstanding debt",
     // "wallet_balance": "wallet balance",
     tx_history: 'Vault history',
-    outstanding_dai_debt: 'Outstanding DAI debt',
+    outstanding_dai_debt: 'Outstanding ARTH debt',
     not_applicable: 'N/A'
   },
   landing_page: {
@@ -135,7 +135,7 @@ export default {
     view_less: 'View less',
     asset: 'ASSET',
     balance: 'BALANCE',
-    usd: 'ARTH',
+    usd: 'GMU Value ($)',
     send: 'SEND',
     migrate: 'UPGRADE',
     no_wallet: 'Not connected',

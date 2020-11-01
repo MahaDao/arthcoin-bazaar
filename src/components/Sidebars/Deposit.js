@@ -9,7 +9,7 @@ import useWalletBalances from 'hooks/useWalletBalances';
 import useValidatedInput from 'hooks/useValidatedInput';
 import useLanguage from 'hooks/useLanguage';
 import useAnalytics from 'hooks/useAnalytics';
-import { formatCollateralizationRatio, formatter } from 'utils/ui';
+import { formatCollateralizationRatio, formatSymbol, formatter } from 'utils/ui';
 import { multiply } from 'utils/bignumber';
 import { getCurrency } from 'utils/cdp';
 import ProxyAllowanceToggle from 'components/ProxyAllowanceToggle';
@@ -47,9 +47,9 @@ const Deposit = ({ vault, reset }) => {
     },
     {
       maxFloat: () =>
-        lang.formatString(lang.action_sidebar.insufficient_balance, symbol),
+        lang.formatString(lang.action_sidebar.insufficient_balance, formatSymbol(symbol)),
       allowanceInvalid: () =>
-        lang.formatString(lang.action_sidebar.invalid_allowance, symbol)
+        lang.formatString(lang.action_sidebar.invalid_allowance, formatSymbol(symbol))
     }
   );
   const valid = amount && !amountErrors && hasAllowance && hasProxy;
@@ -77,11 +77,11 @@ const Deposit = ({ vault, reset }) => {
     <Grid gridRowGap="m">
       <Grid gridRowGap="s">
         <Text color="darkLavender" t="h4">
-          {lang.formatString(lang.action_sidebar.deposit_title, symbol)}
+          {lang.formatString(lang.action_sidebar.deposit_title, formatSymbol(symbol))}
         </Text>
         <p>
           <Text t="body">
-            {lang.formatString(lang.action_sidebar.deposit_description, symbol)}
+            {lang.formatString(lang.action_sidebar.deposit_description, formatSymbol(symbol))}
           </Text>
         </p>
         <Input
@@ -89,7 +89,7 @@ const Deposit = ({ vault, reset }) => {
           min="0"
           value={amount}
           onChange={onAmountChange}
-          placeholder={`0.00 ${symbol}`}
+          placeholder={`0.00 ${formatSymbol(symbol)}`}
           failureMessage={amountErrors}
           data-testid="deposit-input"
         />
@@ -118,20 +118,20 @@ const Deposit = ({ vault, reset }) => {
       <InfoContainer>
         <Info
           title={lang.action_sidebar.current_account_balance}
-          body={`${formatter(gemBalance, { precision: long })} ${symbol}`}
+          body={`${formatter(gemBalance, { precision: long })} ${formatSymbol(symbol)}`}
         />
         <Info
           title={lang.formatString(
             lang.action_sidebar.gem_usd_price_feed,
-            symbol
+            formatSymbol(symbol)
           )}
-          body={`${formatter(collateralTypePrice)} ARTH/${symbol}`}
+          body={`${formatter(collateralTypePrice)} ARTH/${formatSymbol(symbol)}`}
         />
         <Info
           title={lang.action_sidebar.new_liquidation_price}
           body={`${formatter(liquidationPrice, {
             infinity: BigNumber(0).toFixed(medium)
-          })} ARTH/${symbol}`}
+          })} ARTH/${formatSymbol(symbol)}`}
         />
         <Info
           title={lang.action_sidebar.new_collateralization_ratio}

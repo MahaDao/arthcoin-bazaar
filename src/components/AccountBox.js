@@ -90,7 +90,7 @@ const TokenBalance = ({
         {(hasActiveAccount &&
           amount &&
           usdRatio &&
-          `$${prettifyNumber(amount.times(usdRatio.toNumber()), true, 2)}`) ||
+          `${prettifyNumber(amount.times(usdRatio.toNumber()), true, 2)}`) ||
           '--'}
       </Text>
       <Flex width="20%" justifyContent="flex-end">
@@ -120,10 +120,10 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
     () =>
       prices
         ? prices.reduce((acc, price) => {
-            const [, symbol] = price.symbol.split('/');
-            acc[symbol] = price;
-            return acc;
-          }, {})
+          const [, symbol] = price.symbol.split('/');
+          acc[symbol] = price;
+          return acc;
+        }, {})
         : {},
     [prices]
   );
@@ -153,8 +153,8 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
         const usdRatio = tokenIsDaiOrDsr
           ? new BigNumber(1)
           : token === 'MWETH'
-          ? uniqueFeeds['MATIC']
-          : uniqueFeeds[token];
+            ? uniqueFeeds['MATIC']
+            : uniqueFeeds[token];
         return [
           {
             token,
@@ -215,21 +215,21 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
                         </ActionButton>
                       </Link>
                     ) : (
-                      <ActionButton
-                        disabled={!hasActiveAccount}
-                        onClick={() => {
-                          trackBtnClick('Send', {
-                            collateral: formatSymbol(token)
-                          });
-                          showAction({
-                            type: 'send',
-                            props: { token, trackBtnClick }
-                          });
-                        }}
-                      >
-                        {lang.sidebar.send}
-                      </ActionButton>
-                    ))
+                        <ActionButton
+                          disabled={!hasActiveAccount}
+                          onClick={() => {
+                            trackBtnClick('Send', {
+                              collateral: formatSymbol(token)
+                            });
+                            showAction({
+                              type: 'send',
+                              props: { token, trackBtnClick }
+                            });
+                          }}
+                        >
+                          {lang.sidebar.send}
+                        </ActionButton>
+                      ))
                   }
                 />
               )
@@ -245,11 +245,11 @@ const WalletBalances = ({ hasActiveAccount, closeSidebarDrawer }) => {
                 <Carat />
               </>
             ) : (
-              <>
-                <Text pr="xs">{lang.sidebar.view_less}</Text>
-                <Carat rotation={180} />
-              </>
-            )}
+                <>
+                  <Text pr="xs">{lang.sidebar.view_less}</Text>
+                  <Carat rotation={180} />
+                </>
+              )}
           </Flex>
         </StyledCardBody>
       )}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MARTH } from 'arth-plugin-mcd';
+import { DAI } from 'arth-plugin-mcd';
 import { Text, Input, Grid, Button } from '@makerdao/ui-components-core';
 import debug from 'debug';
 
@@ -30,9 +30,9 @@ const Payback = ({ vault, reset }) => {
   const { lang } = useLanguage();
   const { maker } = useMaker();
   const balances = useWalletBalances();
-  const daiBalance = balances.MARTH;
+  const daiBalance = balances.DAI;
 
-  const { hasAllowance, hasSufficientAllowance } = useTokenAllowance('MARTH');
+  const { hasAllowance, hasSufficientAllowance } = useTokenAllowance('DAI');
   const { hasProxy } = useProxy();
 
   let { debtValue, debtFloor, collateralAmount } = vault;
@@ -59,7 +59,7 @@ const Payback = ({ vault, reset }) => {
     {
       maxFloat: amount => {
         return greaterThan(amount, daiBalance)
-          ? lang.formatString(lang.action_sidebar.insufficient_balance, 'DAI')
+          ? lang.formatString(lang.action_sidebar.insufficient_balance, 'ARTH')
           : lang.action_sidebar.cannot_payback_more_than_owed;
       },
       dustLimit: () =>
@@ -68,7 +68,7 @@ const Payback = ({ vault, reset }) => {
           subtract(debtValue, debtFloor)
         ),
       allowanceInvalid: () =>
-        lang.formatString(lang.action_sidebar.invalid_allowance, 'DAI')
+        lang.formatString(lang.action_sidebar.invalid_allowance, 'ARTH')
     }
   );
 
@@ -91,7 +91,7 @@ const Payback = ({ vault, reset }) => {
     else log('Calling wipe()');
     wipeAll
       ? cdpManager.wipeAll(vault.id, owner)
-      : cdpManager.wipe(vault.id, MARTH(amount), owner);
+      : cdpManager.wipe(vault.id, DAI(amount), owner);
     reset();
   };
 
@@ -101,13 +101,13 @@ const Payback = ({ vault, reset }) => {
   const liquidationPrice = undercollateralized
     ? BigNumber(0)
     : vault.calculateLiquidationPrice({
-        debtValue: MARTH(debtValue.minus(amountToPayback))
-      });
+      debtValue: DAI(debtValue.minus(amountToPayback))
+    });
   const collateralizationRatio = undercollateralized
     ? Infinity
     : vault.calculateCollateralizationRatio({
-        debtValue: MARTH(debtValue.minus(amountToPayback))
-      });
+      debtValue: DAI(debtValue.minus(amountToPayback))
+    });
   return (
     <Grid gridRowGap="m">
       <Grid gridRowGap="s">
