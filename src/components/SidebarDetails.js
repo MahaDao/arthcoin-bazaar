@@ -21,14 +21,16 @@ const SidebarDetails = ({ system, savings }) => {
     lang.sidebar.save_details.dai_savings_rate,
     system.annualDaiSavingsRate
       ? formatter(system.annualDaiSavingsRate, {
-        rounding: BigNumber.ROUND_HALF_UP
-      }) + '%'
+          rounding: BigNumber.ROUND_HALF_UP
+        }) + '%'
       : ''
   ];
 
-  const params = [TOTAL_ARTH_SUPPLY, TOTAL_SAVINGS_ARTH, ARTH_SAVINGS_RATE].map(
-    f => f({ system, savings })
-  );
+  const params = [
+    TOTAL_ARTH_SUPPLY,
+    TOTAL_SAVINGS_ARTH,
+    ARTH_SAVINGS_RATE
+  ].map(f => f({ system, savings }));
 
   return (
     <Card css={'overflow:hidden;'} pt="2xs">
