@@ -114,7 +114,7 @@ export default mount({
   ),
 
   [`/${Routes.TRADE}`]: route(() => {
-    window.location.href = 'https://dex.mahadao.com';
+    window.location.href = '#';
   }),
 
   [`/${Routes.PRIVACY}`]: route(() => ({

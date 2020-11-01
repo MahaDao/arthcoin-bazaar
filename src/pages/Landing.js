@@ -424,11 +424,11 @@ function Landing() {
           </div>
           <div className="buttonContainer">
             <a
-              href="https://dex.mahadao.com/"
+              href="#"
               className="button enabled"
               style={{ color: '#5894B5', backgroundColor: 'white' }}
             >
-              {lang.landing_page.trade_card.button}
+              Coming Soon {/* {lang.landing_page.trade_card.button} */}
             </a>
           </div>
         </Card>
@@ -503,7 +503,7 @@ function Landing() {
           </div>
         </Card>
       </Cards>
-      <TextSection style={{ marginTop: '103px' }}>
+      {/* <TextSection style={{ marginTop: '103px' }}>
         <h3>{lang.landing_page.token_section_title}</h3>
         <TokenList>
           {tokens.map(({ name, icon }) => (
@@ -513,7 +513,7 @@ function Landing() {
         <span style={{ fontSize: '10px' }}>
           {lang.landing_page.token_section_only_on_trade}
         </span>
-      </TextSection>
+      </TextSection> */}
       <TextSection style={{ marginTop: '95px' }}>
         <h3>{lang.landing_page.section1_title}</h3>
         <p>{lang.landing_page.section1_p}</p>
@@ -526,10 +526,10 @@ function Landing() {
         <h3>{lang.landing_page.section3_title}</h3>
         <p>{lang.landing_page.section3_p}</p>
       </TextSection>
-      <TextSection>
+      {/* <TextSection>
         <h3>{lang.landing_page.questions_title}</h3>
         <Questions />
-      </TextSection>
+      </TextSection> */}
     </ARTHLayout>
   );
 }

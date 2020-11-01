@@ -13,7 +13,7 @@ const StyledTradeIcon = styled(TradeIcon)`
 const TradeNav = ({ ...props }) => {
   const { lang } = useLanguage();
   return (
-    <a href="https://dex.mahadao.com" rel="noopener noreferrer" target="_blank">
+    <a href="#" rel="noopener noreferrer" target="_blank">
       <Flex
         flexDirection="column"
         alignItems="center"

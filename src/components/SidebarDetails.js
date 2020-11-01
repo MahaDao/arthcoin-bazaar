@@ -9,7 +9,7 @@ const SidebarDetails = ({ system, savings }) => {
 
   const TOTAL_ARTH_SUPPLY = ({ system }) => [
     lang.sidebar.save_details.total_dai_supply,
-    prettifyNumber(system.totalDaiSupply)
+    prettifyNumber(system.totalDaiSupply).replace('DAI', 'ARTH')
   ];
 
   const TOTAL_SAVINGS_ARTH = ({ system }) => [
@@ -21,8 +21,8 @@ const SidebarDetails = ({ system, savings }) => {
     lang.sidebar.save_details.dai_savings_rate,
     system.annualDaiSavingsRate
       ? formatter(system.annualDaiSavingsRate, {
-          rounding: BigNumber.ROUND_HALF_UP
-        }) + '%'
+        rounding: BigNumber.ROUND_HALF_UP
+      }) + '%'
       : ''
   ];
 

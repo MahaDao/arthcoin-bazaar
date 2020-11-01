@@ -21,7 +21,7 @@ export default {
     not_applicable: 'N/A'
   },
   landing_page: {
-    headline: 'Introducing DAI. The world\'s first valuecoin.',
+    headline: 'Introducing ARTH. The world\'s first valuecoin.',
     trade_card: {
       title: 'Trade',
       description:
@@ -31,26 +31,26 @@ export default {
     borrow_card: {
       title: 'Borrow',
       description:
-        'Lock your tokens as collateral to generate $DAI, a decentralized stablecoin.',
-      button: 'Borrow $DAI'
+        'Lock your tokens as collateral to generate $ARTH, a decentralized stablecoin.',
+      button: 'Borrow $ARTH'
     },
     save_card: {
       title: 'Save',
       description:
-        'Earn savings on your $DAI by locking it into ArthSavings. Automatic and non-custodial.',
+        'Earn savings on your $ARTH by locking it into ArthSavings. Automatic and non-custodial.',
       button: 'Save $DAI'
     },
-    token_section_title: '$DAI is a stablecoin backed by the following collaterals',
-    token_section_only_on_trade: '* Only available on DAI Trade',
-    section1_title: 'What is $DAI?',
+    token_section_title: '$ARTH is a stablecoin backed by the following collaterals',
+    token_section_only_on_trade: '* Only available on MahaDAO DEX',
+    section1_title: 'What is $ARTH?',
     section1_p:
-      '$DAI is a layer-2 programmtic stablecoin. Trade, borrow, and earn savings with $DAI — all in one place.',
+      '$ARTH is a layer-2 programmtic stablecoin. Trade, borrow, and earn savings with $DAI — all in one place.',
     section2_title: 'Secure protocol built on MakerDAO',
     section2_p:
-      '$DAI is built on top of audited and formally verified smart contracts created by Maker.',
+      '$ARTH is built on top of audited and formally verified smart contracts created by Maker.',
     section3_title: 'Completely decentralised',
     section3_p:
-      '$DAI is a decentralized, non-custodial platform, accessible using a Matic-supported wallet. You—and only you—control your assets.',
+      '$ARTH is a decentralized, non-custodial platform, accessible using a Matic-supported wallet. You—and only you—control your assets.',
     questions_title: 'Questions',
     question1: 'What is $DAI?',
     answer1:

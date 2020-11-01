@@ -19,15 +19,15 @@ const SidebarSystem = ({ system }) => {
     ],
     [
       lang.sidebar.save_details.total_dai_supply,
-      prettifyNumber(totalDaiSupply)
+      prettifyNumber(totalDaiSupply).replace('DAI', 'ARTH')
     ],
     [
       lang.sidebar.active_cdps,
       totalVaultsCreated
         ? lang.formatString(
-            lang.sidebar.active_cdps_figure,
-            prettifyNumber(parseInt(totalVaultsCreated))
-          )
+          lang.sidebar.active_cdps_figure,
+          prettifyNumber(parseInt(totalVaultsCreated))
+        )
         : ''
     ]
   ];
