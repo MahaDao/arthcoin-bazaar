@@ -19,7 +19,7 @@ const SidebarSystem = ({ system }) => {
     ],
     [
       lang.sidebar.save_details.total_dai_supply,
-      prettifyNumber(totalDaiSupply).replace('DAI', 'ARTH')
+      prettifyNumber(totalDaiSupply)
     ],
     [
       lang.sidebar.active_cdps,

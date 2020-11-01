@@ -44,13 +44,13 @@ export default {
     token_section_only_on_trade: '* Only available on MahaDAO DEX',
     section1_title: 'What is $ARTH?',
     section1_p:
-      '$ARTH is a layer-2 programmtic stablecoin. Trade, borrow, and earn savings with $DAI — all in one place.',
-    section2_title: 'Secure protocol built on MakerDAO',
+      '$ARTH is a algorithimatic stablecoin that is uncorrelated to the US Dollar. $ARTH is governed by MahaDAO and is price pegged to the GMU (Global Measurement Unit) ',
+    section2_title: 'What is the GMU?',
     section2_p:
-      '$ARTH is built on top of audited and formally verified smart contracts created by Maker.',
-    section3_title: 'Completely decentralised',
+      'The Global Measurement Unit (GMU) is a buying power metric that is meant to be independent from the dollar. $ARTH uses the GMU to calculate the real value of all assets minus inflation.',
+    section3_title: 'How can I create ARTH?',
     section3_p:
-      '$ARTH is a decentralized, non-custodial platform, accessible using a Matic-supported wallet. You—and only you—control your assets.',
+      'Through this alpha platform, you can lock in tokens on the Matic Mumbai testnet and lock those tokens to create ARTH. Instructions to do so are given in the Borrow section of this DApp',
     questions_title: 'Questions',
     question1: 'What is $DAI?',
     answer1:

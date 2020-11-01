@@ -9,7 +9,7 @@ const SidebarDetails = ({ system, savings }) => {
 
   const TOTAL_ARTH_SUPPLY = ({ system }) => [
     lang.sidebar.save_details.total_dai_supply,
-    prettifyNumber(system.totalDaiSupply).replace('DAI', 'ARTH')
+    prettifyNumber(system.totalDaiSupply)
   ];
 
   const TOTAL_SAVINGS_ARTH = ({ system }) => [
